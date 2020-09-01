@@ -31,4 +31,6 @@ Route::get('/user-add', 'UseraddContoller@index');
 Route::get('/user-list', 'UserlistContoller@index');
 //products view and edit delect in one page 
 Route::get('/Products', 'ProductsContoller@index');
+//footer controller
+Route::get('/footer', 'footerContoller@index');
 

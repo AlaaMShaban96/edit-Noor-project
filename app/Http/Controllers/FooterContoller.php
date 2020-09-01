@@ -13,7 +13,7 @@ class FooterContoller extends Controller
      */
     public function index()
     {
-        //
+        return view('/pages/footer');
     }
 
     /**
