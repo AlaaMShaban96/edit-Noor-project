@@ -1,23 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OurPartnersTranslation extends Model
+class PostTranslation extends Model
 {
-   /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'our_partners_id', 'language_code', 'name','description',
+        'post_id', 'language_code', 'title','content',
     ];
-
-    public function ourPartners()
+    
+    public function post()
     {
-        return $this->belongsTo(OurPartners::class);
+        return $this->belongsTo(Post::class);
     }
 
     public function language()

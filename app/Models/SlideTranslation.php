@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OurAddressTranslation extends Model
+class SlideTranslation extends Model
 {
    /**
      * The attributes that are mass assignable.
@@ -12,14 +12,14 @@ class OurAddressTranslation extends Model
      * @var array
      */
     protected $fillable = [
-        'ouraddress_id', 'language_code', 'name',
+        'slide_id', 'language_code', 'name','description',
     ];
 
-    public function ourAddress()
+    public function slide()
     {
-        return $this->belongsTo(OurAddress::class);
+        return $this->belongsTo(Slide::class);
     }
-
+    
     public function language()
     {
         return $this->belongsTo(Language::class);

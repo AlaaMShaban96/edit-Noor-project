@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Cpanel\Category;
 
-use App\Category;
-use App\CategoryTranslation;
+use App\Models\Category;
+use App\Models\CategoryTranslation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Category\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -20,9 +21,9 @@ class CategoryController extends Controller
         $objs = json_decode($json,true);
         $products=$objs['products'];
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],['link'=>"dashboard-analytics",'name'=>"Data List"], ['name'=>"Thumb View"]
+            ['link'=>"dashboard-analytics",'name'=>"Home"], ['name'=>"Categories "]
         ];
-        $categories=Category::all();
+        $categories=CategoryTranslation::all();
         return view('cpanel.category.index',compact('categories','breadcrumbs','products'));
         
     }
@@ -43,25 +44,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-       
-        $request->validate([
-            
-            'language_codes' => 'required', 
-            
-            'names' => 'required', 
-            
-            'descriptions' => 'required',
-             
-            'image' => 'required', 
-           
-            
-        ]);
+  
         
         $category = new Category();
         $category->admin_id = 1;
-        $category->image="img/path";
+        $category->image=$this->uploadeImage($request);
         $category->save();
 
         foreach ($request->language_codes as $key => $code) {
@@ -107,20 +96,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request , Category $category)
+    public function update(CategoryRequest $request , Category $category)
     {
-        // dd($request->all());
-
-        $request->validate([
-            
-            'language_codes' => 'required', 
-            
-            'names' => 'required', 
-            
-            'descriptions' => 'required', 
-           
-            
-        ]);
+        
        
         if ($request->img == null) {
 
@@ -156,5 +134,14 @@ class CategoryController extends Controller
         $category->delete();
         return redirect('some/url');
 
+    }
+    private function uploadeImage(Request $request)
+    {
+        
+        $imageName = time().".png";
+
+        $path ="storage/". $request->file('image')->storeAs('uploads/Category', $imageName, 'public');
+    
+        return $path;
     }
 }

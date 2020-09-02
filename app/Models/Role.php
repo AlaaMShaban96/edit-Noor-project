@@ -1,12 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
+class Role extends Model
 {
-    //
       /**
      * The attributes that are mass assignable.
      *
@@ -16,8 +15,8 @@ class City extends Model
         'name',
     ];
 
-    public function recruitmentForm()
+    public function admin()
     {
-        return $this->hasMany(RecruitmentForm::class);
+        return $this->belongsToMany(Admin::class);
     }
 }

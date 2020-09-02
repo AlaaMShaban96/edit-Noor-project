@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Cpanel\Items;
 
-use App\Item;
-use App\Category;
-use App\ItemTranslation;
+use App\Models\Item;
+use App\Models\Category;
+use App\Models\ItemTranslation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

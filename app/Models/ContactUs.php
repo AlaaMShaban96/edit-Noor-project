@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmailType extends Model
+class ContactUs extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,11 +12,6 @@ class EmailType extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'icon',
+        'name', 'email', 'subject','message',
     ];
-
-    public function email()
-    {
-        return $this->hasMany(Email::class);
-    }
 }

@@ -1,25 +1,25 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SlideTranslation extends Model
+class CategoryTranslation extends Model
 {
-   /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'slide_id', 'language_code', 'name','description',
-    ];
-
-    public function slide()
+        'category_id', 'language_code', 'name','description',
+    ]; 
+  
+    public function category()
     {
-        return $this->belongsTo(Slide::class);
+        return $this->belongsTo(Category::class);
     }
-    
+
     public function language()
     {
         return $this->belongsTo(Language::class);

@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class PhoneNumber extends Model
 {
      /**
      * The attributes that are mass assignable.
@@ -12,16 +12,11 @@ class Email extends Model
      * @var array
      */
     protected $fillable = [
-        'footer_id', 'email_type_id', 'email',
+        'footer_id', 'number', 
     ];
 
     public function footer()
     {
         return $this->belongsTo(Footer::class);
-    }
-
-    public function emailType()
-    {
-        return $this->belongsTo(EmailType::class);
     }
 }

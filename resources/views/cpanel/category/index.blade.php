@@ -44,47 +44,34 @@
             <th>Image</th>
             <th>NAME</th>
             <th>CATEGORY</th>
-            <th>POPULARITY</th>
-            <th>ORDER STATUS</th>
-            <th>PRICE</th>
             <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($products as $product)
-            @if($product["order_status"] === 'delivered')
-              <?php $color = "success" ?>
-            @elseif($product["order_status"] === 'pending')
-              <?php $color = "primary" ?>
-            @elseif($product["order_status"] === 'on hold')
-              <?php $color = "warning" ?>
-            @elseif($product["order_status"] === 'canceled')
-              <?php $color = "danger" ?>
-            @endif
+          @foreach ($categories as $category)
+         
 
-            <?php
-              $arr = array('success', 'primary', 'info', 'warning','danger');
-            ?>
+           
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ $product["img"] }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder">
               </td>
-              <td class="product-name">{{ $product["name"] }}</td>
-              <td class="product-category">{{ $product["category"] }}</td>
-              <td>
+              <td class="product-name">{{ $category->name }}</td>
+              <td class="product-category">{{ $category->description }}</td>
+              {{-- <td>
                 <div class="progress progress-bar-{{ $arr[array_rand($arr)] }}">
                   <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="40" aria-valuemax="100"
                     style="width:{{ $product["popularity"] }}%"></div>
                 </div>
-              </td>
-              <td>
+              </td> --}}
+              {{-- <td>
                 <div class="chip chip-{{$color}}">
                   <div class="chip-body">
                     <div class="chip-text">{{ $product["order_status"]}}</div>
                   </div>
                 </div>
-              </td>
-              <td class="product-price">{{ $product["price"] }}</td>
+              </td> --}}
+              {{-- <td class="product-price">{{ $product["price"] }}</td> --}}
               <td class="product-action">
                 <span class="action-edit"><i class="feather icon-edit"></i></span>
                 <span class="action-delete"><i class="feather icon-trash"></i></span>
@@ -98,62 +85,74 @@
 
     {{-- add new sidebar starts --}}
     <div class="add-new-data-sidebar">
-      <div class="overlay-bg"></div>
-      <div class="add-new-data">
-        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
-          <div>
-            <h4 class="text-uppercase">Thumb View Data</h4>
-          </div>
-          <div class="hide-data-sidebar">
-            <i class="feather icon-x"></i>
-          </div>
-        </div>
-        <div class="data-items pb-3">
-          <div class="data-fields px-2 mt-1">
-            <div class="row">
-              <div class="col-sm-12 data-field-col">
-                <label for="data-name">Name</label>
-                <input type="text" class="form-control" id="data-name">
-              </div>
-              <div class="col-sm-12 data-field-col">
-                <label for="data-category"> Category </label>
-                <select class="form-control" id="data-category">
-                  <option>Audio</option>
-                  <option>Computers</option>
-                  <option>Fitness</option>
-                  <option>Appliance</option>
-                </select>
-              </div>
-              <div class="col-sm-12 data-field-col">
-                <label for="data-status">Order Status</label>
-                <select class="form-control" id="data-status">
-                  <option>Pending</option>
-                  <option>Canceled</option>
-                  <option>Delivered</option>
-                  <option>On Hold</option>
-                </select>
-              </div>
-              <div class="col-sm-12 data-field-col">
-                <label for="data-price">Price</label>
-                <input type="text" class="form-control" id="data-price">
-              </div>
-              <div class="col-sm-12 data-field-col data-list-upload">
-                <form action="#" class="dropzone dropzone-area" id="dataListUpload">
-                  <div class="dz-message">Upload Image</div>
-                </form>
-              </div>
+        <form action="{{url('cpanel/admin/category')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="overlay-bg"></div>
+            <div class="add-new-data">
+                <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
+                <div>
+                    <h4 class="text-uppercase">Category</h4>
+                </div>
+                <div class="hide-data-sidebar">
+                    <i class="feather icon-x"></i>
+                </div>
+                </div>
+                <div class="data-items pb-3">
+                <div class="data-fields px-2 mt-1">
+                    <div class="row">
+                    <div class="col-sm-12 data-field-col">
+                        <label for="data-name">Name Arbic</label>
+                        <input type="checkbox" id="vehicle1" name="language_codes[]" value="ar" checked>
+                        <input type="text" name="names[]" class="form-control" id="data-name">
+                        <label for="data-name">Description Arbic</label>
+                        <textarea name="descriptions[]" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="col-sm-12 data-field-col">
+                        <label for="data-name">Name Englash</label>
+                        <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
+                        <input type="text" name="names[]" class="form-control" id="data-name">
+                        <label for="data-name">Description Englash</label>
+                        <textarea name="descriptions[]" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    {{-- <div class="col-sm-12 data-field-col">
+                        <label for="data-category"> Category </label>
+                        <select class="form-control" id="data-category">
+                        <option>Audio</option>
+                        <option>Computers</option>
+                        <option>Fitness</option>
+                        <option>Appliance</option>
+                        </select>
+                    </div> --}}
+                    {{-- <div class="col-sm-12 data-field-col">
+                        <label for="data-status">Order Status</label>
+                        <select class="form-control" id="data-status">
+                        <option>Pending</option>
+                        <option>Canceled</option>
+                        <option>Delivered</option>
+                        <option>On Hold</option>
+                        </select>
+                    </div> --}}
+                    {{-- <div class="col-sm-12 data-field-col">
+                        <label for="data-price">Price</label>
+                        <input type="text" class="form-control" id="data-price">
+                    </div> --}}
+                    <div class="col-sm-12 data-field-col data-list-upload">
+                        <label for="data-name">Uplade Photo </label>
+                        <input type="file" name="image" id="">
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
+                <div class="add-data-btn">
+                    <button class="btn btn-primary">Add Data</button>
+                </div>
+                <div class="cancel-data-btn">
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
-          <div class="add-data-btn">
-            <button class="btn btn-primary">Add Data</button>
-          </div>
-          <div class="cancel-data-btn">
-            <button class="btn btn-outline-danger">Cancel</button>
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
     {{-- add new sidebar ends --}}
   </section>
