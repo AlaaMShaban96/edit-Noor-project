@@ -14,7 +14,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/logo/favicon.ico">
 
       
-        @include('panels/styles')
+        @include('cpanel/panels/styles')
 
     </head>
 
@@ -23,5 +23,5 @@
         $configData = Helper::applClasses();
     @endphp
 
-    @extends((( $configData["mainLayoutType"] === 'horizontal') ? 'layouts/horizontalLayoutMaster' : 'layouts.verticalLayoutMaster' ))
+    @extends((( $configData["mainLayoutType"] === 'horizontal') ? 'cpanel/layouts/horizontalLayoutMaster' : 'cpanel/layouts.verticalLayoutMaster' ))
     

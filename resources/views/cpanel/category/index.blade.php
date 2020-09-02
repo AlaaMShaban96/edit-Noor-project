@@ -1,5 +1,5 @@
 
-@extends('layouts/contentLayoutMaster')
+@extends('cpanel/layouts/contentLayoutMaster')
 
 @section('title', 'Dashboard Analytics')
 
@@ -15,7 +15,8 @@
   @endsection --}}
 
   @section('content')
-   ......
+
+
   @endsection
 
 {{-- @section('vendor-script')

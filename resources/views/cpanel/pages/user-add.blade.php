@@ -1,4 +1,4 @@
-@extends('layouts/contentLayoutMaster') 
+@extends('cpanel/layouts/contentLayoutMaster') 
 
 @section('title', 'إضافة مستخدم جديد') 
 

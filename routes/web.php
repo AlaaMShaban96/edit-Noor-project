@@ -11,33 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
-
- // Route url
- Route::get('/', 'DashboardController@dashboardAnalytics');
-
- // Route Dashboards
- Route::get('/dashboard-analytics', 'DashboardController@dashboardAnalytics');
- //news
- Route::get('/news', 'NewsContoller@index');
- //jobs
- Route::get('/jobs', 'JobsContoller@index');
- //slide
- Route::get('/slide', 'SlideController@index');
- //view single  user data 
- Route::get('/user-view', 'UserviewContoller@index');
- //add user
- Route::get('/user-add', 'UseraddContoller@index');
- // list view user 
- Route::get('/user-list', 'UserlistContoller@index');
- //products view and edit delect in one page 
- Route::get('/Products', 'ProductsContoller@index');
- //footer controller
- Route::get('/footer', 'footerContoller@index');

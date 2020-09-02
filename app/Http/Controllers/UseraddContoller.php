@@ -12,12 +12,12 @@ class UseraddContoller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $pageConfigs = [
             'pageHeader' => false
         ];
 
-        return view('/pages/user-add', [
+        return view('cpanel/pages/user-add', [
             'pageConfigs' => $pageConfigs
         ]);
     }

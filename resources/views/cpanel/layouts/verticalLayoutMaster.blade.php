@@ -3,7 +3,7 @@
 @endphp
 <body class="vertical-layout vertical-menu-modern 2-columns {{ $configData['blankPageClass'] }} {{ $configData['bodyClass'] }} {{($configData['theme'] === 'light') ? '' : $configData['theme'] }} {{ $configData['navbarType'] }} {{ $configData['sidebarClass'] }} {{ $configData['footerType'] }} " data-menu="vertical-menu-modern" data-col="2-columns">
     {{-- Include Sidebar --}}
-    @include('panels.sidebar')
+    @include('cpanel/panels.sidebar')
 
     <!-- BEGIN: Content-->
     <div class="app-content content">
@@ -12,7 +12,7 @@
         <div class="header-navbar-shadow"></div>
 
         {{-- Include Navbar --}}
-        @include('panels.navbar')
+        @include('cpanel/panels.navbar')
 
         @if(!empty($configData['contentLayout']))
             <div class="content-area-wrapper">
@@ -36,7 +36,7 @@
             <div class="content-wrapper">
                 {{-- Include Breadcrumb --}}
                 @if($configData['pageHeader'] == true)
-                    @include('panels.breadcrumb')
+                    @include('cpanel/panels.breadcrumb')
                 @endif
 
                 <div class="content-body">
@@ -53,10 +53,10 @@
     <div class="drag-target"></div>
 
     {{-- include footer --}}
-    @include('panels/footer')
+    @include('cpanel/panels/footer')
 
     {{-- include default scripts --}}
-    @include('panels/scripts')
+    @include('cpanel/panels/scripts')
 
 </body>
 </html>

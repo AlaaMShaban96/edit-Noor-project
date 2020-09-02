@@ -42,7 +42,7 @@
                             @endif
                         </a>
                         @if(isset($menu->submenu))
-                            @include('panels/submenu', ['menu' => $menu->submenu])
+                            @include('cpanel/panels/submenu', ['menu' => $menu->submenu])
                         @endif
                     </li>
                 @endif

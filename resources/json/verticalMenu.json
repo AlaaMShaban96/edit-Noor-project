@@ -9,28 +9,67 @@
         },
         {
             "url": "#",
-            "name": "السمتخدم",
-            "icon": "feather icon-users",
-            "submenu": [{
-                    "url": "/user-add",
-                    "name": "إضافة مستخدم",
+            "name": "Admins",
+            "icon": "feather icon-users"
+           
+        },
+        { 
+            "url": "",
+            "name": "Slider ", 
+             "icon": "feather icon-box" 
+        },
+        { 
+            "url": "category",
+            "name": "Categroy ", 
+             "icon": "feather icon-box" 
+        },
+        { 
+            "url": "",
+            "name": "Partner ", 
+             "icon": "feather icon-box" 
+        },
+
+        { 
+            "url": "footer",
+            "name": "Contect Us ", 
+            "icon": "feather icon-camera",
+             "submenu": [{
+                    "url": "user-add",
+                    "name": "Phones",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": "/user-list",
-                    "name": "عرض ملف المستخدمين ",
+                    "url": "",
+                    "name": " Emails ",
+                    "icon": "feather icon-user-check"
+                },
+                {
+                    "url": "",
+                    "name": " Address ",
                     "icon": "feather icon-user-check"
                 }
             ]
         },
-        { "name": "المنتجات ", "url": "/Products", "icon": "feather icon-box" },
-
-        { "name": "footer /الشريط السفلي ", "url": "/footer", "icon": "feather icon-camera" },
         {
-            "name": "الاخبار والاعلانات ",
-            "url": "/news",
+           "url": "/news",
+           "name": "Post and News",
             "icon": "feather icon-clipboard"
         },
-        { "name": "بوابة الوظائف", "url": "/news", "icon": "feather icon-anchor" }
+        { 
+             "url": "news",
+             "name": "Jobs",
+              "icon": "feather icon-anchor" ,
+              "submenu": [{
+                    "url": "",
+                    "name": "Add Jobs",
+                    "icon": "feather icon-user-plus"
+                },
+                {
+                    "url": " ",
+                    "name": " Show Requested ",
+                    "icon": "feather icon-user-check"
+                }
+        ]
+        }
     ]
 }

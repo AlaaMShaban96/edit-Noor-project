@@ -76,7 +76,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes are typically stateless.
      *
-     * @return void
+     * @return void 
      */
     protected function mapCpanelRoutes()
     {
