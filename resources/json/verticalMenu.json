@@ -1,38 +1,36 @@
 {
-  "menu": [
-    {
-      "url": "dashboard-analytics",
-      "name": "الاحصائيات ",
-      "slug": "dashboard",
+    "menu": [{
+            "url": "dashboard-analytics",
+            "name": "الاحصائيات ",
+            "slug": "dashboard",
 
-      "badgeClass": "badge badge-warning badge-pill float-right",
-      "icon": "feather icon-home"
-    },
-    {
-      "url": "#",
-      "name": "السمتخدم",
-      "icon": "feather icon-users",
-      "submenu": [
-        {
-          "url": "user-add",
-          "name": "إضافة مستخدم",
-          "icon": "feather icon-user-plus"
+            "badgeClass": "badge badge-warning badge-pill float-right",
+            "icon": "feather icon-home"
         },
         {
-          "url": "user-list",
-          "name": "عرض ملف المستخدمين ",
-          "icon": "feather icon-user-check"
-        }
-      ]
-    },
-    { "name": "المنتجات ", "url":"/Products", "icon": "feather icon-box" },
-   
-    { "name": "footer /الشريط السفلي ", "url": "/footer", "icon": "feather icon-camera" },
-    {
-      "name": "الاخبار والاعلانات ",
-      "url": "/news",
-      "icon": "feather icon-clipboard"
-    },
-    { "name": "بوابة الوظائف", "url": "/news", "icon": "feather icon-anchor" }
-  ]
+            "url": "#",
+            "name": "السمتخدم",
+            "icon": "feather icon-users",
+            "submenu": [{
+                    "url": "/user-add",
+                    "name": "إضافة مستخدم",
+                    "icon": "feather icon-user-plus"
+                },
+                {
+                    "url": "/user-list",
+                    "name": "عرض ملف المستخدمين ",
+                    "icon": "feather icon-user-check"
+                }
+            ]
+        },
+        { "name": "المنتجات ", "url": "/Products", "icon": "feather icon-box" },
+
+        { "name": "footer /الشريط السفلي ", "url": "/footer", "icon": "feather icon-camera" },
+        {
+            "name": "الاخبار والاعلانات ",
+            "url": "/news",
+            "icon": "feather icon-clipboard"
+        },
+        { "name": "بوابة الوظائف", "url": "/news", "icon": "feather icon-anchor" }
+    ]
 }
