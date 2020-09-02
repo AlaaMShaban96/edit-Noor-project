@@ -16,9 +16,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        $json = file_get_contents(storage_path('products-export.json'));
+        $objs = json_decode($json,true);
+        $products=$objs['products'];
+        $breadcrumbs = [
+            ['link'=>"dashboard-analytics",'name'=>"Home"],['link'=>"dashboard-analytics",'name'=>"Data List"], ['name'=>"Thumb View"]
+        ];
         $categories=Category::all();
-        return view('cpanel.category.index',compact('categories'));
+        return view('cpanel.category.index',compact('categories','breadcrumbs','products'));
         
     }
 
