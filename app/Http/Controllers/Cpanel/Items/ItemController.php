@@ -15,10 +15,20 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        $items=Item::all();
-        return view('item.index', compact('items'));
+        $breadcrumbs = [
+            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['name'=>"Categories "],
+            ['name'=>"Items "],
+        ];
+        $ids=array();
+        foreach ($category->items as  $item) {
+            array_push($ids,$item->id );
+        }
+        // dd($ids);
+        $items=ItemTranslation::whereIn('item_id',$ids)->get();
+        return view('cpanel.item.index', compact('items','breadcrumbs','category'));
     }
 
     /**
@@ -58,7 +68,6 @@ class ItemController extends Controller
         $item->category_id = $request->category_id;
         $item->image=$this->uploadeImage( $request);
         $item->save();
-dd('uplade img done');
         foreach ($request->language_codes as $key => $code) {
             
             $translation=new ItemTranslation();

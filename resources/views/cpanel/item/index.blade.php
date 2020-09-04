@@ -19,19 +19,7 @@
 <section id="data-thumb-view" class="data-thumb-view-header">
     <div class="action-btns d-none">
       <div class="btn-dropdown mr-1 mb-1">
-        {{-- <div class="btn-group dropdown actions-dropodown">
-          <button type="button" class="btn btn-white px-1 py-1 dropdown-toggle waves-effect waves-light"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Actions
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#"><i class="feather icon-trash"></i>Delete</a>
-            <a class="dropdown-item" href="#"><i class="feather icon-archive"></i>Archive</a>
-            <a class="dropdown-item" href="#"><i class="feather icon-file"></i>Print</a>
-            <a class="dropdown-item" href="#"><i class="feather icon-save"></i>Another Action</a>
-          </div>
-        
-        </div> --}}
+       
       </div>
     </div>
     
@@ -43,30 +31,30 @@
             <th></th>
             <th>Image</th>
             <th>NAME</th>
-            <th>CATEGORY</th>
+            >
             <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($categories as $key=>$category)
+          @foreach ($items as $key=>$item)
          
 
-           @if ($category->language_code=='en')
+           @if ($item->language_code=='en')
                
           
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($item->item->image) }}" alt="Img placeholder">
               </td>
-              <td class="product-name">{{ $category->name }}</td>
-              <td class="product-category">{{ $category->description }}</td>
+              <td class="product-name">{{ $item->name }}</td>
+             
             
               <td class="product-action">
-                <a href='{{url("cpanel/admin/category/".$category->category->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                <a href='{{url("cpanel/admin/item/".$category->category->id."/category")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
-                <a href="#" onclick="deletee({{$category->category->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                <a href='{{url("cpanel/admin/item/".$item->item->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
+                <a href='{{url("cpanel/admin/item")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
+                <a href="#" onclick="deletee({{$item->item->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
-              <form style="display: none" id="delete{{$category->category->id}}" action="{{url('cpanel/admin/category/'.$category->category->id)}}" method="post">
+              <form style="display: none" id="delete{{$item->item->id}}" action="{{url('cpanel/admin/item/'.$item->item->id)}}" method="post">
                 @method('delete')
                 @csrf
               {{-- <button  type="submit"></button> --}}
@@ -82,13 +70,14 @@
 
     {{-- add new sidebar starts --}}
     <div class="add-new-data-sidebar">
-        <form action="{{url('cpanel/admin/category')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
+        <form action="{{url('cpanel/admin/item')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="category_id" value="{{$category->id}}">
             <div class="overlay-bg"></div>
             <div class="add-new-data">
                 <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
                 <div>
-                    <h4 class="text-uppercase">Category</h4>
+                    <h4 class="text-uppercase">item</h4>
                 </div>
                 <div class="hide-data-sidebar">
                     <i class="feather icon-x"></i>
@@ -101,15 +90,11 @@
                         <label for="data-name">Name Arbic</label>
                         <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
-                        <label for="data-name">Description Arbic</label>
-                        <textarea name="descriptions[]" id="data-description_ar" cols="30" rows="10"required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Englash</label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_en" required='required'>
-                        <label for="data-name">Description Englash</label>
-                        <textarea name="descriptions[]" id="data-description_en" cols="30" rows="10" required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
                         <label for="data-name">Uplade Photo </label>

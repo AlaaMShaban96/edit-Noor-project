@@ -48,4 +48,5 @@ Route::group(['prefix' => 'admin'], function() {
    
     Route::resource('category', 'Cpanel\Category\CategoryController');
     Route::resource('item', 'Cpanel\Items\ItemController');
+    Route::get('item/{category}/category', 'Cpanel\Items\ItemController@index');
 });

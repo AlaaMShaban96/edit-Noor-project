@@ -19,7 +19,7 @@
              "icon": "feather icon-box" 
         },
         { 
-            "url": "category",
+            "url": "/cpanel/admin/category",
             "name": "Categroy ", 
              "icon": "feather icon-box" 
         },

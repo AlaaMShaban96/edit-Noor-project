@@ -17,14 +17,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $json = file_get_contents(storage_path('products-export.json'));
-        $objs = json_decode($json,true);
-        $products=$objs['products'];
+       
         $breadcrumbs = [
             ['link'=>"dashboard-analytics",'name'=>"Home"], ['name'=>"Categories "]
         ];
         $categories=CategoryTranslation::all();
-        return view('cpanel.category.index',compact('categories','breadcrumbs','products'));
+        return view('cpanel.category.index',compact('categories','breadcrumbs'));
         
     }
 
@@ -50,6 +48,7 @@ class CategoryController extends Controller
         
         $category = new Category();
         $category->admin_id = 1;
+        
         $category->image=$this->uploadeImage($request);
         $category->save();
 
@@ -75,7 +74,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category.show', compact('category'));
+        // return $category->categoryTranslation;
+        return view('cpanel.category.show', compact('category'));
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit', compact('category'));
+        return view('cpanel.category.edit', compact('category'));
     }
 
     /**
@@ -99,10 +99,10 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request , Category $category)
     {
         
-       
-        if ($request->img == null) {
+      
+        if ($request->image == null) {
 
-            $category->image="img/path";
+            $category->image=$this->uploadeImage($request);
             $category->save();
             
         }
@@ -118,7 +118,7 @@ class CategoryController extends Controller
             $translation->save();
         }
        
-       return redirect('some/url');
+       return redirect('cpanel/admin/category');
 
     }
 
@@ -131,8 +131,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->categoryTranslation()->delete();
+        unlink($category->image);
         $category->delete();
-        return redirect('some/url');
+
+        return redirect('cpanel/admin/category');
 
     }
     private function uploadeImage(Request $request)
