@@ -13,11 +13,16 @@ class ItemRequest extends FormRequest
      */
     public function rules()
     {
+<<<<<<< HEAD
         return [
            
             'category_id' => 'required', 
             
             'language_codes' => 'required', 
+=======
+        return true;
+    }
+>>>>>>> 7a842d9b0cef5e60d9d031d6a1f615100a3bad9f
 
             'names' => 'required', 
 

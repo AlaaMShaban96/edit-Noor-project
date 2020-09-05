@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class OurPartners extends Model
 {
+
+    public $table = "our_partners";
+
    /**
      * The attributes that are mass assignable.
      *

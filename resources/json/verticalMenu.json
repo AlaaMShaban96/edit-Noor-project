@@ -1,75 +1,91 @@
 {
     "menu": [{
-            "url": "dashboard-analytics",
-            "name": "الاحصائيات ",
+            "url": "dashboard",
+            "name": "Dashboard",
             "slug": "dashboard",
 
             "badgeClass": "badge badge-warning badge-pill float-right",
             "icon": "feather icon-home"
         },
         {
-            "url": "#",
-            "name": "Admins",
-            "icon": "feather icon-users"
-           
-        },
-        { 
             "url": "",
-            "name": "Slider ", 
-             "icon": "feather icon-box" 
-        },
-        { 
-            "url": "/cpanel/admin/category",
-            "name": "Categroy ", 
-             "icon": "feather icon-box" 
-        },
-        { 
-            "url": "/cpanel/admin/partner",
-            "name": "Partner ", 
-             "icon": "feather icon-box" 
-        },
-
-        { 
-            "url": "footer",
-            "name": "Contect Us ", 
-            "icon": "feather icon-camera",
-             "submenu": [{
-                    "url": "user-add",
-                    "name": "Phones",
+            "name": "Admin",
+            "icon": "feather icon-users",
+            "submenu": [{
+                    "url": "admin-index",
+                    "name": "View",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": "",
-                    "name": " Emails ",
-                    "icon": "feather icon-user-check"
-                },
-                {
-                    "url": "",
-                    "name": " Address ",
+                    "url": "admin-create",
+                    "name": "Add",
                     "icon": "feather icon-user-check"
                 }
             ]
         },
         {
-           "url": "/news",
-           "name": "Post and News",
+            "url": "slider",
+            "name": "Slider",
+            "icon": "feather icon-box"
+        },
+        {
+            "url": "/cpanel/admin/category",
+            "name": "Categroy ",
+            "icon": "feather icon-box"
+        },
+        {
+            "url": "partners",
+            "name": "Partners",
+            "icon": "feather icon-box"
+        },
+        {
+            "url": "post",
+            "name": "Post",
             "icon": "feather icon-clipboard"
         },
+<<<<<<< HEAD
         { 
-             "url": "news",
-             "name": "Jobs",
-              "icon": "feather icon-anchor" ,
-              "submenu": [{
-                    "url": "",
-                    "name": "Add Jobs",
+            "url": "/cpanel/admin/partner",
+            "name": "Partner ", 
+             "icon": "feather icon-box" 
+=======
+        {
+            "url": "",
+            "name": "Jobs And applicants",
+            "icon": "feather icon-anchor",
+            "submenu": [{
+                    "url": "job",
+                    "name": "Jobs",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": " ",
-                    "name": " Show Requested ",
+                    "url": "Jobs-applicants",
+                    "name": "Jobs applicants",
                     "icon": "feather icon-user-check"
                 }
-        ]
+            ]
+>>>>>>> 7a842d9b0cef5e60d9d031d6a1f615100a3bad9f
+        },
+        {
+            "url": "",
+            "name": "Contect Us ",
+            "icon": "feather icon-camera",
+            "submenu": [{
+                    "url": "phone",
+                    "name": "Phones",
+                    "icon": "feather icon-user-plus"
+                },
+                {
+                    "url": "email",
+                    "name": " Emails ",
+                    "icon": "feather icon-user-check"
+                },
+                {
+                    "url": "address",
+                    "name": " Address ",
+                    "icon": "feather icon-user-check"
+                }
+            ]
         }
     ]
 }

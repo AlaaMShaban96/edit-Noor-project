@@ -3,9 +3,9 @@
     <div class="header-navbar navbar-expand-sm navbar navbar-horizontal {{ $configData['navbarClass'] }} navbar-light navbar-without-dd-arrow navbar-shadow navbar-brand-center" role="navigation" data-menu="menu-wrapper" data-nav="brand-center">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="dashboard-analytics">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="dashboard">
                     <div class="brand-logo"></div>
-                    <h2 class="brand-text mb-0">Vusax</h2></a></li>
+                    <h2 class="brand-text mb-0">Nano-Tech</h2></a></li>
                 <li class="nav-item nav-toggle">
                     <a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse">
                         <i class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i>

@@ -28,7 +28,7 @@
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">اسم المستخدم </span><span class="user-status">مفعل </span></div><span><img class="round" src="{{asset('images/portrait/small/avatar-s-11.jpg') }}" alt="avatar" height="40" width="40" /></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="javascript:void(0)"><i class="feather icon-user"></i>ملف المستخدم </a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="Profile-index"><i class="feather icon-user"></i>ملف المستخدم </a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:void(0)"><i class="feather icon-power"></i>تسجيل الخروج </a>
                         </div>
                     </li>

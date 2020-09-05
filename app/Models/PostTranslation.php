@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostTranslation extends Model
 {
+
+    public $table = "posts_translations";
+
      /**
      * The attributes that are mass assignable.
      *

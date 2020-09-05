@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slide extends Model
 {
+
+    public $table = "slides";
+
    /**
      * The attributes that are mass assignable.
      *
