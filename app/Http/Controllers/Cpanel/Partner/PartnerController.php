@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Cpanel\Category;
+namespace App\Http\Controllers\Cpanel\Partner;
 
-use App\Models\Category;
-use App\Models\CategoryTranslation;
+use App\Models\OurPartners;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\CategoryRequest;
+use App\Models\OurPartnersTranslation;
+use App\Http\Requests\Partner\PartnerRequest;
 
-class CategoryController extends Controller
+class PartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"], 
-            ['name'=>"Categories "]
+            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['name'=>"Partner "]
         ];
-        $categories=CategoryTranslation::all();
-        return view('cpanel.category.index',compact('categories','breadcrumbs'));
+        $partners= OurPartnersTranslation::all();
+        return view('cpanel.partner.index', compact('partners','breadcrumbs'));
+
         
     }
 
@@ -34,7 +34,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        //
     }
 
     /**
@@ -43,20 +43,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(PartnerRequest $request)
     {
-  
-        
-        $category = new Category();
-        $category->admin_id = 1;
-        
-        $category->image=$this->uploadeImage($request);
-        $category->save();
+        $partner = new OurPartners();  
+        $partner->image=$this->uploadeImage($request);
+        $partner->save();
 
         foreach ($request->language_codes as $key => $code) {
             
-            $translation=new CategoryTranslation();
-            $translation->category_id=$category->id;
+            $translation=new OurPartnersTranslation();
+            $translation->our_partners_id=$partner->id;
             $translation->name=$request->names[$key];
             $translation->description=$request->descriptions[$key];
             $translation->language_code=$code;
@@ -64,7 +60,6 @@ class CategoryController extends Controller
         }
        
        return redirect()->back();
-
     }
 
     /**
@@ -73,10 +68,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        // return $category->categoryTranslation;
-        return view('cpanel.category.show', compact('category'));
+        //
     }
 
     /**
@@ -85,14 +79,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(OurPartners $partner)
     {
         $breadcrumbs = [
             ['link'=>"dashboard-analytics",'name'=>"Home"], 
-            ['name'=>"Categories "],
+            ['name'=>"Partners "],
             ['name'=>"Edit "]
         ];
-        return view('cpanel.category.edit', compact('category','breadcrumbs'));
+        return view('cpanel.partner.edit', compact('partner','breadcrumbs'));
     }
 
     /**
@@ -102,23 +96,28 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request , Category $category)
+    public function update(PartnerRequest $request, OurPartners $partner)
     {
         
-      
-        if ($request->image == null) {
-            $category->image=$this->uploadeImage($request);
-            $category->save();
-        }
-        foreach ($category->categoryTranslation as $key=> $translation) {
+        if ($request->image != null) {
+
+            $partner->image=$this->uploadeImage($request);
+            $partner->save();
             
-            $translation->category_id=$category->id;
+        }
+      
+    
+
+        foreach ($partner->ourPartnersTranslation as $key=> $translation) {
+            
+            $translation->our_partners_id=$partner->id;
             $translation->name=$request->names[$key];
             $translation->description=$request->descriptions[$key];
             
             $translation->save();
         }
-       return redirect('cpanel/admin/category');
+       
+       return redirect('cpanel/admin/partner');
 
     }
 
@@ -128,21 +127,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(OurPartners $partner)
     {
-        $category->categoryTranslation()->delete();
-        unlink($category->image);
-        $category->delete();
+        $partner->ourPartnersTranslation()->delete();
+        unlink($partner->image);
+        $partner->delete();
 
-        return redirect('cpanel/admin/category');
-
+        return redirect('cpanel/admin/partner');
     }
     private function uploadeImage(Request $request)
     {
         
         $imageName = time().".png";
 
-        $path ="storage/". $request->file('image')->storeAs('uploads/Category', $imageName, 'public');
+        $path ="storage/". $request->file('image')->storeAs('uploads/partner', $imageName, 'public');
     
         return $path;
     }

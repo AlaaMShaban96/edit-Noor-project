@@ -11,20 +11,30 @@ class ItemRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+           
+            'category_id' => 'required', 
+            
+            'language_codes' => 'required', 
+
+            'names' => 'required', 
+
+            'image' => 'required', 
+            
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'category_id.required' => 'required', 
+            
+            'language_codes.required' => 'required', 
+            
+            'names.required' => 'required',
+             
+            'image.required' => 'required', 
         ];
     }
 }

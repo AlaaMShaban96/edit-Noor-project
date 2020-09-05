@@ -11,26 +11,26 @@
 @endsection
 @section('content')
 {{-- Data list view starts --}}
-@if ($errors->any())
-      @foreach ($errors->all() as $error)
-       <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-            <i class="feather icon-info mr-1 align-middle"></i>
-            <span>{{ $error }}</span>
-        </div>
-      @endforeach
-    @endif
 <section id="data-thumb-view" class="data-thumb-view-header">
-
-
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+         
+                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                    <i class="feather icon-info mr-1 align-middle"></i>
+                    <span>{{ $error }}</span>
+                </div>
+        @endforeach
+    @endif
+    
             <section id="basic-horizontal-layouts">
-                <form action="{{url('cpanel/admin/item/'.$item->id)}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
+                <form action="{{url('cpanel/admin/partner/'.$partner->id)}}"  method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="category_id" value="{{$item->category_id}}">
+                    
                 <div class="row match-height">
                
-                  @foreach ($item->itemTranslation as $item)
-                  @switch($item->language_code)
+                  @foreach ($partner->ourPartnersTranslation as $partner)
+                  @switch($partner->language_code)
                       @case('ar')
                             <div class="col-md-6 col-12">
                                 <div class="card">
@@ -41,11 +41,22 @@
                                         <div class="card-body">
                                             <div class="form-body">
                                                 <div class="row">
-                                                    <div class="col-sm-12 data-field-col">
-                                                        <label for="data-name">Name Arabic</label>
-                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$item->language_code}}" checked>
-                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$item->name}}" required='required'>
-                                                     </div>
+
+                                                     <div class="col-sm-12 data-field-col">
+                                                            <label for="data-name">Name Arabic</label>
+                                                            <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$partner->language_code}}" checked>
+                                                            <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$partner->name}}" required='required'>
+                                                            <div class="card-body">
+                                                                <p>Description Arabic</p>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <fieldset class="form-group">
+                                                                            <textarea class="form-control"name="descriptions[]" id="basicTextarea" rows="3" placeholder="Textarea" required='required'>{{$partner->description}}</textarea>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </div>
+                                                            </div>    
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,9 +76,19 @@
                                                 <div class="row">
                                                     <div class="col-sm-12 data-field-col">
                                                         <label for="data-name">Name Einglish</label>
-                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$item->language_code}}" checked>
-                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$item->name}}" required='required'>
+                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$partner->language_code}}" checked>
+                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$partner->name}}"required='required'>
+                                                        <div class="card-body">
+                                                            <p>Description Einglish</p>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <fieldset class="form-group">
+                                                                        <textarea class="form-control"name="descriptions[]" id="basicTextarea" rows="3" placeholder="Textarea" required='required'>{{$partner->description}}</textarea>
+                                                                    </fieldset>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +113,7 @@
                 </fieldset>
             </div>
             <button type="submit" class="btn btn-primary mr-1 mb-1">Update</button>
-            <a href='{{url("cpanel/admin/item/".$item->item->category_id."/category")}}' class="btn btn-danger mr-1 mb-1">Cancel</a>
+            <a href='{{url("cpanel/admin/partner")}}' class="btn btn-danger mr-1 mb-1">Cancel</a>
                 </form>
               </section>
             

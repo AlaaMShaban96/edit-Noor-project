@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Cpanel\Items;
 
 use App\Models\Item;
 use App\Models\Category;
-use App\Models\ItemTranslation;
 use Illuminate\Http\Request;
+use App\Models\ItemTranslation;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Item\ItemRequest;
 
 class ItemController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      *
@@ -48,21 +50,9 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
         
-        $request->validate([
-            
-            'category_id' => 'required', 
-            
-            'language_codes' => 'required', 
-
-            'names' => 'required', 
-
-            'image' => 'required', 
-            
-            
-        ]);
         $item = new Item();
         $item->admin_id = 1;
         $item->category_id = $request->category_id;
@@ -98,7 +88,13 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('item.edit', compact('item'));
+        $breadcrumbs = [
+            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['name'=>"Categories "],
+            ['name'=>"Items "],
+            ['name'=>"Edit "],
+        ];
+        return view('cpanel.item.edit', compact('item','breadcrumbs'));
     }
 
     /**
@@ -108,21 +104,11 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(ItemRequest $request, Item $item)
     {
-        $request->validate([
-            
-            'category_id' => 'required', 
-            
-            'language_codes' => 'required', 
-
-            'names' => 'required', 
-            
-            
-        ]);
-
-        if ($request->img == null) {
-
+      
+        if ($request->image != null) {
+            unlink($item->image);
             $item->image=$this->uploadeImage( $request);
             $item->save();
         }
@@ -135,7 +121,7 @@ class ItemController extends Controller
             $translation->name=$request->names[$key];
             $translation->save();
         }
-        return redirect('some/url');
+        return redirect('cpanel/admin/item/'.$item->category_id.'/category');
     }
 
     /**
@@ -146,10 +132,11 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        $category_id=$item->category_id;
         $item->itemTranslation()->delete();
-        unlink($item->img);
+        unlink($item->image);
         $item->delete();
-        return redirect('some/url');
+        return redirect('cpanel/admin/item/'.$category_id.'/category');
     }
     private function uploadeImage(Request $request)
     {

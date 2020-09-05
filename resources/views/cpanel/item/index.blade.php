@@ -1,14 +1,9 @@
 
 @extends('cpanel/layouts/contentLayoutMaster')
 
-@section('title', 'Thumb View')
+@section('title', 'Nano Tech')
 
-@section('vendor-style')
-        {{-- vendor files --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/file-uploaders/dropzone.min.css') }}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/tables/datatable/datatables.min.css') }}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css') }}"> --}}
-@endsection
+
 @section('page-style')
         {{-- Page css files --}}
         {{-- <link rel="stylesheet" href="{{ asset('css/plugins/file-uploaders/dropzone.css') }}"> --}}
@@ -16,13 +11,21 @@
 @endsection
 @section('content')
 {{-- Data list view starts --}}
+
 <section id="data-thumb-view" class="data-thumb-view-header">
     <div class="action-btns d-none">
       <div class="btn-dropdown mr-1 mb-1">
        
       </div>
     </div>
-    
+    @if ($errors->any())
+      @foreach ($errors->all() as $error)
+       <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+            <i class="feather icon-info mr-1 align-middle"></i>
+            <span>{{ $error }}</span>
+        </div>
+      @endforeach
+    @endif
     {{-- dataTable starts --}}
     <div class="table-responsive">
       <table class="table data-thumb-view" >
@@ -31,7 +34,7 @@
             <th></th>
             <th>Image</th>
             <th>NAME</th>
-            >
+            
             <th>ACTION</th>
           </tr>
         </thead>
@@ -51,7 +54,7 @@
             
               <td class="product-action">
                 <a href='{{url("cpanel/admin/item/".$item->item->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                <a href='{{url("cpanel/admin/item")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
+                {{-- <a href='{{url("cpanel/admin/item")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a> --}}
                 <a href="#" onclick="deletee({{$item->item->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
               <form style="display: none" id="delete{{$item->item->id}}" action="{{url('cpanel/admin/item/'.$item->item->id)}}" method="post">
