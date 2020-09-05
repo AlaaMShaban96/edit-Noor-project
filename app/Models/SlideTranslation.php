@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class SlideTranslation extends Model
 {
+
+    public $table = "slide_translations";
+
    /**
      * The attributes that are mass assignable.
      *

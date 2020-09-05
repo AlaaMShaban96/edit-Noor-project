@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Footer extends Model
 {
+
+    public $table = "footers";
+    
      /**
      * The attributes that are mass assignable.
      *

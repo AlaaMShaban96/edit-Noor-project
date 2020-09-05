@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
+
+    public $table = "languages";
+
    /**
      * The attributes that are mass assignable.
      *

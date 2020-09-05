@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class RecruitmentForm extends Model
 {
+
+    public $table = "recruitment_forms";
+
      /**
      * The attributes that are mass assignable.
      *

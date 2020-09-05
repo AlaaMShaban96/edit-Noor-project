@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+
+    public $table = "roles";
+
       /**
      * The attributes that are mass assignable.
      *

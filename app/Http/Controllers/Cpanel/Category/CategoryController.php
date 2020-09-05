@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
        
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"], ['name'=>"Categories "]
+            ['link'=>"dashboard",'name'=>"Home"], ['name'=>"Categories "]
         ];
         $categories=CategoryTranslation::all();
         return view('cpanel.category.index',compact('categories','breadcrumbs'));

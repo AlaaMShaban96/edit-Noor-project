@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhoneNumber extends Model
 {
+
+    public $table = "phone_numbers";
+
      /**
      * The attributes that are mass assignable.
      *
