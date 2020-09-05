@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryTranslation extends Model
 {
 
-    public $table = "categories_translations";
+    // public $table = "categories_translations";
 
      /**
      * The attributes that are mass assignable.

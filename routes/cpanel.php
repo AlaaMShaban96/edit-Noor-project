@@ -48,17 +48,13 @@ Route::group(['prefix' => 'admin'], function() {
 
     //Route category
     Route::resource('category', 'Cpanel\Category\CategoryController');
-<<<<<<< HEAD
-    Route::resource('partner', 'Cpanel\Partner\PartnerController');
-=======
 
     //Routes Items
->>>>>>> 7a842d9b0cef5e60d9d031d6a1f615100a3bad9f
     Route::resource('item', 'Cpanel\Items\ItemController');
     Route::get('item/{category}/category', 'Cpanel\Items\ItemController@index');
 
-    //Route partners
-    Route::resource('partners', 'Cpanel\Partners\PartnersController');
+    //Route partners 
+    Route::resource('partner', 'Cpanel\Partner\PartnerController');
 
     //Route phone
     Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');

@@ -34,7 +34,7 @@
             "icon": "feather icon-box"
         },
         {
-            "url": "partners",
+            "url": "partner",
             "name": "Partners",
             "icon": "feather icon-box"
         },
@@ -43,12 +43,6 @@
             "name": "Post",
             "icon": "feather icon-clipboard"
         },
-<<<<<<< HEAD
-        { 
-            "url": "/cpanel/admin/partner",
-            "name": "Partner ", 
-             "icon": "feather icon-box" 
-=======
         {
             "url": "",
             "name": "Jobs And applicants",
@@ -64,7 +58,6 @@
                     "icon": "feather icon-user-check"
                 }
             ]
->>>>>>> 7a842d9b0cef5e60d9d031d6a1f615100a3bad9f
         },
         {
             "url": "",

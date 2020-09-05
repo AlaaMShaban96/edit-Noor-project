@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Cpanel\Jobs;
+namespace App\Http\Controllers\Cpanel\Job;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Job\JobRequest;
+use App\Models\Job;
+use App\Models\JobTranslation;
 
 class JobController extends Controller
 {
@@ -15,6 +18,13 @@ class JobController extends Controller
     public function index()
     {
         //
+        $pageConfigs = [
+            'pageHeader' => false
+        ];
+
+        return view('cpanel.job.index', [
+            'pageConfigs' => $pageConfigs
+        ]);
     }
 
     /**
@@ -33,7 +43,7 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
         //
     }
@@ -67,7 +77,7 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JobRequest $request, $id)
     {
         //
     }
