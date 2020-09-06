@@ -56,7 +56,9 @@ class ItemController extends Controller
         $item = new Item();
         $item->admin_id = 1;
         $item->category_id = $request->category_id;
-        $item->image=$this->uploadeImage( $request);
+        if ($request->image != null) {
+            $item->image=$this->uploadeImage( $request);
+        }
         $item->save();
         foreach ($request->language_codes as $key => $code) {
             

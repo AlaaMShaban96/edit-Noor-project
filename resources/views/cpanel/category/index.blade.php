@@ -1,7 +1,7 @@
 
 @extends('cpanel/layouts/contentLayoutMaster')
 
-@section('title', 'Thumb View')
+@section('title', 'Category')
 
 @section('vendor-style')
         {{-- vendor files --}}

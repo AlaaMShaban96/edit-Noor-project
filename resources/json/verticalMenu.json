@@ -1,6 +1,6 @@
 {
     "menu": [{
-            "url": "dashboard",
+            "url": "/cpanel/admin/dashboard",
             "name": "Dashboard",
             "slug": "dashboard",
 
@@ -12,19 +12,19 @@
             "name": "Admin",
             "icon": "feather icon-users",
             "submenu": [{
-                    "url": "admin-index",
+                    "url": "/cpanel/admin/admin-index",
                     "name": "View",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": "admin-create",
+                    "url": "/cpanel/admin/admin-create",
                     "name": "Add",
                     "icon": "feather icon-user-check"
                 }
             ]
         },
         {
-            "url": "slider",
+            "url": "/cpanel/admin/slider",
             "name": "Slider",
             "icon": "feather icon-box"
         },
@@ -34,12 +34,12 @@
             "icon": "feather icon-box"
         },
         {
-            "url": "partner",
+            "url": "/cpanel/admin/partner",
             "name": "Partners",
             "icon": "feather icon-box"
         },
         {
-            "url": "post",
+            "url": "/cpanel/admin/post",
             "name": "Post",
             "icon": "feather icon-clipboard"
         },
@@ -48,12 +48,12 @@
             "name": "Jobs And applicants",
             "icon": "feather icon-anchor",
             "submenu": [{
-                    "url": "job",
+                    "url": "/cpanel/admin/job",
                     "name": "Jobs",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": "Jobs-applicants",
+                    "url": "/cpanel/admin/Jobs-applicants",
                     "name": "Jobs applicants",
                     "icon": "feather icon-user-check"
                 }
@@ -64,17 +64,17 @@
             "name": "Contect Us ",
             "icon": "feather icon-camera",
             "submenu": [{
-                    "url": "phone",
+                    "url": "/cpanel/admin/phone",
                     "name": "Phones",
                     "icon": "feather icon-user-plus"
                 },
                 {
-                    "url": "email",
+                    "url": "/cpanel/admin/email",
                     "name": " Emails ",
                     "icon": "feather icon-user-check"
                 },
                 {
-                    "url": "address",
+                    "url": "/cpanel/admin/address",
                     "name": " Address ",
                     "icon": "feather icon-user-check"
                 }
