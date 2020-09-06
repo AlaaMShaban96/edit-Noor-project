@@ -24,7 +24,24 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => 'required',
+
+            'language_code' => 'required', 
+            
+            'name' => 'required', 
+            
+            'description' => 'required','string'
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'image.required' => 'The Image field is required.',
+            'language_code.required' => 'The Language field is required.',
+            'name.required' => 'The Title field is required.',
+            'description.required' => 'The Description field is required.',
+            'description.string' => 'The Description field must be a string.',
+         ];
     }
 }
