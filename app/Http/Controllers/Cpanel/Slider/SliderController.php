@@ -25,8 +25,8 @@ class SliderController extends Controller
             ['link'=>"slider",'name'=>"Slider"]
         ];
         $slideTranslation=SlideTranslation::all();
-        // return view('cpanel.slider.index',compact('slider','breadcrumbs'));
-        return response([ 'success' => true,compact('slideTranslation','breadcrumbs')]); 
+        return view('cpanel.slider.index',compact('slideTranslation','breadcrumbs'));
+        // return response([ 'success' => true,compact('slideTranslation','breadcrumbs')]); 
  
     }
 
@@ -38,6 +38,7 @@ class SliderController extends Controller
     public function create()
     {
         //
+        return view('cpanel.slider.create');
     }
 
     /**

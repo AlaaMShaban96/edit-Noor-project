@@ -18,5 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::resource('/category', 'Cpanel\Category\CategoryController');
 
-//Route Slider
-Route::resource('slider', 'Cpanel\Slider\SliderController');
+//Route post
+Route::resource('post', 'Cpanel\Post\PostController');
+
+    //Route Slider
+    Route::resource('slider', 'Cpanel\Slider\SliderController');
