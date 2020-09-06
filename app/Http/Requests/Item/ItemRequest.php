@@ -18,7 +18,7 @@ class ItemRequest extends FormRequest
 
             'names' => 'required', 
 
-            'image' => 'required', 
+            // 'image' => 'required', 
             
         ];
     }
