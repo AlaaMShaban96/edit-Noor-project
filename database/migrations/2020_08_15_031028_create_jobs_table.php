@@ -15,9 +15,12 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->mediumIncrements('id');
+            $table->tinyInteger('admin_id')->unsigned();
             $table->smallInteger('our_address_id')->nullable()->unsigned();
             $table->enum('gender', ['Any Gender','Male', 'Female']);
             $table->timestamps();
+
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
         });
     }
 

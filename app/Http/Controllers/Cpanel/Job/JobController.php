@@ -18,13 +18,13 @@ class JobController extends Controller
     public function index()
     {
         //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"job",'name'=>"Job"]
         ];
-
-        return view('cpanel.job.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        $jobTranslation = JobTranslation::all();
+        return view('cpanel.job.index',compact('jobTranslation','breadcrumbs'));
+        // return response([ 'success' => true,compact('jobTranslation','breadcrumbs')]);
     }
 
     /**
@@ -35,6 +35,7 @@ class JobController extends Controller
     public function create()
     {
         //
+        return view('cpanel.job.create');
     }
 
     /**
@@ -46,6 +47,28 @@ class JobController extends Controller
     public function store(JobRequest $request)
     {
         //
+        $job = new Job();
+        // $job->admin_id = auth('admin')->user()->id;
+        $job->admin_id = 1;
+        $job->our_address_id = 1;
+        // $job->our_address_id = $request->our_address_id;
+        $job->gender = $request->gender;
+      
+        $job->save();
+
+        foreach ($request->language_code as $key => $code) {   
+            $jobTranslation = new JobTranslation();
+            $jobTranslation->job_id = $job->id;
+            $jobTranslation->language_code = $code;
+            $jobTranslation->name = $request->name[$key];
+            $jobTranslation->description = $request->description[$key];
+            $jobTranslation->responsibility = $request->responsibility[$key];
+            $jobTranslation->qualification = $request->qualification[$key];
+            $jobTranslation->experience = $request->experience[$key];
+            $jobTranslation->skills = $request->skills[$key];
+            $jobTranslation->save();
+        }
+        return redirect()->back();
     }
 
     /**
@@ -68,6 +91,12 @@ class JobController extends Controller
     public function edit($id)
     {
         //
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"job",'name'=>"Job"]
+        ];
+        $job = Job::find($id);
+        return view('cpanel.job.edit', compact('job','breadcrumbs'));
     }
 
     /**
@@ -80,6 +109,28 @@ class JobController extends Controller
     public function update(JobRequest $request, $id)
     {
         //
+        $job = Job::find($id);
+        // $job->admin_id = auth('admin')->user()->id;
+        $job->admin_id = 1;
+        $job->our_address_id = 1;
+        // $job->our_address_id = $request->our_address_id;
+        $job->gender = $request->gender;
+        $job->save();
+   
+       foreach ($job->JobTranslation as $key=> $translation) {
+           
+           $translation->job_id = $job->id;
+           $translation->name = $request->name[$key];
+           $translation->description = $request->description[$key];
+           $translation->responsibility = $request->responsibility[$key];
+           $translation->qualification = $request->qualification[$key];
+           $translation->experience = $request->experience[$key];
+           $translation->skills = $request->skills[$key];
+           $translation->save();
+       }
+       return redirect('cpanel/admin/job');
+       // return response()->json($translation);
+       // return response(['slide' => $slide,'SlideTranslation' => $translation]);
     }
 
     /**
@@ -91,5 +142,10 @@ class JobController extends Controller
     public function destroy($id)
     {
         //
+        $job = Job::find($id);
+        $job->JobTranslation()->delete();
+        $job->delete();
+
+        return redirect('cpanel/admin/job');
     }
 }

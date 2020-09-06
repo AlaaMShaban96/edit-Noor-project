@@ -15,7 +15,7 @@ class Job extends Model
      * @var array
      */
     protected $fillable = [
-        'our_address_id', 'gender',
+        'admin_id','our_address_id', 'gender',
     ];
 
     public function ourAddress()
@@ -31,5 +31,10 @@ class Job extends Model
     public function recruitmentForm()
     {
         return $this->hasMany(RecruitmentForm::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
     }
 }

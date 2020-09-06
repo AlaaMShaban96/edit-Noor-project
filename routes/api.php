@@ -23,3 +23,6 @@ Route::resource('post', 'Cpanel\Post\PostController');
 
     //Route Slider
     Route::resource('slider', 'Cpanel\Slider\SliderController');
+
+      //Route job
+      Route::resource('job', 'Cpanel\Job\JobController');

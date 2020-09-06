@@ -15,7 +15,7 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name_en','name_ar',
     ];
 
     public function recruitmentForm()
