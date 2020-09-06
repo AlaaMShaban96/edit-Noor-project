@@ -15,7 +15,7 @@
   @endsection --}}
 
   @section('content')
-   ...... Dashboard 
+  You are logged in!
   @endsection
 
 {{-- @section('vendor-script')
