@@ -3,9 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Models\Language;
 
-class LanguageTableSeeder extends Seeder
+class RoleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,28 +14,17 @@ class LanguageTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('languages')->insert([
+        DB::table('roles')->insert([
 
             [
-                'code' => 'en',
-                'name' => 'English',
+                'name' => 'Super',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],[
-                'code' => 'ar',
-                'name' => 'عربي',
+                'name' => 'Editer',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')           
             ]
         ]);
-        // $language = new Language;
-        // $language->code = "en";
-        // $language->name = "English";
-        // $language->save();
-        
-        // $language = new Language;
-        // $language->code = "ar";
-        // $language->name = "عربي";
-        // $language->save();
     }
 }
