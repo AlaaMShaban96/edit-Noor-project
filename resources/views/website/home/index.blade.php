@@ -143,8 +143,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="main-title">
-                    <h2><span>Welcome to</span> Medical Guide</h2>
-                    <p>If you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing elit. Ut volutpat eros  adipiscing nonummy.</p>
+                    <h2><span>Welcome to</span> Noor AL-Amana</h2>
+                    <p>text text text text </p>
                 </div>
             </div>
         </div>
@@ -336,8 +336,11 @@
                 <div class="row">
                 <div class="col-md-12">
                 <div class="main-title">
-                    <h2><span>Latest News from</span> Medical guide</h2>
-                    <p>If you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing elit. Ut volutpat eros  adipiscing nonummy.</p>
+                    <h2>
+                        <span>Latest News from</span>
+                         Noor AL-Amana
+                    </h2>
+                    <p>text text text text </p>
                 </div>
                 </div>
                 </div>
@@ -356,7 +359,7 @@
                         <div class="post item">
                             <img class="lazyOwl" src="{{$post->post->image}}" alt="">
                             <div class="detail">
-                                <img  src="images/news-dr1.jpg" alt="">
+                                <img height="188px" src="images/news-dr1.jpg" alt="">
                                 <h4><a href="news-detail.html">{{$post->title}}</a></h4>
                                 <p>{{$post->content}}</p>
                                 <span><i class="icon-clock3"></i> Apr 22, 2016</span>

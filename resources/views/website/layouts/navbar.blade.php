@@ -71,28 +71,28 @@
  
                  <nav class="menu-2">
                  <ul class="nav wtf-menu">
-                     <li class="item-select parent"><a href="index.html">Home</a>
+                     <li class="item-select parent"><a href="{{url('/')}}">Home</a>
  
                      </li>
  
-                     <li class="parent"><a href="about-us.html">About Us</a>
+                     <li class="parent"><a href="{{url('/about-us')}}">About Us</a>
      
                      </li>
  
-                     <li class="parent"><a href="#.">Service</a>
+                     <li class="parent"><a href="{{url('/service')}}">Service</a>
                      </li>
  
-                     <li><a href="procedures.html">News</a></li>
+                     <li><a href="{{url('/news')}}">News</a></li>
  
                   
  
-                     <li class="parent"><a href="#.">Jobs</a>
+                     <li class="parent"><a href="{{url('/jobs')}}">Jobs</a>
                  
                      </li>
  
-                     <li><a href="shop.html">Partner</a></li>
+                     <li><a href="{{url('/partner')}}">Partner</a></li>
  
-                     <li class="parent"><a href="#.">Contact Us</a>
+                     <li class="parent"><a href="{{url('/contact-us')}}">Contact Us</a>
                  
                      </li>
  
