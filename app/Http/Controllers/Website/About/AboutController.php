@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Website\Job;
+namespace App\Http\Controllers\Website\About;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class JobController extends Controller
+class AboutController extends Controller
 {
-    //
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,6 +15,7 @@ class JobController extends Controller
     public function index()
     {
         //
-        return view('website.job.index');
+        return view('website.about.index');
     }
+
 }

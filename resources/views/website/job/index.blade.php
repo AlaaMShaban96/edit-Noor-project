@@ -1,7 +1,7 @@
 @extends('website.layouts.master')
-@section('titel','service')
+@section('titel','job')
     
 @section('content')
 
-
 @endsection
+
