@@ -33,3 +33,4 @@ Route::view('/service', 'website.service.index');
 Route::view('/news', 'website.news.index');
 Route::view('/jobs', 'website.jobs.index');
 Route::view('/partner', 'website.partner.index');
+Route::view('/contectUs', 'website.contectus.index');

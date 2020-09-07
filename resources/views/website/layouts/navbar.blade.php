@@ -75,7 +75,7 @@
  
                      </li>
  
-                     <li class="parent"><a href="{{ url('/about') }}">About Us</a>
+                     <li class="parent"><a href="{{ url('/about-us') }}">About Us</a>
      
                      </li>
  
