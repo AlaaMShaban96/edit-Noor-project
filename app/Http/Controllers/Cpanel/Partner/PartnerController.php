@@ -19,7 +19,7 @@ class PartnerController extends Controller
     {
         $breadcrumbs = [
             ['link'=>"dashboard-analytics",'name'=>"Home"],
-            ['name'=>"Partner "]
+            ['name'=>"Partner "] 
         ];
         $partners= OurPartnersTranslation::all();
         return view('cpanel.partner.index', compact('partners','breadcrumbs'));
