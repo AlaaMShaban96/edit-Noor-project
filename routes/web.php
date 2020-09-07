@@ -18,7 +18,6 @@
 Auth::routes();
 // Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 
-<<<<<<< HEAD
 Route::get('/', 'Website\Home\HomeController@index')->name('website.home.index');
 Route::get('/about', 'Website\About\AboutController@index')->name('website.about.index');
 Route::get('/service', 'Website\Service\ServiceController@index')->name('website.service.index');
@@ -26,8 +25,7 @@ Route::get('/news', 'Website\News\NewsController@index')->name('website.news.ind
 Route::get('/partner', 'Website\Partner\PartnerController@index')->name('website.partner.index');
 Route::get('/job', 'Website\Job\JobController@index')->name('website.job.index');
 Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('website.contectUs.index');
-=======
-Route::get('/', 'Website\Home\HomeController@index')->name('home');
+
+// Route::get('/', 'Website\Home\HomeController@index')->name('home');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 
->>>>>>> 1eb082924408481a0067d38c79408009320acfee
