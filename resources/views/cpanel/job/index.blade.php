@@ -7,7 +7,7 @@
         <div class="col-12" wfd-id="108">
             <div class="card" wfd-id="109">
                 <div class="card-header" wfd-id="139">
-                    <h4 class="card-title">Multiple Column</h4>
+                    <h4 class="card-title">Jobs application </h4>
                 </div>
                 <div class="card-content" wfd-id="110">
                     <div class="card-body" wfd-id="111">
@@ -23,7 +23,7 @@
                                     <div class="col-md-6 col-12" wfd-id="133">
                                         <div class="form-label-group" wfd-id="134">
                                             <input type="text" id="last-name-column" class="form-control" placeholder="description" name="lname-column" wfd-id="547">
-                                            <label for="last-name-column" wfd-id="135"></label>
+                                            <label for="last-name-column" wfd-id="135">description</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12" wfd-id="130">
@@ -85,13 +85,13 @@
                     <table class="table table-hover-animation mb-0">
                       <thead>
                         <tr>
-                          <th>title</th>
+                          <th>title job </th>
                           <th>description</th>
                           <th>responsibility</th>
-                          <th>qualifica</th>
-                          <th>rxprience</th>
+                          <th>qualfication</th>
+                          <th>exprience</th>
                           <th>skills</th>
-                        
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -102,11 +102,9 @@
                            
                           </td>
                           <td></td>
-                          <td>
-                          
-                          </td>
+                          <td> </td>
                           <td></td>
-                         
+                          <td></td>
                         </tr>
                  
                       </tbody>
