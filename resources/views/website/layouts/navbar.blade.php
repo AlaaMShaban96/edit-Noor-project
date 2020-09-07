@@ -63,7 +63,7 @@
          <div class="row">
  
              <div class="col-md-3">
-                 <a href="{{ route('website.home.index') }}" class="logo"><img src="website/images/logo.png" alt=""></a>
+                 <a href="website/images/favicon-medical.png" class="logo"><img src="website/images/logo.png" alt=""></a>
              </div>
              
              <div class="col-md-9">
@@ -71,32 +71,32 @@
  
                  <nav class="menu-2">
                  <ul class="nav wtf-menu">
-                     <li class="item-select parent"><a href="{{ route('website.home.index') }}">Home</a>
+                     <li class="item-select parent"><a href="{{ url('/home') }}">Home</a>
  
                      </li>
  
-                     <li class="parent"><a href="{{ route('website.about.index') }}">About Us</a>
+                     <li class="parent"><a href="{{ url('/about') }}">About Us</a>
      
                      </li>
  
-                     <li class="parent"><a href="{{ route('website.service.index') }}">Service</a>
+                     <li class="parent"><a href="{{ url('/service') }}">Service</a>
                      </li>
  
-                     <li><a href="{{ route('website.news.index') }}">News</a></li>
+                     <li><a href="{{ url('/news') }}">News</a></li>
  
                   
  
-                     <li class="parent"><a href="{{ route('website.job.index') }}">Jobs</a>
+                     <li class="parent"><a href="{{ url('/job') }}">Jobs</a>
                  
                      </li>
  
-                     <li><a href="{{ route('website.partner.index') }}">Partner</a></li>
+                     <li><a href="{{ url('/partner') }}">Partner</a></li>
  
-                     <li class="parent"><a href="{{ route('website.contectUs.index') }}">Contact Us</a>
+                     <li class="parent"><a href="{{ url('/contectUs') }}">Contact Us</a>
                  
                      </li>
  
-                 </ul>
+                 </ul> 
                  </nav>
  
              </div>

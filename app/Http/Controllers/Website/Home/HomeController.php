@@ -20,3 +20,4 @@ class HomeController extends Controller
         return view('website.home.index',compact('categoies','sliders','posts','partners'));
     }
 }
+ 
