@@ -3,7 +3,5 @@
 @section('title', 'job') 
 
 @section('content')
-    <div>
-      
-    </div>
+   
 @endsection
