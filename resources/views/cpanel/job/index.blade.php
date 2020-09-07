@@ -4,6 +4,6 @@
 
 @section('content')
     <div>
-        ..... job  عرض جدول الوظائف واضافة وتعديل وحذف وظيفة 
+      
     </div>
 @endsection
