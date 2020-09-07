@@ -3,7 +3,7 @@
 @section('title', 'Jobs applicants') 
 
 @section('content')
-<section id="dashboard-analytics">
+<section id="recruit">
     <div class="row">
         <div class="col-12">
           <div class="card">
