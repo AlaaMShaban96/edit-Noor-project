@@ -15,12 +15,14 @@ controll') @section('page-style')
   <div class="action-btns d-none">
     <div class="btn-dropdown mr-1 mb-1"></div>
   </div>
-  @if ($errors->any()) @foreach ($errors->all() as $error)
-  <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-    <i class="feather icon-info mr-1 align-middle"></i>
-    <span>{{ $error }}</span>
-  </div>
-  @endforeach @endif
+  @if ($errors->any()) 
+      @foreach ($errors->all() as $error)
+      <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+        <i class="feather icon-info mr-1 align-middle"></i>
+        <span>{{ $error }}</span>
+      </div>
+      @endforeach
+   @endif
   {{-- dataTable starts --}}
   <div class="table-responsive">
     <table class="table data-thumb-view">
@@ -33,14 +35,13 @@ controll') @section('page-style')
         </tr>
       </thead>
       <tbody>
-        @foreach ($slides as $key=>$slide) @if
-        ($slide->language_code=='en')
-
+        @foreach ($slideTranslation as $key=>$slide)
+         @if($slide->language_code=='en')
         <tr>
           <td></td>
           <td class="product-img">
             <img
-              src="{{ asset($slide->ourslides->image) }}"
+              src="{{ asset($slide->slide->image) }}"
               alt="Img placeholder"
             />
           </td>
@@ -48,7 +49,7 @@ controll') @section('page-style')
 
           <td class="product-action">
             <a
-              href="{{url(&quot;cpanel/admin/slide/&quot;.$slide->ourslides->id.&quot;/edit&quot;)}}"
+              href="{{url('cpanel/admin/slide/'.$slide->slide->id.'/edit')}}"
               ><span class="action-edit"><i class="feather icon-edit"></i></span
             ></a>
             {{--
@@ -57,21 +58,22 @@ controll') @section('page-style')
                 ><i class="fa fa-sslideap"></i></span
             ></a>
             --}}
-            <a href="#" onclick="deletee({{$slide->ourslides->id}})"
+            <a href="#" onclick="deletee({{$slide->slide->id}})"
               ><span class="action-delete"
                 ><i class="feather icon-trash"></i></span
             ></a>
           </td>
           <form
             style="display: none"
-            id="delete{{$slide->ourslides->id}}"
-            action="{{url('cpanel/admin/slide/'.$slide->ourslides->id)}}"
+            id="delete{{$slide->slide->id}}"
+            action="{{url('cpanel/admin/slide/'.$slide->slide->id)}}"
             method="post"
           >
             @method('delete') @csrf {{-- <button type="submit"></button> --}}
           </form>
         </tr>
-        @endif @endforeach
+        @endif
+         @endforeach
       </tbody>
     </table>
   </div>
@@ -79,20 +81,13 @@ controll') @section('page-style')
 
   {{-- add new sidebar starts --}}
   <div class="add-new-data-sidebar">
-    <form
-      action="{{ url('cpanel/admin/silde') }}"
-      id="CatecoryForm"
-      method="post"
-      enctype="multipart/form-data"
-    >
+    <form action="{{ url('cpanel/admin/silde') }}"id="CatecoryForm" method="post"enctype="multipart/form-data">
       @csrf {{--
       <input type="hidden" name="category_id" value="{{$category->id}}" /> --}}
       <div class="overlay-bg"></div>
 
       <div class="add-new-data">
-        <div
-          class="div mt-2 px-2 d-flex new-data-title justify-content-between"
-        >
+        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
           <div>
             <h4 class="text-uppercase">slide controll</h4>
           </div>
@@ -105,13 +100,7 @@ controll') @section('page-style')
             <div class="row">
               <div class="col-sm-12 data-field-col">
                 <label for="data-name">Tilte Arbic</label>
-                <input
-                  type="checkbox"
-                  id="vehicle"
-                  name="language_codes[]"
-                  value="ar"
-                  checked
-                />
+                <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked/>
                 <input
                   type="text"
                   name="names[]"

@@ -18,11 +18,11 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        // 
         
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"slider",'name'=>"Slider"]
+            // ['link'=>"slider",'name'=>"Slider"]
         ];
         $slideTranslation=SlideTranslation::all();
         return view('cpanel.slider.index',compact('slideTranslation','breadcrumbs'));
