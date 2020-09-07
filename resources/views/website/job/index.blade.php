@@ -1,6 +1,7 @@
 @extends('website.layouts.master')
-@section('titel','contectUs')
+@section('titel','job')
     
 @section('content')
-    
+
 @endsection
+

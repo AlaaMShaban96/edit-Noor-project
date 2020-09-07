@@ -1,4 +1,5 @@
 @extends('website.layouts.master')
+<<<<<<< HEAD
 @section('titel','Service')
     
 @section('content')
@@ -118,3 +119,11 @@
      
 </div>
 @endsection
+=======
+@section('titel','service')
+    
+@section('content')
+
+
+@endsection
+>>>>>>> 65c68c942ef3ea63ac98b190aa4ad4012c9ef694

@@ -63,7 +63,7 @@
          <div class="row">
  
              <div class="col-md-3">
-                 <a href="index.html" class="logo"><img src="website/images/logo.png" alt=""></a>
+                 <a href="{{ route('website.home.index') }}" class="logo"><img src="website/images/logo.png" alt=""></a>
              </div>
              
              <div class="col-md-9">
@@ -71,28 +71,28 @@
  
                  <nav class="menu-2">
                  <ul class="nav wtf-menu">
-                     <li class="item-select parent"><a href="{{url('/')}}">Home</a>
+                     <li class="item-select parent"><a href="{{ route('website.home.index') }}">Home</a>
  
                      </li>
  
-                     <li class="parent"><a href="{{url('/about-us')}}">About Us</a>
+                     <li class="parent"><a href="{{ route('website.about.index') }}">About Us</a>
      
                      </li>
  
-                     <li class="parent"><a href="{{url('/service')}}">Service</a>
+                     <li class="parent"><a href="{{ route('website.service.index') }}">Service</a>
                      </li>
  
-                     <li><a href="{{url('/news')}}">News</a></li>
+                     <li><a href="{{ route('website.news.index') }}">News</a></li>
  
                   
  
-                     <li class="parent"><a href="{{url('/jobs')}}">Jobs</a>
+                     <li class="parent"><a href="{{ route('website.job.index') }}">Jobs</a>
                  
                      </li>
  
-                     <li><a href="{{url('/partner')}}">Partner</a></li>
+                     <li><a href="{{ route('website.partner.index') }}">Partner</a></li>
  
-                     <li class="parent"><a href="{{url('/contact-us')}}">Contact Us</a>
+                     <li class="parent"><a href="{{ route('website.contectUs.index') }}">Contact Us</a>
                  
                      </li>
  
