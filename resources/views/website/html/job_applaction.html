@@ -16,8 +16,8 @@
 	<link href="fonts/medical-guide-icons.css" rel="stylesheet" type="text/css">
     
 	<!-- Default Color-->
-	<link href="css/default-color.css" rel="stylesheet" id="color"  type="text/css">
-
+	<link href="css/theme-colors/green.css" rel="stylesheet" id="color"  type="text/css">
+	
     <!--bootstrap-->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     
@@ -39,16 +39,15 @@
 	<link href="css/tabs.css" rel="stylesheet" type="text/css">    
    
     <!--Owl Carousel-->
-	<link href="css/owl.carousel.css" rel="stylesheet" type="text/css">   
-	 
-	 
+	<link href="css/owl.carousel.css" rel="stylesheet" type="text/css">    
+    
 	<!-- Mobile Menu -->
 	<link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" />
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
     
 	<!--PreLoader-->
 	<link href="css/loader.css" rel="stylesheet" type="text/css">
-  
+ 
 </head>
   <body>
     
@@ -65,10 +64,9 @@
 		</div>
 	</div>
 	<!--End PreLoader-->
-	
-  
 
-   <!--Start Top Bar-->
+
+	<!--Start Top Bar-->
    <div class="top-bar">
    		<div class="container">
     		<div class="row">
@@ -137,11 +135,11 @@
 					</ul>
 					</li>
 					
-                    <li class="parent"><a href="#.">Pages</a>
+                    <li class="item-select parent"><a href="#.">Pages</a>
                     	<ul class="submenu">
                         <li> <a href="services.html">Services</a> </li>
                         <li> <a href="services2.html">Services Two</a> </li>
-						<li> <a href="appointment.html">Appointment</a> </li>
+						<li class="select-menu"> <a href="appointment.html">Appointment</a> </li>
 						<li> <a href="departments.html">Departments</a> </li>
 						<li> <a href="patient-and-family.html">Patient and Family</a> </li>
 						<li> <a href="team-members.html">Team Members One</a> </li>
@@ -189,10 +187,10 @@
 					
                     <li><a href="shop.html">Shop</a></li>
                     
-					<li class="item-select parent"><a href="#.">Contact Us</a>
+					<li class="parent"><a href="#.">Contact Us</a>
 					<ul class="submenu">
                         <li> <a href="contact-us.html">Contact-Us One</a> </li>
-                        <li class="select-menu"> <a href="contact-us2.html">Contact-Us Two</a> </li>
+                        <li> <a href="contact-us2.html">Contact-Us Two</a> </li>
 					</ul>
 					</li>
 					
@@ -206,8 +204,6 @@
         
 		</div>	
     </header>
-	
-    
    <!--End Header-->
 	
 	
@@ -234,11 +230,11 @@
 							<li> <a href="about-us2.html">About Us 2</a> </li>
                         </ul>
                     </li>
-                    <li><a href="#.">Pages</a>
+                    <li class="select"><a href="#.">Pages</a>
                     	<ul>
                         	<li> <a href="services.html">Services</a> </li>
 							<li> <a href="services2.html">Services Two</a> </li>
-							<li> <a href="appointment.html">Appointment</a> </li>
+							<li class="select"> <a href="appointment.html">Appointment</a> </li>
 							<li> <a href="departments.html">Departments</a> </li>
 							<li> <a href="patient-and-family.html">Patient and Family</a> </li>
 							<li> <a href="team-members.html">Team Members One</a> </li>
@@ -285,10 +281,10 @@
                     
 					<li><a href="shop.html">Shop</a></li>
 					
-					<li class="select"><a href="#.">Contact Us</a>
+					<li><a href="#.">Contact Us</a>
                     	<ul>
                         	<li> <a href="contact-us.html">Contact-Us One</a> </li>
-							<li class="select"> <a href="contact-us2.html">Contact-Us Two</a> </li>
+							<li> <a href="contact-us2.html">Contact-Us Two</a> </li>
                         </ul>
                     </li>
 					
@@ -312,10 +308,11 @@
             	<div class="col-md-12">
                 	
                     <div class="paging">
-                		<h2>Contact Us</h2>
+                		<h2>Appointment</h2>
 						<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a>Contact Us</a></li>
+						<li><a href="#.">Pages</a></li>
+						<li><a>Appointment</a></li>
 						</ul>
                     </div>
                     
@@ -330,102 +327,64 @@
    
     
    
-   <!--Start Content-->
-   <div class="content">
-   
-   
-  
-  <div class="contact-us">
-   		<div class="container">
-        	
-            <div class="row">
-            	<div class="col-md-12">
-				
-				<div class="our-location">
-				<div class="map"><iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Envato+Pty+Ltd,+Elizabeth+Street,+Melbourne,+Victoria,+Australia&amp;aq=0&amp;oq=envato+&amp;sll=37.0625,-95.677068&amp;sspn=39.235538,86.572266&amp;ie=UTF8&amp;hq=Envato+Pty+Ltd,&amp;hnear=Elizabeth+St,+Melbourne+Victoria+3000,+Australia&amp;ll=-37.817942,144.964977&amp;spn=0.01918,0.008866&amp;t=m&amp;output=embed"></iframe></div>
-                    	<div class="get-directions">
-                        	<form action="http://maps.google.com/maps" method="get" target="_blank">
-                               <input type="text" name="saddr" placeholder="Enter Your Address" />
-                               <input type="hidden" name="daddr" value="Envato Pty Ltd, Elizabeth Street, Melbourne, Victoria, Australia" />
-                               <input type="submit" value="Get directions" class="direction-btn" />
-                            </form>
-                        </div>
-                </div>
-				
-				</div>
-            </div>
-            
+<!-- container job -->
+    <div class="container"  style="padding-top: 50px;padding-bottom: 50px;">
+        <div class="row"style="border: solid 2px rgba(0,0,0,0.05); padding: 20px;"   >
+            <h2 class="text-center">tilte job </h2>
         </div>
-		
-		
-		<div class="leave-msg dark-back">
-			<div class="container">
-			
-			<div class="rox">
-				<div class="col-md-7">
-					
-					<div class="main-title">
-						<h2><span>We'd</span> Love to <span>Hear From You</span></h2>
-						<p>cursus lorem molestie vitae. Nulla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui, ut rhoncus libero augue. </p>
-					 </div>
-					
-					<div class="form">
-				<div class="row">
-                                    <p class="success" id="success" style="display:none;"></p>
-                                    <p class="error" id="error" style="display:none;"></p>
-                <form name="contact_form" id="contact_form" method="post" action="#" onSubmit="return false">
-					<div class="col-md-4"><input type="text" data-delay="300" placeholder="Your full name" name="contact_name" id="contact_name" class="input"></div>
-					<div class="col-md-4"><input type="text" data-delay="300" placeholder="E-mail Address" name="contact_email" id="contact_email" class="input"></div>
-					<div class="col-md-4"><input type="text" data-delay="300" placeholder="Subject" name="contact_subject" id="contact_subject" class="input"></div>
-					<div class="col-md-12"><textarea data-delay="500" class="required valid" placeholder="Message" name="message" id="message"></textarea></div>
-					<div class="col-md-3"><input name=" " type="submit" value="submit" onClick="validateContact();"></div>
-                    </form>
-                    
-				</div>
-			</div>
+        <div class="row" style="padding-top: 20px;padding-bottom:20px;
+        border-bottom: solid 1px #dedede;">
+            <div class="col-md-12">
+                <br>
+                <h3> <b>description job</b> </h3>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi commodi dolore doloremque qui eum eius perferendis fugiat temporibus ea aspernatur recusandae ipsa iste, provident nulla nostrum autem distinctio! Nostrum, fuga.</p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px;padding-bottom:20px;
+        border-bottom: solid 1px #dedede;">
+            <div class="col-md-12">
+                <br>
+                <h3> <b>respondibility </b> </h3>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi commodi dolore doloremque qui eum eius perferendis fugiat temporibus ea aspernatur recusandae ipsa iste, provident nulla nostrum autem distinctio! Nostrum, fuga.</p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px;padding-bottom:20px;
+        border-bottom: solid 1px #dedede;">
+            <div class="col-md-12">
+                <br>
+                <h3> <b>qualification  job</b> </h3>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi commodi dolore doloremque qui eum eius perferendis fugiat temporibus ea aspernatur recusandae ipsa iste, provident nulla nostrum autem distinctio! Nostrum, fuga.</p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px;padding-bottom:20px;
+        border-bottom: solid 1px #dedede;">
+            <div class="col-md-12">
+                <br>
+                <h3> <b>experience job</b> </h3>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi commodi dolore doloremque qui eum eius perferendis fugiat temporibus ea aspernatur recusandae ipsa iste, provident nulla nostrum autem distinctio! Nostrum, fuga.</p>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 20px;
+        ">
+            <div class="col-md-12">
+                <br>
+                <h3> <b>skiles job</b> </h3>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi commodi dolore doloremque qui eum eius perferendis fugiat temporibus ea aspernatur recusandae ipsa iste, provident nulla nostrum autem distinctio! Nostrum, fuga.</p>
+            </div>
+        </div>
+        <div class="row " style="padding-top: 20px;">
+            
+            <button type="button" name="job app" class="btn btn-success col-md-12">submit</button>
 
-					
-				</div>
-				
-				<div class="col-md-5">
-					
-					<div class="contact-get">
-					<div class="main-title">
-						<h2><span>GET IN</span> Touch</h2>
-						<p></p>
-					 </div>
-					
-					<div class="get-in-touch">
-					<div class="detail">
-						<span><b>Phone:</b>000000000</span>
-						<span><b>Email:</b> <a href="#.">info@noor.com</a></span>
-						<span><b>Web:</b> <a href="#.">www.Medicalguide.com</a></span>
-						<span><b>Address:</b>tripoli -libya</span>
-					 </div>
-					 
-					 <div class="social-icons">
-                        	<a href="#." class="fb"><i class="icon-euro"></i></a>
-                            <a href="#." class="tw"><i class="icon-yen"></i></a>
-
-                     </div>
-					 </div>
-					 </div>
-					 
-				</div>
-				
-			</div>
-
-			</div>
-		</div>
-		
-   </div>
-  
-   
-   </div>
-   <!--End Content-->
-   
-   
-   
+        </div>
+       
+    </div>
+<!-- end contaner -->
    
    <!--Start Footer-->
    <footer class="footer" id="footer">
@@ -604,12 +563,12 @@
 
 
   </div>
-  
 <a href="#0" class="cd-top"></a>
 
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
+
 
 <!-- SMOOTH SCROLL -->	
 <script type="text/javascript" src="js/scroll-desktop.js"></script>
@@ -637,10 +596,6 @@
 
 <!-- All Scripts -->
 <script type="text/javascript" src="js/custom.js"></script> 
-
-<script>
-
-</script>
 
 </body>
 </html>

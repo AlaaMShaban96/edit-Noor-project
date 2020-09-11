@@ -435,7 +435,7 @@
             <div class="row">
             <div class="col-md-12">
             <div class="main-title main-title2">
-                <h2><span>What Our Patients Say</span> About Us</h2>
+                <h2>Our Suppliers </h2>
             </div>
             </div>
             </div>
@@ -456,9 +456,7 @@
                     <div class="height10"></div>
                     <span class="name">Elebana Front</span>
                     <span class="patient">Heart Patient</span>
-                    <div class="height30"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna  aliquam erat volutpat. vitae felis pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et consectetur  orci Quisque posuere dolor in malesuada fermentum.</p>						  				<div class="height35"></div>
-    
+                    <div class="height30"></div>    
     
                   </div>
                   <div class="testi-sec">
@@ -469,7 +467,6 @@
                     <span class="name">Johny Bravo</span>
                     <span class="patient">Hair Patient</span>
                     <div class="height30"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna  aliquam erat volutpat. vitae felis pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et consectetur Quisque posuere dolor in malesuada fermentum sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna  aliquam erat volutpat.</p>
     
     
     
@@ -482,7 +479,6 @@
                     <span class="patient">Skin Patient</span>
                     <div class="height30"></div>
     
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna  aliquam erat volutpat. vitae felis pretium, euismod ipsum nec, placerat turpis. Aenean eu gravida arcu, et consectetur  orci Quisque posuere dolor in malesuada fermentum.</p>						  				<div class="height35"></div>
     
     
     
