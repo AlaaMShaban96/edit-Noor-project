@@ -86,7 +86,7 @@
                             </form>
                           </div>
                       </div>
-                      <div class="login-footer">
+                      <div class="login-footer" style="padding-bottom: 50px;">
                         
                       </div>
                   </div>

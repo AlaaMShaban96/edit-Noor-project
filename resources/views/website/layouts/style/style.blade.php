@@ -39,3 +39,4 @@
 
 	<!--PreLoader-->
 	<link href="{{asset('website/css/loader.css')}} " rel="stylesheet" type="text/css">
+	<link href="{{asset('website/css/infinite-slider.css')}} " rel="stylesheet" type="text/css">
