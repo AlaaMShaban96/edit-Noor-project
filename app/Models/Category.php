@@ -28,8 +28,8 @@ class Category extends Model
         return $this->hasMany(CategoryTranslation::class);
     }
 
-    public function items()
+    public function subCategory()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(SubCategory::class);
     }
 }

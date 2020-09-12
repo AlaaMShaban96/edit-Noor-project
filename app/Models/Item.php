@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-
     public $table = "items";
 
     /**
@@ -15,7 +14,7 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id', 'admin_id', 'image',
+        'sub_category_id', 'admin_id', 'image',
     ];
 
     public function admin()
@@ -23,9 +22,9 @@ class Item extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function category()
+    public function subCategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SubCategory::class);
     }
 
     public function itemTranslation()

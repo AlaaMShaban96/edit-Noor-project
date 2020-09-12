@@ -23,9 +23,14 @@ class Language extends Model
         return $this->hasMany(CategoryTranslation::class);
     }
 
-    public function ItemTranslation()
+    public function subCategoryTranslation()
     {
-        return $this->hasMany(ItemsTranslation::class);
+        return $this->hasMany(SubCategoryTranslation::class);
+    }
+
+    public function itemTranslation()
+    {
+        return $this->hasMany(ItemTranslation::class);
     }
 
     public function slideTranslation()
