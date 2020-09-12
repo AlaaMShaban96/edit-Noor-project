@@ -29,7 +29,7 @@ Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('w
 // Route::get('/', 'Website\Home\HomeController@index')->name('home');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 Route::view('/about-us', 'website.aboutus.index');
-Route::view('/service', 'website.service.index');
+Route::view('/Category', 'website.category.index');
 Route::view('/news', 'website.news.index');
 Route::view('/jobs', 'website.jobs.index');
 Route::view('/partner', 'website.partner.index');

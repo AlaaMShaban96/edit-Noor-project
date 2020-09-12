@@ -1,5 +1,7 @@
+@php
+    $categories=App\Models\CategoryTranslation::all();
+@endphp
 <div id="wrap">
-
     <!--Start PreLoader-->
     <div id="preloader">
          <div id="status">&nbsp;</div>
@@ -78,9 +80,32 @@
                      <li class="parent"><a href="{{ url('/about-us') }}">About Us</a>
      
                      </li>
- 
-                     <li class="parent"><a href="{{ url('/Category') }}">Category</a>
-                     </li>
+
+                     <li>
+                         <a href="{{ url('/Category') }}">category</a>
+						<ul class="submenu">
+                            @foreach ($categories as $category)
+                            @if ($category->language_code=='en')
+                            <li> 
+                                <a href="">{{$category->name}}</a>
+                                <ul class="submenu">
+                                    @foreach ($category->category->items as $item)
+                                        <li> <a href="">{{$item->id}}</a> </li>
+                                    @endforeach
+                                </ul> 
+                            </li>   
+                            @endif
+                            
+                            @endforeach
+                        
+                        {{-- <li> 
+                            <a href="">Home Page 2</a> 
+                        </li>
+                        <li> 
+                            <a href="">Home Page 3</a>
+                         </li> --}}
+					</ul>
+					</li>
  
                      <li><a href="{{ url('/news') }}">News</a></li>
  
