@@ -186,6 +186,8 @@
         </div>
     </div>
 </div>
+
+
        <!--End Welcome-->
     
     
@@ -501,5 +503,27 @@
        <!--End Testimonials-->
     
        </div>
+    
        <!--End Content-->
+       <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+        <div class="row" >
+            <div class=col-md-12>
+                <h2 class="text-center">Our partners    </h2>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12">
+      <section class="customer-logos slider">
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+      </section>
+     </div>
+ </div>
+    </div>
 @endsection

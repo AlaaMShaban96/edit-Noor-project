@@ -29,8 +29,32 @@
 <script type="text/javascript" src="{{asset('website/js/jquery.mmenu.min.all.js')}}"></script>
 
 <!-- All Scripts -->
+<script type="text/javascript" src="{{asset('website/js/slick.js')}}"></script>
 <script type="text/javascript" src="{{asset('website/js/custom.js')}}"></script>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+  $('.customer-logos').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4
+      }
+    }, {
+      breakpoint: 520,
+      settings: {
+        slidesToShow: 3
+      }
+    }]
+  });
+});
+</script>
 
 <!-- Revolution Slider -->
 <script type="text/javascript">
