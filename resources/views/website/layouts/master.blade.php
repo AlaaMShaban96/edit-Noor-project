@@ -15,6 +15,7 @@
     @yield('content')
 
     @include('website.layouts.footer')
+    <a href="#0" class="cd-top"></a>
     @include('website.layouts.script.script')
     @yield('script')
 </body>
