@@ -16,7 +16,7 @@
 // });
 
 Auth::routes();
-// Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
+Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 
 Route::get('/', 'Website\Home\HomeController@index')->name('website.home.index');
 Route::get('/about', 'Website\About\AboutController@index')->name('website.about.index');
@@ -26,7 +26,7 @@ Route::get('/partner', 'Website\Partner\PartnerController@index')->name('website
 Route::get('/job', 'Website\Job\JobController@index')->name('website.job.index');
 Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('website.contectUs.index');
 
-// Route::get('/', 'Website\Home\HomeController@index')->name('home');
+
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 Route::view('/about-us', 'website.about.index');
 Route::view('/Category', 'website.category.index');

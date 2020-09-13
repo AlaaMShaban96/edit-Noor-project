@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'admin'], function() {
 
+  
     //Routes Auth
     Route::get('/login','Cpanel\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Cpanel\Auth\LoginController@login')->name('admin.login.submit');
@@ -25,61 +26,63 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/password/reset/{token}','Cpanel\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','Cpanel\Auth\ResetPasswordController@reset');
   
-
-    //Routes Dashboard
-    Route::get('/', 'Cpanel\Dashboard\DashboardController@index');
-    Route::get('dashboard', 'Cpanel\Dashboard\DashboardController@index');
- 
-    //Routes Admin
-    Route::get('admin-index','Cpanel\Admin\AdminController@index');
-    Route::get('admin-create','Cpanel\Admin\AdminController@create');
-    Route::post('admin-store','Cpanel\Admin\AdminController@store'); 
-    Route::get('admin-edit/{id}','Cpanel\Admin\AdminController@edit');
-    Route::post('admin-update/{id}','Cpanel\Admin\AdminController@update');
-    Route::get('admin-delete/{id}','Cpanel\Admin\AdminController@destroy');  
-
-    //Routes Profile
-    Route::get('Profile-index','Cpanel\Profile\ProfileController@index');
-    Route::get('Profile-edit/{id}','Cpanel\Profile\ProfileController@edit');
-    Route::post('Profile-update/{id}','Cpanel\Profile\ProfileController@update');
-
-    //Route Slider
-    Route::resource('slider', 'Cpanel\Slider\SliderController');
-    //Route logo
-    Route::resource('logo', 'Cpanel\Logo\LogoController');
-
-    //Route category
-    Route::resource('category', 'Cpanel\Category\CategoryController');
-
-   //Route Sub Category 
-    Route::resource('subcategory', 'Cpanel\SubCategory\SubCategoryController');
-    Route::get('subcategory/{category}/category', 'Cpanel\SubCategory\SubCategoryController@index');
-
-    //Routes Items
-    Route::resource('item', 'Cpanel\Items\ItemController');
-    Route::get('item/{subcategory}/subcategory', 'Cpanel\Items\ItemController@index');
-
-    //Route partners 
-    Route::resource('partner', 'Cpanel\Partner\PartnerController');
-    //Route partners 
-    Route::resource('supplier', 'Cpanel\Supplier\SupplierController');
-
-    //Route phone
-    Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');
-
-    //Route email
-    Route::resource('email', 'Cpanel\ContectUs\Email\EmailController');
-
-    //Route address
-    Route::resource('address', 'Cpanel\ContectUs\Address\AddressController');
-
-    //Route post
-    Route::resource('post', 'Cpanel\Post\PostController');
-
-    //Route job
-    Route::resource('job', 'Cpanel\Job\JobController');
-
-    //Route Jobs applicants
-    Route::get('Jobs-applicants', 'Cpanel\RecruitmentForm\RecruitmentFormController@index');
+    Route::group(['middleware' => ['auth']], function () {
+        
     
+                //Routes Dashboard
+                Route::get('/', 'Cpanel\Dashboard\DashboardController@index');
+                Route::get('dashboard', 'Cpanel\Dashboard\DashboardController@index');
+            
+                //Routes Admin
+                Route::get('admin-index','Cpanel\Admin\AdminController@index');
+                Route::get('admin-create','Cpanel\Admin\AdminController@create');
+                Route::post('admin-store','Cpanel\Admin\AdminController@store'); 
+                Route::get('admin-edit/{id}','Cpanel\Admin\AdminController@edit');
+                Route::post('admin-update/{id}','Cpanel\Admin\AdminController@update');
+                Route::get('admin-delete/{id}','Cpanel\Admin\AdminController@destroy');  
+
+                //Routes Profile
+                Route::get('Profile-index','Cpanel\Profile\ProfileController@index');
+                Route::get('Profile-edit/{id}','Cpanel\Profile\ProfileController@edit');
+                Route::post('Profile-update/{id}','Cpanel\Profile\ProfileController@update');
+
+                //Route Slider
+                Route::resource('slider', 'Cpanel\Slider\SliderController');
+                //Route logo
+                Route::resource('logo', 'Cpanel\Logo\LogoController');
+
+                //Route category
+                Route::resource('category', 'Cpanel\Category\CategoryController');
+
+            //Route Sub Category 
+                Route::resource('subcategory', 'Cpanel\SubCategory\SubCategoryController');
+                Route::get('subcategory/{category}/category', 'Cpanel\SubCategory\SubCategoryController@index');
+
+                //Routes Items
+                Route::resource('item', 'Cpanel\Items\ItemController');
+                Route::get('item/{subcategory}/subcategory', 'Cpanel\Items\ItemController@index');
+
+                //Route partners 
+                Route::resource('partner', 'Cpanel\Partner\PartnerController');
+                //Route partners 
+                Route::resource('supplier', 'Cpanel\Supplier\SupplierController');
+
+                //Route phone
+                Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');
+
+                //Route email
+                Route::resource('email', 'Cpanel\ContectUs\Email\EmailController');
+
+                //Route address
+                Route::resource('address', 'Cpanel\ContectUs\Address\AddressController');
+
+                //Route post
+                Route::resource('post', 'Cpanel\Post\PostController');
+
+                //Route job
+                Route::resource('job', 'Cpanel\Job\JobController');
+
+                //Route Jobs applicants
+                Route::get('Jobs-applicants', 'Cpanel\RecruitmentForm\RecruitmentFormController@index');
+        });
 });

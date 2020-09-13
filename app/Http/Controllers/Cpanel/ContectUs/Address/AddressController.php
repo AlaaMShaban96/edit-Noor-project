@@ -19,13 +19,13 @@ class AddressController extends Controller
     public function index()
     {
         //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['name'=>"Contact Us "],
+            ['name'=>"Address"],
         ];
 
-        return view('cpanel.contectUs.address.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        return view('cpanel.contectUs.address.index',compact('breadcrumbs'));
     }
 
     /**
