@@ -8,7 +8,7 @@
 	<link href="{{asset('website/fonts/medical-guide-icons.css')}} " rel="stylesheet" type="text/css">
 
 	<!-- Default Color-->
-	<link href="{{asset('website/css/theme-colors/green.css')}}" rel="stylesheet" id="color"  type="text/css">
+	<link href="{{asset('website/css/theme-colors/dark-blue.css')}}" rel="stylesheet" id="color"  type="text/css">
 
     <!--bootstrap-->
 	<link href="{{asset('website/css/bootstrap.css')}} " rel="stylesheet" type="text/css">

@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Cpanel\ContectUs\Address;
+namespace App\Http\Controllers\Cpanel\Logo;
 
+use App\Models\Logo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ContectUs\Address\AddressRequest;
-use App\Models\OurAddress;
-use App\Models\OurAddressTranslation;
-use App\Models\Footer;
+use App\Http\Requests\Logo\LogoRequest;
 
-class AddressController extends Controller
+class LogoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +16,13 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['name'=>"Contact Us "],
-            ['name'=>"Address"],
+            ['name'=>"Logo"]
         ];
-
-        return view('cpanel.contectUs.address.index',compact('breadcrumbs'));
+        $logo = Logo::orderBy('id')->first();
+      
+        return view('cpanel.logo.index',compact('logo','breadcrumbs'));
     }
 
     /**
@@ -44,9 +41,12 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AddressRequest $request)
+    public function store(LogoRequest $request)
     {
-        //
+        $logo=Logo::orderBy('id')->first();
+        
+        $logo==null?Logo::create(['image'=>$this->uploadeImage($request)]): $logo->image=$this->uploadeImage($request);$logo->save();
+    return redirect()->back();
     }
 
     /**
@@ -78,7 +78,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AddressRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -92,5 +92,13 @@ class AddressController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function uploadeImage(Request $request)
+    {
+        $imageName = time().".png";
+
+        $path ="storage/". $request->file('image')->storeAs('uploads/items', $imageName, 'public');
+    
+        return $path;
     }
 }

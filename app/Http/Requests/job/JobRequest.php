@@ -24,7 +24,7 @@ class JobRequest extends FormRequest
     public function rules()
     {
         return [
-            'gender' => 'required',
+            // 'gender' => 'required',
             'language_code' => 'required', 
             'name' => 'required',
             'description' => 'required','string',
@@ -38,7 +38,7 @@ class JobRequest extends FormRequest
     public function messages()
     {
         return [
-            'gender.required' => 'The Gender field is required.',
+            // 'gender.required' => 'The Gender field is required.',
             'language_code.required' => 'The Language field is required.',
             'name.required' => 'The Name field is required.',
             'description.required' => 'The Description field is required.',

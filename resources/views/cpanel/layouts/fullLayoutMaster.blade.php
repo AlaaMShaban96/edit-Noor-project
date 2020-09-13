@@ -14,7 +14,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/logo/favicon.ico">
 
         {{-- Include core + vendor Styles --}}
-        @include('panels/styles')
+        @include('cpanel/panels/styles')
 
     </head>
 
@@ -39,7 +39,7 @@
         <!-- End: Content-->
 
         {{-- include default scripts --}}
-        @include('panels/scripts')
+        @include('cpanel/panels/scripts')
 
     </body>
 </html>

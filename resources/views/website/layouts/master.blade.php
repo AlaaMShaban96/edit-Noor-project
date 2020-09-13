@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('website.layouts.style.style')
-    
+    @yield('style')
     <title>@yield('titel')</title>
 </head>
 <body>
@@ -15,7 +15,8 @@
     @yield('content')
 
     @include('website.layouts.footer')
+    <a href="#0" class="cd-top"></a>
     @include('website.layouts.script.script')
-
+    @yield('script')
 </body>
 </html>

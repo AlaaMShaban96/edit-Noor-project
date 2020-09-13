@@ -22,16 +22,7 @@
                         
                         
                         <div class="news-sec">
-                            
-                            <div id="demo">
-                            
-                                <div id="blog-slide" class="owl-carousel">
-                                    <img src="images/blog/side-bar/post-img2.jpg" alt="">
-                                    <img src="images/blog/side-bar/post-img4.jpg" alt="">
-                                    <img src="images/blog/side-bar/post-img1.jpg" alt="">
-                                </div>
-                            
-                            </div>
+                        
                             
                             <div class="detail">
                                 <span>March 7, 2015 / By Rockal</span>
@@ -63,7 +54,7 @@
                         
                 </div>
                 
-                <div class="col-md-4 col-xs-6">
+                {{-- <div class="col-md-4 col-xs-6">
                     <div class="categories">
                         <h6 class="bar-title">Categories</h6>
                         <ul>
@@ -75,7 +66,7 @@
                             <li><a href="#."><i class="icon-chevron-small-right"></i> Chin Implant</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

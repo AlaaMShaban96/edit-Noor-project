@@ -32,34 +32,66 @@
         <thead>
           <tr>
             <th></th>
-            <th> Titel</th>
+            <th>Image</th>
+            <th>Upload</th>
+            
             <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ($jobs as $job)
+            
+                
+           
+        <form action="{{url('cpanel/admin/logo')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @if ($logo!=null)
                 <tr>
                     <td></td>
-                    <td class="product-img">
-                        {{$job->name}}
+                    <td class="product-img"><img src="{{ asset($logo->image) }}" alt="Img placeholder">
                     </td>
-               
+                    <td class="product-name">
+                        <fieldset class="form-group">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </fieldset>
+
+                    </td>
                     
                     
                     <td class="product-action">
-                        <a href='{{url("cpanel/admin/job/".$job->job->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-
-                        <a href="#" onclick="deletee({{$job->job->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                        <button type="submit" class="btn btn-primary mr-1 mb-1">Update</button>
                     </td>
                     
-                    <form style="display: none" id="delete{{$job->job->id}}" action="{{url('cpanel/admin/job/'.$job->job->id)}}" method="post">
-                        @method('delete')
-                        @csrf
-                      {{-- <button  type="submit"></button> --}}
                     
-                    </form>
-                </tr>          
-            @endforeach        
+                </tr>
+            @else
+                <tr>
+                    <td></td>
+                    <td class="product-img"><img src="/" alt="Photo">
+                    </td>
+                    <td class="product-name">
+                        <fieldset class="form-group">
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </fieldset>
+
+                    </td>
+                    
+                    
+                    <td class="product-action">
+                        <button type="submit" class="btn btn-primary mr-1 mb-1">Create</button>
+                    </td>
+                    
+                    
+                </tr>
+            @endif
+               
+                
+        </form>        
         </tbody>
       </table>
     </div>
@@ -85,12 +117,6 @@
 @endsection
 @section('page-script')
         {{-- Page js files --}}
-        <script>
-       
-            function deletee(id) {
-                
-                document.getElementById("delete"+id).submit();
-            }
-        </script>
+     
         <script src="{{ asset('js/scripts/ui/data-list-view-logo.js') }}"></script>
 @endsection

@@ -57,7 +57,7 @@
             
               <td class="product-action">
                 <a href='{{url("cpanel/admin/category/".$category->category->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                <a href='{{url("cpanel/admin/item/".$category->category->id."/category")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
+                <a href='{{url("cpanel/admin/subcategory/".$category->category->id."/category")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
                 <a href="#" onclick="deletee({{$category->category->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
               <form style="display: none" id="delete{{$category->category->id}}" action="{{url('cpanel/admin/category/'.$category->category->id)}}" method="post">
@@ -91,13 +91,7 @@
                 <div class="data-items pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
-                    <div class="col-sm-12 data-field-col">
-                        <label for="data-name">Name Arbic</label>
-                        <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
-                        <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
-                        <label for="data-name">Description Arbic</label>
-                        <textarea name="descriptions[]" id="data-description_ar" cols="30" rows="10"required='required'></textarea>
-                    </div>
+                    
                     <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Englash</label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
@@ -106,8 +100,15 @@
                         <textarea name="descriptions[]" id="data-description_en" cols="30" rows="10" required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
-                        <label for="data-name">Uplade Photo </label>
-                        <input type="file" name="image" id="" required='required'>
+                     
+                        <fieldset class="form-group">
+                            <label for="basicInputFile">Upload Photo</label>
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </fieldset>
+                    
                     </div>
                     </div>
                 </div>
@@ -140,7 +141,7 @@
 @section('page-script')
         {{-- Page js files --}}
         <script>
-       
+        
           function deletee(id) {
               
               document.getElementById("delete"+id).submit();

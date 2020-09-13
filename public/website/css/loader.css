@@ -42,7 +42,7 @@ div#preloader {
 	
 }
 .loader span:nth-child(3){
-	background:#5fc761;
+	background:#3a539b;
 	z-index:100;
 }
 .loader span:nth-child(4){

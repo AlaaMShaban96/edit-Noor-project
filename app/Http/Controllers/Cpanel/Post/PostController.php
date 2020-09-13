@@ -15,15 +15,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+       $type =$request->type;
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"post",'name'=>"Post"]
+            ['name'=>"Post"],
+            ['name'=>$request->type]
         ];
+        // $postTranslation=Post::where('type',$request->type)->with('postTranslation')->get();
         $postTranslation=PostTranslation::all();
-        return view('cpanel.post.index',compact('postTranslation','breadcrumbs'));
+       
+        
+        return view('cpanel.post.index',compact('postTranslation','breadcrumbs','type'));
         // return response([ 'success' => true,compact('postTranslation','breadcrumbs')]);
     }
 
@@ -51,12 +55,11 @@ class PostController extends Controller
         // $post->admin_id = auth('admin')->user()->id;
         $post->admin_id = 1;
         $post->type = $request->type;
-        if ($request->image == null) {
+        if ($request->image != null) {
 
-        }else{
             $post->image = $this->uploadeImage($request);
         }
-      
+       
         $post->save();
 
         foreach ($request->language_code as $key => $code) {   
@@ -88,14 +91,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"post",'name'=>"Post"]
+            ['name'=>"Post"],
+            ['name'=>$post->type],
+            ['name'=>"Edit"],
         ];
-        $post = Post::find($id);
+      
         return view('cpanel.post.edit', compact('post','breadcrumbs'));
     }
 
@@ -106,10 +111,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
         //
-        $post = Post::find($id);
+        
 
          // $post->admin_id = auth('admin')->user()->id;
          $post->admin_id = 1;
@@ -130,7 +135,7 @@ class PostController extends Controller
             $translation->save();
         }
   
-        return redirect('cpanel/admin/post');
+        return redirect('cpanel/admin/post?type='.$post->type);
         // return response()->json($translation);
         // return response(['slide' => $slide,'SlideTranslation' => $translation]);
     }
@@ -141,19 +146,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
+        
      
         if ($post->image == null) {
             $post->postTranslation()->delete();
             $post->delete();
         }else{
             $post->postTranslation()->delete();
-            unlink($post->image);
+            // unlink($post->image);
             $post->delete();
         }
-        return redirect('cpanel/admin/post');
+        return redirect()->back();
 
     }
 

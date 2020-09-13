@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Cpanel\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\AdminRequest;
+use App\Models\Role;
 use App\Models\Admin;
 use App\Models\AdminRole;
-use App\Models\Role;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Admin\AdminRequest;
 
 class AdminController extends Controller
 {
@@ -35,7 +37,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        //   
         $pageConfigs = [
             'pageHeader' => false
         ];
@@ -53,7 +55,42 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        //
+        $request->validate([
+            "email" => "unique:admins,email",
+        ]);
+        if ($request->password == $request->passwordConfrim) {
+            if ($request->image!=null) {
+                Admin::create([
+                    'name' => $request->name, 
+                    
+                    'email' => $request->email, 
+                    
+                    'password' => Hash::make($request->password) ,
+    
+                    'active' => $request->active,
+                    
+                    
+                    'image' => $this->uploadeImage($request),
+    
+                ])->roles()->attach($request->role);
+            }else {
+                Admin::create([
+                    'name' => $request->name, 
+                    
+                    'email' => $request->email, 
+                    
+                    'password' => Hash::make($request->password) ,
+    
+                    'active' => $request->active,
+                    
+    
+                ])->roles()->attach($request->role);
+            }
+        }else {
+            dd('not same things');
+        }
+       
+        dd('done');
     }
 
     /**
@@ -99,5 +136,14 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function uploadeImage(Request $request)
+    {
+        
+        $imageName = time().".png";
+
+        $path ="storage/". $request->file('image')->storeAs('uploads/Admin', $imageName, 'public');
+    
+        return $path;
     }
 }

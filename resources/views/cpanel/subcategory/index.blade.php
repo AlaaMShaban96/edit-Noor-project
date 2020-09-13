@@ -39,25 +39,25 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($items as $key=>$item)
+          @foreach ($subCategories as $key=>$subCategories)
          
 
-           @if ($item->language_code=='en')
+           @if ($subCategories->language_code=='en')
                
           
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($item->item->image) }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($subCategories->subCategory->image) }}" alt="Img placeholder">
               </td>
-              <td class="product-name">{{ $item->name }}</td>
+              <td class="product-name">{{ $subCategories->name }}</td>
              
             
               <td class="product-action">
-                <a href='{{url("cpanel/admin/item/".$item->item->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                {{-- <a href='{{url("cpanel/admin/item")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a> --}}
-                <a href="#" onclick="deletee({{$item->item->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                <a href='{{url("cpanel/admin/subcategory/".$subCategories->subCategory->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
+                <a href='{{url("cpanel/admin/item/".$subCategories->subCategory->id."/subcategory")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
+                <a href="#" onclick="deletee({{$subCategories->subCategory->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
-              <form style="display: none" id="delete{{$item->item->id}}" action="{{url('cpanel/admin/item/'.$item->item->id)}}" method="post">
+              <form style="display: none" id="delete{{$subCategories->subCategory->id}}" action="{{url('cpanel/admin/subcategory/'.$subCategories->subCategory->id)}}" method="post">
                 @method('delete')
                 @csrf
               {{-- <button  type="submit"></button> --}}
@@ -73,20 +73,20 @@
 
     {{-- add new sidebar starts --}}
     <div class="add-new-data-sidebar">
-        <form action="{{url('cpanel/admin/item')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
+        <form action="{{url('cpanel/admin/subcategory')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="sub_category_id" value="{{$subcategory->id}}">
+            <input type="hidden" name="category_id" value="{{$category->id}}">
             <div class="overlay-bg"></div>
             <div class="add-new-data">
                 <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
                 <div>
-                    <h4 class="text-uppercase">item</h4>
+                    <h4 class="text-uppercase">subcategory</h4>
                 </div>
                 <div class="hide-data-sidebar">
                     <i class="feather icon-x"></i>
                 </div>
                 </div>
-                <div class="data-items pb-3">
+                <div class="data-subCategoriess pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
                     {{-- <div class="col-sm-12 data-field-col">
@@ -100,13 +100,13 @@
                         <input type="text" name="names[]" class="form-control" id="data-name_en" required='required'>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
-                      <fieldset class="form-group">
-                        <label for="basicInputFile">Upload Photo</label>
-                        <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                    </fieldset>
+                        <fieldset class="form-group">
+                            <label for="basicInputFile">Upload Photo</label>
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </fieldset>
                     </div>
                     </div>
                 </div>

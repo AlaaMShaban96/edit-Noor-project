@@ -48,9 +48,10 @@ class CategoryController extends Controller
   
         
         $category = new Category();
-        $category->admin_id = 1;
-        
-        $category->image=$this->uploadeImage($request);
+        $category->admin_id = 2;
+        if ($category->image != null){
+            $category->image  =$this->uploadeImage($request);
+        }
         $category->save();
 
         foreach ($request->language_codes as $key => $code) {
@@ -106,7 +107,7 @@ class CategoryController extends Controller
     {
         
       
-        if ($request->image == null) {
+        if ($request->image != null) {
             $category->image=$this->uploadeImage($request);
             $category->save();
         }
@@ -131,7 +132,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->categoryTranslation()->delete();
-        unlink($category->image);
+        $category->image==null?"" : unlink($category->image);
         $category->delete();
 
         return redirect('cpanel/admin/category');

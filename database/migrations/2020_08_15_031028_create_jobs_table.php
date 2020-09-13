@@ -17,7 +17,7 @@ class CreateJobsTable extends Migration
             $table->mediumIncrements('id');
             $table->tinyInteger('admin_id')->unsigned();
             $table->smallInteger('our_address_id')->nullable()->unsigned();
-            $table->enum('gender', ['Any Gender','Male', 'Female']);
+            $table->enum('gender', ['Any Gender','Male', 'Female'])->nullable();;
             $table->timestamps();
 
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
