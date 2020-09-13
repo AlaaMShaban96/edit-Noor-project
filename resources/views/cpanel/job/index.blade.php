@@ -1,107 +1,96 @@
-@extends('cpanel/layouts/contentLayoutMaster') 
 
-@section('title', 'job') 
+@extends('cpanel/layouts/contentLayoutMaster')
 
+@section('title', 'Nano Tech')
+
+
+@section('page-style')
+        {{-- Page css files --}}
+        {{-- <link rel="stylesheet" href="{{ asset('css/plugins/file-uploaders/dropzone.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('css/pages/data-list-view.css') }}">
+@endsection
 @section('content')
-    <div class="row">
-        <div class="col-12" wfd-id="108">
-            <div class="card" wfd-id="109">
-                <div class="card-header" wfd-id="139">
-                    <h4 class="card-title">Jobs application </h4>
-                </div>
-                <div class="card-content" wfd-id="110">
-                    <div class="card-body" wfd-id="111">
-                        <form class="form" wfd-id="112">
-                            <div class="form-body" wfd-id="113">
-                                <div class="row" wfd-id="114">
-                                    <div class="col-md-6 col-12" wfd-id="136">
-                                        <div class="form-label-group" wfd-id="137">
-                                            <textarea  id="Tilte-column" class="Tilte-control" placeholder="title" name="Tilte-column" wfd-id="548" required></textarea>
-                                            <label for="first-name-column" wfd-id="138">Tilte</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12" wfd-id="133">
-                                        <div class="form-label-group" wfd-id="134">
-                                            <textarea  id="last-name-column" class="form-control" placeholder="description" name="lname-column" wfd-id="547" required></textarea>
-                                            <label for="last-name-column" wfd-id="135">description</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12" wfd-id="130">
-                                        <div class="form-label-group" wfd-id="131">
-                                            <textarea  id="responsibility-column" class="form-control" placeholder="responsibility" name="responsibilitycolumn" wfd-id="546" required></textarea>
-                                         <label for="responsibility-column" wfd-id="132">responsibility</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12" wfd-id="127">
-                                        <div class="form-label-group" wfd-id="128">
-                                            <textarea   id="qualification-floating" class="form-control" name="qualification-floating" placeholder="qualification" wfd-id="545" required></textarea>
-                                            <label for="qualification-floating" wfd-id="129">qualification</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12" wfd-id="124">
-                                        <div class="form-label-group" wfd-id="125">
-                                            <textarea    id="experience-column" class="form-control" name="experience-column" placeholder="experience" wfd-id="544" required></textarea>
-                                            <label for="experience-column" wfd-id="126">experience</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12" wfd-id="121">
-                                        <div class="form-label-group" wfd-id="122">
-                                            <textarea    id="skills-column" class="form-control" name="skills-column" placeholder="skills" wfd-id="544" required></textarea>
+{{-- Data list view starts --}}
 
-                                            <label for="skills-column" wfd-id="123">skills</label>
-                                        </div>
-                                    </div>
-    
-                  <div class="col-12" wfd-id="115">
-                                        <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light" wfd-id="583">save</button>
-                                        {{-- <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light" wfd-id="582">Reset</button> --}}
-                     </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="mb-0">Dispatched Orders</h4>
-                </div>
-                <div class="card-content">
-                  <div class="table-responsive mt-1">
-                    <table class="table table-hover-animation mb-0">
-                      <thead>
-                        <tr>
-                          <th>title job </th>
-                          <th>description</th>
-                          <th>responsibility</th>
-                          <th>qualification</th>
-                          <th>experience</th>
-                          <th>skills</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>121</td>
-                          <td><i class="fa fa-circle font-small-3 text-success mr-50"></i>roma roam</td>
-                          <td>
-                           
-                          </td>
-                          <td></td>
-                          <td> </td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                 
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<section id="data-thumb-view" class="data-thumb-view-header">
+    <div class="action-btns d-none">
+      <div class="btn-dropdown mr-1 mb-1">
+       
+      </div>
     </div>
+    @if ($errors->any())
+      @foreach ($errors->all() as $error)
+       <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+            <i class="feather icon-info mr-1 align-middle"></i>
+            <span>{{ $error }}</span>
+        </div>
+      @endforeach
+    @endif
+    {{-- dataTable starts --}}
+    <div class="table-responsive">
+      <table class="table data-thumb-view" >
+        <thead>
+          <tr>
+            <th></th>
+            <th> Titel</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($jobs as $job)
+                <tr>
+                    <td></td>
+                    <td class="product-img">
+                        {{$job->name}}
+                    </td>
+               
+                    
+                    
+                    <td class="product-action">
+                        <a href='{{url("cpanel/admin/job/".$job->job->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
+
+                        <a href="#" onclick="deletee({{$job->job->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                    </td>
+                    
+                    <form style="display: none" id="delete{{$job->job->id}}" action="{{url('cpanel/admin/job/'.$job->job->id)}}" method="post">
+                        @method('delete')
+                        @csrf
+                      {{-- <button  type="submit"></button> --}}
+                    
+                    </form>
+                </tr>          
+            @endforeach        
+        </tbody>
+      </table>
+    </div>
+    {{-- dataTable ends --}}
+
+    
+
+    
+    
+    {{-- add new sidebar ends --}}
+  </section>
+  {{-- Data list view end --}}
+@endsection
+@section('vendor-script')
+{{-- vendor js files --}}
+        <script src="{{ asset('vendors/js/extensions/dropzone.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/datatables.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/datatables.buttons.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/dataTables.select.min.js') }}"></script>
+        <script src="{{ asset('vendors/js/tables/datatable/datatables.checkboxes.min.js') }}"></script>
+@endsection
+@section('page-script')
+        {{-- Page js files --}}
+        <script>
+       
+            function deletee(id) {
+                
+                document.getElementById("delete"+id).submit();
+            }
+        </script>
+        <script src="{{ asset('js/scripts/ui/data-list-view-logo.js') }}"></script>
 @endsection

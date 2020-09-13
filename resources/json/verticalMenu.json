@@ -47,9 +47,15 @@
             "url": "",
             "name": "Jobs And applicants",
             "icon": "feather icon-anchor",
-            "submenu": [{
+            "submenu": [
+                {
                     "url": "/cpanel/admin/job",
-                    "name": "Jobs",
+                    "name": "view All Jobs",
+                    "icon": "feather icon-user-plus"
+                },
+                {
+                    "url": "/cpanel/admin/job/create",
+                    "name": "Add Job",
                     "icon": "feather icon-user-plus"
                 },
                 {

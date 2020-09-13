@@ -22,8 +22,8 @@ class JobController extends Controller
             ['link'=>"dashboard",'name'=>"Home"],
             ['link'=>"job",'name'=>"Job"]
         ];
-        $jobTranslation = JobTranslation::all();
-        return view('cpanel.job.index',compact('jobTranslation','breadcrumbs'));
+        $jobs = JobTranslation::all();
+        return view('cpanel.job.index',compact('jobs','breadcrumbs'));
         // return response([ 'success' => true,compact('jobTranslation','breadcrumbs')]);
     }
 
@@ -34,8 +34,13 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
-        return view('cpanel.job.create');
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['name'=>"Job"],
+            ['name'=>"Add"],
+        ];
+       
+        return view('cpanel.job.create',compact('breadcrumbs'));
     }
 
     /**
@@ -46,13 +51,14 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
+       
         //
         $job = new Job();
         // $job->admin_id = auth('admin')->user()->id;
         $job->admin_id = 1;
         $job->our_address_id = 1;
         // $job->our_address_id = $request->our_address_id;
-        $job->gender = $request->gender;
+        // $job->gender = $request->gender;
       
         $job->save();
 
@@ -88,14 +94,14 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Job $job)
     {
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"job",'name'=>"Job"]
+            ['name'=>"Job"],
+            ['name'=>"Edit"]
         ];
-        $job = Job::find($id);
         return view('cpanel.job.edit', compact('job','breadcrumbs'));
     }
 
@@ -106,10 +112,10 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(JobRequest $request, $id)
+    public function update(JobRequest $request, Job $job)
     {
         //
-        $job = Job::find($id);
+       
         // $job->admin_id = auth('admin')->user()->id;
         $job->admin_id = 1;
         $job->our_address_id = 1;
@@ -118,8 +124,6 @@ class JobController extends Controller
         $job->save();
    
        foreach ($job->JobTranslation as $key=> $translation) {
-           
-           $translation->job_id = $job->id;
            $translation->name = $request->name[$key];
            $translation->description = $request->description[$key];
            $translation->responsibility = $request->responsibility[$key];
@@ -139,10 +143,9 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Job $job)
     {
         //
-        $job = Job::find($id);
         $job->JobTranslation()->delete();
         $job->delete();
 
