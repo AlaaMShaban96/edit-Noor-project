@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContectUs\Email\EmailRequest;
 use App\Models\Email;
-use App\Models\Footer;
 
 class EmailController extends Controller
 {
@@ -18,13 +17,14 @@ class EmailController extends Controller
     public function index()
     {
         //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"email",'name'=>"Emails"]
         ];
+        $email = Email::all();
+        return view('cpanel.contectUs.email.index',compact('email','breadcrumbs'));
+        // return response([ 'success' => true,compact('email','breadcrumbs')]);
 
-        return view('cpanel.contectUs.email.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
     }
 
     /**
@@ -35,6 +35,7 @@ class EmailController extends Controller
     public function create()
     {
         //
+        return view('cpanel.contectUs.email.create');
     }
 
     /**
@@ -45,7 +46,14 @@ class EmailController extends Controller
      */
     public function store(EmailRequest $request)
     {
-        //
+        $email = new Email();
+        $email->footer_id = '1';
+        // $email->email_type_id = $request->email_type_id;
+        $email->email_type_id = '1';
+        $email->link = $request->link;
+        $email->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -67,7 +75,12 @@ class EmailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"email",'name'=>"Emails"]
+        ];
+        $email = Email::find($id);
+        return view('cpanel.contectUs.email.edit', compact('email','breadcrumbs'));
     }
 
     /**
@@ -80,6 +93,12 @@ class EmailController extends Controller
     public function update(EmailRequest $request, $id)
     {
         //
+        $email = Email::find($id);
+        $email->footer_id = '1';
+        // $email->email_type_id = $request->email_type_id;
+        $email->email_type_id = '1';
+        $email->link = $request->link;
+        $email->save();
     }
 
     /**
@@ -90,6 +109,9 @@ class EmailController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $email = Email::find($id);
+        $email->delete();
+
+        return redirect('cpanel/admin/email');
     }
 }

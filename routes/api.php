@@ -22,3 +22,6 @@ Route::resource('/category', 'Cpanel\Category\CategoryController');
 
      //Route phone
      Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');
+
+      //Route email
+      Route::resource('email', 'Cpanel\ContectUs\Email\EmailController');

@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/password/reset/{token}','Cpanel\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','Cpanel\Auth\ResetPasswordController@reset');
   
-    Route::group(['middleware' => ['auth']], function () {
+    // Route::group(['middleware' => ['auth']], function () {
         
     
                 //Routes Dashboard
@@ -85,4 +85,4 @@ Route::group(['prefix' => 'admin'], function() {
                 //Route Jobs applicants
                 Route::get('Jobs-applicants', 'Cpanel\RecruitmentForm\RecruitmentFormController@index');
         });
-});
+// });
