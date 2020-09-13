@@ -75,7 +75,7 @@
     <div class="add-new-data-sidebar">
         <form action="{{url('cpanel/admin/partner')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
-            {{-- <input type="hidden" name="category_id" value="{{$category->id}}"> --}}
+            <input type="hidden" name="type" value="{{$type}}">
             <div class="overlay-bg"></div>
            
             <div class="add-new-data">
@@ -105,8 +105,13 @@
                         <textarea name="descriptions[]" id="data-description_en" cols="30" rows="10" required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
-                        <label for="data-name">Uplade Photo </label>
-                        <input type="file" name="image" id="" required='required'>
+                        <fieldset class="form-group">
+                          <label for="basicInputFile">Upload Photo</label>
+                          <div class="custom-file">
+                              <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          </div>
+                      </fieldset>
                     </div>
                     </div>
                 </div>
@@ -115,9 +120,7 @@
                 <div class="add-data-btn">
                     <button class="btn btn-primary" id="buttonType">Add Data</button>
                 </div>
-                {{-- <div class="cancel-data-btn">
-                    <button class="btn btn-outline-danger">Cancel</button>
-                </div> --}}
+              
                 </div>
             </div>
         </form>

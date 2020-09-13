@@ -46,7 +46,19 @@
         {
             "url": "/cpanel/admin/post",
             "name": "Post",
-            "icon": "feather icon-clipboard"
+            "icon": "feather icon-clipboard",
+            "submenu": [
+                {
+                    "url": "/cpanel/admin/post?type=Advertising",
+                    "name": "Advertising",
+                    "icon": "feather icon-user-plus"
+                },
+                {
+                    "url": "/cpanel/admin/post?type=News",
+                    "name": "News",
+                    "icon": "feather icon-user-plus"
+                }
+            ]
         },
         {
             "url": "",
