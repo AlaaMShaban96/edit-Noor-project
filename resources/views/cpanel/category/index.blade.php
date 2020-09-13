@@ -91,13 +91,7 @@
                 <div class="data-items pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
-                    {{-- <div class="col-sm-12 data-field-col">
-                        <label for="data-name">Name Arbic</label>
-                        <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
-                        <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
-                        <label for="data-name">Description Arbic</label>
-                        <textarea name="descriptions[]" id="data-description_ar" cols="30" rows="10"required='required'></textarea>
-                    </div> --}}
+                    
                     <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Englash</label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
@@ -147,7 +141,7 @@
 @section('page-script')
         {{-- Page js files --}}
         <script>
-       
+        
           function deletee(id) {
               
               document.getElementById("delete"+id).submit();

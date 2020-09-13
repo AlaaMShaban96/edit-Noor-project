@@ -61,6 +61,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     //Route partners 
     Route::resource('partner', 'Cpanel\Partner\PartnerController');
+    //Route partners 
+    Route::resource('supplier', 'Cpanel\Supplier\SupplierController');
 
     //Route phone
     Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');

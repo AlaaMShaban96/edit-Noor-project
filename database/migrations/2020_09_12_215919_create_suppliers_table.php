@@ -17,10 +17,10 @@ class CreateSuppliersTable extends Migration
             $table->smallIncrements('id');
             $table->string('image',100);
             $table->string('name');
-            $table->string('website');
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('linkedin');
+            $table->string('website')->nullable();;
+            $table->string('facebook')->nullable();;
+            $table->string('twitter')->nullable();;
+            $table->string('linkedin')->nullable();;
             $table->timestamps();
         });
     }

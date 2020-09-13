@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\SubCategory;
+namespace App\Http\Requests\Supplier;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubCategoryRequest extends FormRequest
+class SupplierRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class SubCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-       return true;
+        return true ;
     }
 
     /**
@@ -26,9 +26,8 @@ class SubCategoryRequest extends FormRequest
         return [
     
 
-            'names' => 'required', 
+            'name' => 'required', 
 
-            'language_codes' => 'required', 
             
         ];
        
@@ -39,10 +38,9 @@ class SubCategoryRequest extends FormRequest
     {
         return [
              
+        
             
-            'language_codes.required' => 'language code is required', 
-            
-            'names.required' => 'name is required',
+            'name.required' => 'name is required',
              
            
         ];
