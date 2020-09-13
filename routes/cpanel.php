@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     //Route Slider
     Route::resource('slider', 'Cpanel\Slider\SliderController');
+    //Route logo
+    Route::resource('logo', 'Cpanel\Logo\LogoController');
 
     //Route category
     Route::resource('category', 'Cpanel\Category\CategoryController');

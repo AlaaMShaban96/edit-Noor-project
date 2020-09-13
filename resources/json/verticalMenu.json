@@ -77,6 +77,11 @@
                     "url": "/cpanel/admin/address",
                     "name": " Address ",
                     "icon": "feather icon-user-check"
+                },
+                {
+                    "url": "/cpanel/admin/logo",
+                    "name": "Logo ",
+                    "icon": "feather icon-user-check"
                 }
             ]
         }
