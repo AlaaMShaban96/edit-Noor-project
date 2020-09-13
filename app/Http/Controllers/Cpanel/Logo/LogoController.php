@@ -18,7 +18,8 @@ class LogoController extends Controller
     {
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['name'=>"Logo"]
+            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"logo",'name'=>"Logo"]
         ];
         $logo = Logo::orderBy('id')->first();
       

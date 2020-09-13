@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContectUs\Address\AddressRequest;
 use App\Models\OurAddress;
 use App\Models\OurAddressTranslation;
-use App\Models\Footer;
 
 class AddressController extends Controller
 {
@@ -21,11 +20,12 @@ class AddressController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['name'=>"Contact Us "],
-            ['name'=>"Address"],
+            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"address",'name'=>"Address"]
         ];
 
-        return view('cpanel.contectUs.address.index',compact('breadcrumbs'));
+        $ourAddressTranslation = OurAddressTranslation::all();
+        return view('cpanel.contectUs.address.index',compact('ourAddressTranslation','breadcrumbs'));
     }
 
     /**
@@ -35,7 +35,7 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+        return view('cpanel.contectUs.address.create');
     }
 
     /**
@@ -46,7 +46,17 @@ class AddressController extends Controller
      */
     public function store(AddressRequest $request)
     {
-        //
+        $address = new OurAddress();
+        $address->footer_id = 1;
+        $address->save();
+
+        $ourAddressTranslation = new OurAddressTranslation();
+        $ourAddressTranslation->our_address_id = $address->id;
+        $ourAddressTranslation->language_code = "en";
+        $ourAddressTranslation->name = $request->name;
+        $ourAddressTranslation->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +78,13 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"address",'name'=>"Address"]
+        ];
+        $ourAddress = OurAddress::find($id);
+        return view('cpanel.contectUs.address.edit', compact('ourAddress','breadcrumbs'));
     }
 
     /**
@@ -78,9 +94,14 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AddressRequest $request, $id)
+    public function update(AddressRequest $request,OurAddress $address)
     {
-        //
+       
+       foreach ($address->ourAddressTranslation as $key=> $translation) {
+           $translation->name = $request->name[$key];
+           $translation->save();
+       }
+       return redirect('cpanel/admin/address');
     }
 
     /**
@@ -89,8 +110,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(OurAddress $address)
     {
-        //
+        $address->ourAddressTranslation()->delete();
+        $address->delete();
+
+        return redirect('cpanel/admin/address');
     }
 }

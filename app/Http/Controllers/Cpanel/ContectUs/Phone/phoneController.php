@@ -19,6 +19,7 @@ class phoneController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"dashboard",'name'=>"Contact Us "],
             ['link'=>"phone",'name'=>"Phone"]
         ];
         $phone = PhoneNumber::all();
@@ -76,6 +77,7 @@ class phoneController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"dashboard",'name'=>"Contact Us "],
             ['link'=>"phone",'name'=>"Phone"]
         ];
         $phoneNumber = PhoneNumber::find($id);

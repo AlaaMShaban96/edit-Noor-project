@@ -24,7 +24,15 @@ class AddressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required','unique:our_address_translations'],
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'The Address field is required.',
+            'name.unique' => 'The Address has already been taken.',
+         ];
     }
 }

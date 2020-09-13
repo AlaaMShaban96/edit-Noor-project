@@ -25,3 +25,6 @@ Route::resource('/category', 'Cpanel\Category\CategoryController');
 
       //Route email
       Route::resource('email', 'Cpanel\ContectUs\Email\EmailController');
+
+       //Route address
+       Route::resource('address', 'Cpanel\ContectUs\Address\AddressController');

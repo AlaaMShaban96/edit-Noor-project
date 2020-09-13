@@ -32,9 +32,9 @@ class EmailRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone.required' => 'The Email field is required.',
-            'phone.regex' => 'The Email field must be link formatting',
-            'phone.unique' => 'The Email has already been taken.',
+            'link.required' => 'The Email field is required.',
+            'link.regex' => 'The Email field must be link formatting',
+            'link.unique' => 'The Email has already been taken.',
          ];
     }
 }
