@@ -1,7 +1,7 @@
 @extends('website.layouts.master')
 @section('titel','service')
 @section('style')
-<style>
+{{-- <style>
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
            float: left;
     }
@@ -21,10 +21,10 @@
 	  }
     
 </style>
-@endsection  
+@endsection   --}}
 @section('content')
 
-<div class="content">
+<div class="content" style="margin-bottom: 50px;">
 		
     <div class="news-posts">
         <div class="container">
