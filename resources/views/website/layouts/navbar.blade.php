@@ -71,11 +71,11 @@
  
                  <nav class="menu-2">
                  <ul class="nav wtf-menu">
-                     <li class="item-select parent"><a href="{{ url('/home') }}">Home</a>
+                     <li class=" parent {{ (\Request::route()->getName() == 'website.home.index') ? 'item-select' : '' }}"><a href="{{ url('/home') }}">Home</a>
  
                      </li>
  
-                     <li class="parent"><a href="{{ url('/about-us') }}">About Us</a>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.service.index') ? 'item-select' : '' }}"><a href="{{'website.service.index'}}">About Us</a>
      
                      </li>
 

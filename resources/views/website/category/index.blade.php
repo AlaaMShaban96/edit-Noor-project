@@ -5,7 +5,7 @@
 
 
 <!--Start Content-->
-<div class="content">
+<div class="content" style="margin-bottom: 50px;" >
   <div class="procedures">
     <div class="container">
 
@@ -13,7 +13,7 @@
         <div class="col-md-4">
 
           <div class="procedures-links">
-            <span class="title">Our Procedures</span>
+           
             <ul id="procedures-links" class="accordion">
               <li>
                 <div class="link">Medicom Trials<i class="icon-chevron-down"></i></div>
