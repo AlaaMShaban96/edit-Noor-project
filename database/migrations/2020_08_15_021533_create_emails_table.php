@@ -17,7 +17,7 @@ class CreateEmailsTable extends Migration
             $table->tinyIncrements('id');
             $table->integer('footer_id')->unsigned();
             $table->tinyInteger('email_type_id')->unsigned();
-            $table->string('email')->unique();
+            $table->string('link')->unique();
             $table->timestamps();
 
             $table->foreign('footer_id')->references('id')->on('footers')->onDelete('cascade');

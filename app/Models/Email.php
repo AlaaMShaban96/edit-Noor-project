@@ -15,7 +15,7 @@ class Email extends Model
      * @var array
      */
     protected $fillable = [
-        'footer_id', 'email_type_id', 'email',
+        'footer_id', 'email_type_id', 'link',
     ];
 
     public function footer()

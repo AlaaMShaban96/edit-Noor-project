@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemsTranslationsTable extends Migration
+class CreateItemTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -32,6 +32,6 @@ class CreateItemsTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items_translations');
+        Schema::dropIfExists('item_translations');
     }
 }

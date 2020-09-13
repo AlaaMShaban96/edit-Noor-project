@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ItemTranslation extends Model
+class SubCategoryTranslation extends Model
 {
-    public $table = "item_translations";
+    public $table = "sub_category_translations";
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class ItemTranslation extends Model
      * @var array
      */
     protected $fillable = [
-        'item_id', 'language_code', 'name',
+        'sub_category_id', 'language_code', 'name',
     ];
 
     public function language()
@@ -22,8 +22,8 @@ class ItemTranslation extends Model
         return $this->belongsTo(Language::class);
     }
 
-    public function Item()
+    public function subCategory()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(SubCategory::class);
     }
 }
