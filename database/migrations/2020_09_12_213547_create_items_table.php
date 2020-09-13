@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('sub_category_id')->unsigned();
             $table->tinyInteger('admin_id')->unsigned();
-            $table->string('image',100);
+            $table->string('image',100)->n;
             $table->timestamps();
 
             $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');

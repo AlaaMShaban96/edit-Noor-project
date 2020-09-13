@@ -30,7 +30,7 @@ class CategoryRequest extends FormRequest
             
             'descriptions' => 'required',
              
-            'image' => 'required', 
+            // 'image' => 'required', 
         ];
     }
     public function messages()
@@ -42,7 +42,7 @@ class CategoryRequest extends FormRequest
             
             'descriptions.required' => 'required',
              
-            'image.required' => 'required', 
+            // 'image.required' => 'required', 
         ];
     }
 }

@@ -32,7 +32,7 @@ class SubCategory extends Model
         return $this->hasMany(SubCategoryTranslation::class);
     }
 
-    public function item()
+    public function items()
     {
         return $this->hasMany(Item::class);
     }

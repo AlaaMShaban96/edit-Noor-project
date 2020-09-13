@@ -23,14 +23,14 @@
 
 
             <section id="basic-horizontal-layouts">
-                <form action="{{url('cpanel/admin/item/'.$item->id)}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
+                <form action="{{url('cpanel/admin/subcategory/'.$subcategory->id)}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="sub_category_id" value="{{$item->sub_category_id}}">
+                    <input type="hidden" name="category_id" value="{{$subcategory->category_id}}">
                 <div class="row match-height">
                
-                  @foreach ($item->itemTranslation as $item)
-                  @switch($item->language_code)
+                  @foreach ($subcategory->subCategoryTranslation as $subcategory)
+                  @switch($subcategory->language_code)
                       @case('ar')
                             <div class="col-md-6 col-12">
                                 <div class="card">
@@ -43,8 +43,8 @@
                                                 <div class="row">
                                                     <div class="col-sm-12 data-field-col">
                                                         <label for="data-name">Name Arabic</label>
-                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$item->language_code}}" checked>
-                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$item->name}}" required='required'>
+                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$subcategory->language_code}}" checked>
+                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$subcategory->name}}" required='required'>
                                                      </div>
                                                 </div>
                                             </div>
@@ -65,8 +65,8 @@
                                                 <div class="row">
                                                     <div class="col-sm-12 data-field-col">
                                                         <label for="data-name">Name Einglish</label>
-                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$item->language_code}}" checked>
-                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$item->name}}" required='required'>
+                                                        <input type="checkbox" id="vehicle" name="language_codes[]" value="{{$subcategory->language_code}}" checked>
+                                                        <input type="text" name="names[]" class="form-control" id="data-name_ar" value="{{$subcategory->name}}" required='required'>
                                                         </div>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@
                 </fieldset>
             </div>
             <button type="submit" class="btn btn-primary mr-1 mb-1">Update</button>
-            <a href='{{url("cpanel/admin/item/".$item->item->category_id."/category")}}' class="btn btn-danger mr-1 mb-1">Cancel</a>
+            <a href='{{url("cpanel/admin/subcategory/".$subcategory->subcategory->category_id."/category")}}' class="btn btn-danger mr-1 mb-1">Cancel</a>
                 </form>
               </section>
             

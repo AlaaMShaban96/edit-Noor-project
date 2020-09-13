@@ -34,9 +34,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('admin-index','Cpanel\Admin\AdminController@index');
     Route::get('admin-create','Cpanel\Admin\AdminController@create');
     Route::post('admin-store','Cpanel\Admin\AdminController@store'); 
-    Route::get('admin-edit/{id}','Cpanel\Admin\AdminControlle@edit');
-    Route::post('admin-update/{id}','Cpanel\Admin\AdminControlle@update');
-    Route::get('admin-delete/{id}','Cpanel\Admin\AdminControlle@destroy');  
+    Route::get('admin-edit/{id}','Cpanel\Admin\AdminController@edit');
+    Route::post('admin-update/{id}','Cpanel\Admin\AdminController@update');
+    Route::get('admin-delete/{id}','Cpanel\Admin\AdminController@destroy');  
 
     //Routes Profile
     Route::get('Profile-index','Cpanel\Profile\ProfileController@index');
@@ -49,9 +49,13 @@ Route::group(['prefix' => 'admin'], function() {
     //Route category
     Route::resource('category', 'Cpanel\Category\CategoryController');
 
+   //Route Sub Category 
+    Route::resource('subcategory', 'Cpanel\SubCategory\SubCategoryController');
+    Route::get('subcategory/{category}/category', 'Cpanel\SubCategory\SubCategoryController@index');
+
     //Routes Items
     Route::resource('item', 'Cpanel\Items\ItemController');
-    Route::get('item/{category}/category', 'Cpanel\Items\ItemController@index');
+    Route::get('item/{subcategory}/subcategory', 'Cpanel\Items\ItemController@index');
 
     //Route partners 
     Route::resource('partner', 'Cpanel\Partner\PartnerController');

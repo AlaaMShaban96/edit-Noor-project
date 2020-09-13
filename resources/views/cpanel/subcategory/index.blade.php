@@ -1,14 +1,9 @@
 
 @extends('cpanel/layouts/contentLayoutMaster')
 
-@section('title', 'Category')
+@section('title', 'Nano Tech')
 
-@section('vendor-style')
-        {{-- vendor files --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/file-uploaders/dropzone.min.css') }}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/tables/datatable/datatables.min.css') }}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css') }}"> --}}
-@endsection
+
 @section('page-style')
         {{-- Page css files --}}
         {{-- <link rel="stylesheet" href="{{ asset('css/plugins/file-uploaders/dropzone.css') }}"> --}}
@@ -16,9 +11,11 @@
 @endsection
 @section('content')
 {{-- Data list view starts --}}
+
 <section id="data-thumb-view" class="data-thumb-view-header">
     <div class="action-btns d-none">
       <div class="btn-dropdown mr-1 mb-1">
+       
       </div>
     </div>
     @if ($errors->any())
@@ -37,30 +34,30 @@
             <th></th>
             <th>Image</th>
             <th>NAME</th>
-            <th>CATEGORY</th>
+            
             <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($categories as $key=>$category)
+          @foreach ($subCategories as $key=>$subCategories)
          
 
-           @if ($category->language_code=='en')
+           @if ($subCategories->language_code=='en')
                
           
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($subCategories->subCategory->image) }}" alt="Img placeholder">
               </td>
-              <td class="product-name">{{ $category->name }}</td>
-              <td class="product-category">{{ $category->description }}</td>
+              <td class="product-name">{{ $subCategories->name }}</td>
+             
             
               <td class="product-action">
-                <a href='{{url("cpanel/admin/category/".$category->category->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                <a href='{{url("cpanel/admin/subcategory/".$category->category->id."/category")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
-                <a href="#" onclick="deletee({{$category->category->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                <a href='{{url("cpanel/admin/subcategory/".$subCategories->subCategory->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
+                <a href='{{url("cpanel/admin/item/".$subCategories->subCategory->id."/subcategory")}}' ><span class="fonticon-wrap"><i class="fa fa-sitemap"></i></span></a>
+                <a href="#" onclick="deletee({{$subCategories->subCategory->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
-              <form style="display: none" id="delete{{$category->category->id}}" action="{{url('cpanel/admin/category/'.$category->category->id)}}" method="post">
+              <form style="display: none" id="delete{{$subCategories->subCategory->id}}" action="{{url('cpanel/admin/subcategory/'.$subCategories->subCategory->id)}}" method="post">
                 @method('delete')
                 @csrf
               {{-- <button  type="submit"></button> --}}
@@ -76,37 +73,33 @@
 
     {{-- add new sidebar starts --}}
     <div class="add-new-data-sidebar">
-        <form action="{{url('cpanel/admin/category')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
+        <form action="{{url('cpanel/admin/subcategory')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="category_id" value="{{$category->id}}">
             <div class="overlay-bg"></div>
             <div class="add-new-data">
                 <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
                 <div>
-                    <h4 class="text-uppercase">Category</h4>
+                    <h4 class="text-uppercase">subcategory</h4>
                 </div>
                 <div class="hide-data-sidebar">
                     <i class="feather icon-x"></i>
                 </div>
                 </div>
-                <div class="data-items pb-3">
+                <div class="data-subCategoriess pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
                     {{-- <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Arbic</label>
                         <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
-                        <label for="data-name">Description Arbic</label>
-                        <textarea name="descriptions[]" id="data-description_ar" cols="30" rows="10"required='required'></textarea>
                     </div> --}}
                     <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Englash</label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_en" required='required'>
-                        <label for="data-name">Description Englash</label>
-                        <textarea name="descriptions[]" id="data-description_en" cols="30" rows="10" required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
-                     
                         <fieldset class="form-group">
                             <label for="basicInputFile">Upload Photo</label>
                             <div class="custom-file">
@@ -114,7 +107,6 @@
                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                         </fieldset>
-                    
                     </div>
                     </div>
                 </div>
@@ -130,7 +122,10 @@
             </div>
         </form>
     </div>
-  
+    {{-- Edit new sidebar starts --}}
+    
+    
+    {{-- add new sidebar ends --}}
   </section>
   {{-- Data list view end --}}
 @endsection

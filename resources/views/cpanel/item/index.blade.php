@@ -75,7 +75,7 @@
     <div class="add-new-data-sidebar">
         <form action="{{url('cpanel/admin/item')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="category_id" value="{{$category->id}}">
+            <input type="hidden" name="sub_category_id" value="{{$subcategory->id}}">
             <div class="overlay-bg"></div>
             <div class="add-new-data">
                 <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
@@ -89,19 +89,24 @@
                 <div class="data-items pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
-                    <div class="col-sm-12 data-field-col">
+                    {{-- <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Arbic</label>
                         <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Englash</label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_en" required='required'>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">
-                        <label for="data-name">Uplade Photo </label>
-                        <input type="file" name="image" id="" required='required'>
+                      <fieldset class="form-group">
+                        <label for="basicInputFile">Upload Photo</label>
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </fieldset>
                     </div>
                     </div>
                 </div>

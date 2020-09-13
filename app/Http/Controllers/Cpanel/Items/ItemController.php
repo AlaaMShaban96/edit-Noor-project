@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cpanel\Items;
 
 use App\Models\Item;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Models\ItemTranslation;
 use App\Http\Controllers\Controller;
@@ -17,20 +18,21 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Category $category)
+    public function index(SubCategory $subcategory)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Categories "],
+            ['name'=>"Sub Categor "],
             ['name'=>"Items "],
         ];
         $ids=array();
-        foreach ($category->items as  $item) {
+        foreach ($subcategory->items as  $item) {
             array_push($ids,$item->id );
         }
         // dd($ids);
         $items=ItemTranslation::whereIn('item_id',$ids)->get();
-        return view('cpanel.item.index', compact('items','breadcrumbs','category'));
+        return view('cpanel.item.index', compact('items','breadcrumbs','subcategory'));
     }
 
     /**
@@ -55,7 +57,7 @@ class ItemController extends Controller
         
         $item = new Item();
         $item->admin_id = 1;
-        $item->category_id = $request->category_id;
+        $item->sub_category_id = $request->sub_category_id;
         if ($request->image != null) {
             $item->image=$this->uploadeImage( $request);
         }
@@ -91,8 +93,9 @@ class ItemController extends Controller
     public function edit(Item $item)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Categories "],
+            ['name'=>"Sub Categor "],
             ['name'=>"Items "],
             ['name'=>"Edit "],
         ];
@@ -114,7 +117,7 @@ class ItemController extends Controller
             $item->image=$this->uploadeImage( $request);
             $item->save();
         }
-        $item->category_id = $request->category_id;
+        $item->sub_category_id = $request->sub_category_id;
         
 
         foreach ($item->itemTranslation as $key=> $translation) {
@@ -123,7 +126,7 @@ class ItemController extends Controller
             $translation->name=$request->names[$key];
             $translation->save();
         }
-        return redirect('cpanel/admin/item/'.$item->category_id.'/category');
+        return redirect('cpanel/admin/item/'.$item->sub_category_id.'/subcategory');
     }
 
     /**
@@ -134,11 +137,11 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        $category_id=$item->category_id;
+        $sub_category_id=$item->sub_category_id;
         $item->itemTranslation()->delete();
-        unlink($item->image);
+        $item->image==null?"":unlink($item->image);
         $item->delete();
-        return redirect('cpanel/admin/item/'.$category_id.'/category');
+        return redirect('cpanel/admin/item/'.$sub_category_id.'/subcategory');
     }
     private function uploadeImage(Request $request)
     {
