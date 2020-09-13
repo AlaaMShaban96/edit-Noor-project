@@ -13,14 +13,8 @@
                     <div class="col-md-12">
                     
                     <div class="our-location">
-                    <div class="map"><iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Envato+Pty+Ltd,+Elizabeth+Street,+Melbourne,+Victoria,+Australia&amp;aq=0&amp;oq=envato+&amp;sll=37.0625,-95.677068&amp;sspn=39.235538,86.572266&amp;ie=UTF8&amp;hq=Envato+Pty+Ltd,&amp;hnear=Elizabeth+St,+Melbourne+Victoria+3000,+Australia&amp;ll=-37.817942,144.964977&amp;spn=0.01918,0.008866&amp;t=m&amp;output=embed"></iframe></div>
-                            <div class="get-directions">
-                                <form action="http://maps.google.com/maps" method="get" target="_blank">
-                                    <input type="text" name="saddr" placeholder="Enter Your Address" />
-                                    <input type="hidden" name="daddr" value="Envato Pty Ltd, Elizabeth Street, Melbourne, Victoria, Australia" />
-                                    <input type="submit" value="Get directions" class="direction-btn" />
-                                </form>
-                            </div>
+                    <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.4851002213218!2d13.223439084815261!3d32.88534028093956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9c82e032f72bd93!2z2YbZiNixINin2YTYp9mF2KfZhtipINmE2KfYs9iq2YrYsdin2K8g2KfZhNin2K_ZiNmK2Kkg2YjYp9mE2YXYs9iq2YTYstmF2KfYqiDYp9mE2LfYqNmK2Kk!5e0!3m2!1sar!2sly!4v1600014190225!5m2!1sar!2sly" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+                            
                     </div>
                     
                     </div>
@@ -36,8 +30,9 @@
                     <div class="col-md-7">
                         
                         <div class="main-title">
-                            <h2><span>We'd</span> Love to <span>Hear From You</span></h2>
-                            <p>cursus lorem molestie vitae. Nulla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui, ut rhoncus libero augue. </p>
+                            <h2>Don’t Hesitate To
+                                Contact With Us For Any
+                                Kind Of Information</h2>
                         </div>
                         
                         <div class="form">
@@ -63,22 +58,19 @@
                         <div class="contact-get">
                         <div class="main-title">
                             <h2><span>GET IN</span> Touch</h2>
-                            <p>cursus lorem molestie vitae. Nulla vehicula, lacus ut suscipit fermentum, turpis felis ultricies.</p>
                         </div>
                         
                         <div class="get-in-touch">
                         <div class="detail">
                             <span><b>Phone:</b> 1.800.555.6789</span>
                             <span><b>Email:</b> <a href="#.">support@medical.com</a></span>
-                            <span><b>Web:</b> <a href="#.">www.Medicalguide.com</a></span>
                             <span><b>Address:</b> 12345 North Main Street, New York, NY</span>
                         </div>
                         
                         <div class="social-icons">
                                 <a href="#." class="fb"><i class="icon-euro"></i></a>
                                 <a href="#." class="tw"><i class="icon-yen"></i></a>
-                                <a href="#." class="gp"><i class="icon-google-plus"></i></a>
-                                <a href="#." class="vimeo"><i class="icon-vimeo4"></i></a>
+               
                         </div>
                         </div>
                         </div>

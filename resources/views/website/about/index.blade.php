@@ -116,28 +116,24 @@
      </section> -->
     <!--End Pie Chart-->
 
-    <section class="piechart-section dark-back" id="pie-charts">
-      <div class="container">
+    <div class="container">
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="main-title text-center">
-              <h2><span>Our Suppliers</span></h2>
-              <span class="" style="display: inline-block;
-             width: 61px;
-             border-bottom: solid 2px #3c763d;
-             padding-top: 10px;"></span>
-              <p class="text-center">Meet Our Suppliers</p>
-            </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="main-title text-center">
+            <h2><span>read my story </span></h2>
+            <span class="" style="display: inline-block;
+           width: 61px;
+           border-bottom: solid 2px #3a539b;
+           padding-top: 10px;"></span>
+          
           </div>
         </div>
-
-        <div class="text-center">
-
-        </div>
-
       </div>
-    </section>
+
+     
+
+    </div>
     <!--Start Our Hospital-->
     <div class="hospital">
       <div class="container">
@@ -197,14 +193,29 @@
   </div>
   <!--End Content-->
 
+ 
+    <div class="container">
 
+      <div class="row">
+        <div class="col-md-12">
+          <div class="main-title text-center">
+            <h2><span>Our Suppliers</span></h2>
+            <span class="" style="display: inline-block;
+           width: 61px;
+           border-bottom: solid 2px #3a539b;
+           padding-top: 10px;"></span>
+            <p class="text-center">Meet Our Suppliers</p>
+          </div>
+        </div>
+      </div>
+
+     
+
+    </div>
+ 
   <section class="home-two-experts-section">
     <div class="container">
-      <div class="them-main-title text-center">
-        <h2>Our Suppliers</h2>
-        <span></span>
-        <p>Meet Our Suppliers</p>
-      </div>
+ 
 
       <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="row">

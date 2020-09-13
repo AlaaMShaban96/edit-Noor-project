@@ -1,122 +1,270 @@
 @extends('website.layouts.master')
 @section('titel','service')
-@section('style')
-{{-- <style>
-    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-           float: left;
-    }
 
-   
-        .col-xs-6 {
-            width: 50%;
-        }
-        @media (max-width: 375px) {
-        .col-xs-6 {
-            width: 100%;
-        }
-        
-    } 
-      .defult{
-		  display: none;
-	  }
-    
-</style>
-@endsection   --}}
 @section('content')
 
-<div class="content" style="margin-bottom: 50px;">
-		
-    <div class="news-posts">
-        <div class="container">
-            <div class="row">
-                  <div class="col-md-4 col-xs-6">
-                    <div class="categories">
-                        <h6 class="bar-title">Categories</h6>
-                        <ul>
-                            <li><a href="#." onclick="openPage('x')"><i class="icon-chevron-small-right"></i> Facelift</a></li>
-                            <li><a href="#." onclick="openPage('y')"><i class="icon-chevron-small-right"></i> Dental</a></li>
-                            <li><a href="#." onclick="openPage('Home')"><i class="icon-chevron-small-right"></i> Tummy Tuck</a></li>
-                            <li><a href="#." onclick="openPage('Home')"><i class="icon-chevron-small-right"></i> Colonoscopy</a></li>
-                            <li><a href="#." onclick="openPage('Home')"><i class="icon-chevron-small-right"></i> Heart Patient</a></li>
-                            <li><a href="#." onclick="openPage('Home')"><i class="icon-chevron-small-right"></i> Chin Implant</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8 col-xs-6" style="margin-top: 104px;">
-                        
-                        <div class="row">
-							<div id="x" class="defult">
-								<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width">
-									<div class="single-item-Wrapper">
-										<div class="shop-img-item">
-											<img src="website/images/cart-img2.jpg" alt="image">
-										</div>
-										<div class="single-Text-item">
-											<h5> Allergy </h5>
-										</div>
-									</div> <!-- /.single-item-Wrapper-->
-								</div>
-								 <!-- /.single-item-Wrapper-->
-								<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width">
-									<div class="single-item-Wrapper">
-										<div class="shop-img-item">
-											<img src="website/images/cart-img2.jpg" alt="image">
-										</div>
-										<div class="single-Text-item">
-											<h5> Allergy </h5>
-										</div>
-									</div> <!-- /.single-item-Wrapper-->
-								</div>
-								 <!-- /.single-item-Wrapper-->
-								<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width">
-									<div class="single-item-Wrapper">
-										<div class="shop-img-item">
-											<img src="website/images/cart-img2.jpg" alt="image">
-										</div>
-										<div class="single-Text-item">
-											<h5> Allergy </h5>
-										</div>
-									</div> <!-- /.single-item-Wrapper-->
-								</div>
-								 <!-- /.single-item-Wrapper-->
-                            </div>
-							<div id="y" class="defult">
-								<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width">
-									<div class="single-item-Wrapper">
-										<div class="shop-img-item">
-											<img src="website/images/cart-img2.jpg" alt="image">
-										</div>
-										<div class="single-Text-item">
-											<h5> Allergy </h5>
-										</div>
-									</div> <!-- /.single-item-Wrapper-->
-								</div>
-							
-                            </div>
-                         
-                        </div>
-                </div>
-             
-              
-            </div>
+
+<!--Start Content-->
+<div class="content">
+  <div class="procedures">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+
+          <div class="procedures-links">
+            <span class="title">Our Procedures</span>
+            <ul id="procedures-links" class="accordion">
+              <li>
+                <div class="link">Medicom Trials<i class="icon-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li><a href="#.">Trials Section One</a></li>
+                  <li><a href="#">Trials Section Two</a></li>
+                  <li><a href="#">Trials Section Three</a></li>
+                  <li><a href="#">Trials Section Four</a></li>
+                  <li><a href="#">Trials Section Five</a></li>
+                </ul>
+              </li>
+              <li class="open">
+                <div class="link">Cancer<i class="icon-chevron-down"></i></div>
+                <ul class="submenu" style="display:block;">
+                  <li><a href="#">Cell Death Research</a></li>
+                  <li class="item-seclect"><a href="#">Cancer Center</a></li>
+                  <li><a href="#">Brain Cancer</a></li>
+                  <li><a href="#">Tumor Microenvironment</a></li>
+                  <li><a href="#">Breast Cancer</a></li>
+                  <li><a href="#">Childhood Cancers</a></li>
+                  <li><a href="#">Endocrine Cancers</a></li>
+                  <li><a href="#">Skin Cancer</a></li>
+                  <li><a href="#">Male Cancers</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="link">Children's Health<i class="icon-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li><a href="#">Skin Care</a></li>
+                  <li><a href="#">Face Care</a></li>
+                  <li><a href="#">Hair Care</a></li>
+                  <li><a href="#">Health Care</a></li>
+                  <li><a href="#">Body Care</a></li>
+                  <li><a href="#">Arm Care</a></li>
+                  <li><a href="#">Chest Care</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="link">Department One<i class="icon-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li><a href="#">Department One</a></li>
+                  <li><a href="#">Department Two</a></li>
+                  <li><a href="#">Department Three</a></li>
+                  <li><a href="#">Department Four</a></li>
+                  <li><a href="#">Department Five</a></li>
+                  <li><a href="#">Department Six</a></li>
+                  <li><a href="#">Department Seven</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="link">Department Two<i class="icon-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li><a href="#">Department One</a></li>
+                  <li><a href="#">Department Two</a></li>
+                  <li><a href="#">Department Three</a></li>
+                  <li><a href="#">Department Four</a></li>
+                  <li><a href="#">Department Five</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+          </div>
+
+
         </div>
+
+
+
+        <div class="col-md-8">
+			<div class="row">
+				     <!-- single-item-Wrapper-->
+					 <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+						<div class="single-item-Wrapper">
+						  <div class="shop-img-item">
+							<img src="website/images/cart-img2.jpg" alt="image">
+						  </div>
+						  <div class="single-Text-item">
+							<h5> Allergy </h5>
+						  </div>
+						</div> <!-- /.single-item-Wrapper-->
+					  </div>
+					       <!-- single-item-Wrapper-->
+						   <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+							<div class="single-item-Wrapper">
+							  <div class="shop-img-item">
+								<img src="website/images/cart-img2.jpg" alt="image">
+							  </div>
+							  <div class="single-Text-item">
+								<h5> Allergy </h5>
+							  </div>
+							</div> <!-- /.single-item-Wrapper-->
+						  </div>
+						       <!-- single-item-Wrapper-->
+							   <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+								<div class="single-item-Wrapper">
+								  <div class="shop-img-item">
+									<img src="website/images/cart-img2.jpg" alt="image">
+								  </div>
+								  <div class="single-Text-item">
+									<h5> Allergy </h5>
+								  </div>
+								</div> <!-- /.single-item-Wrapper-->
+							  </div>
+							       <!-- single-item-Wrapper-->
+							     <!-- single-item-Wrapper-->
+								 <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+									<div class="single-item-Wrapper">
+									  <div class="shop-img-item">
+										<img src="website/images/cart-img2.jpg" alt="image">
+									  </div>
+									  <div class="single-Text-item">
+										<h5> Allergy </h5>
+									  </div>
+									</div> <!-- /.single-item-Wrapper-->
+								  </div>
+			</div>
+
+        </div>
+      </div>
     </div>
-
-
-
-
-</div>
-@endsection
-@section('script')
-
-<script>
-	var lastPage="";
-	
-	function openPage(pageName) {
-  
-  lastPage==""?"": document.getElementById(lastPage).style.display = "none";
-  document.getElementById(pageName).style.display = "block"
-  lastPage=pageName;
-}
-</script>
-@endsection
+    <!--End Content-->
+    @endsection
