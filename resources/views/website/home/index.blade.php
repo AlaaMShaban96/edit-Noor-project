@@ -14,7 +14,7 @@
     <li><span class="day">Saturday</span> <span class="divider">-</span> <span class="time">9.15 - 17.00</span></li>
     <li><span class="day">Sunday</span> <span class="divider">-</span> <span class="time">9.45 - 15.00</span></li>
     </ul>
-    <div class="link"><img class="time-tab" src="website/images/timetable-menu-green.png" alt=""></div>
+    <div class="link"><img class="time-tab" src="website/images/timetable-menu-dark-blue.png" alt=""></div>
     
     </li>
     </ul>

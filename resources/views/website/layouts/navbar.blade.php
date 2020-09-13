@@ -7,11 +7,9 @@
          <div id="status">&nbsp;</div>
  
          <div class="loader">
-             <img src="website/images/favicon-medical.png"/>
-             <br/>
-             <span></span>
-             <span></span>
-             <span></span>
+             <img style="margin-bottom: 20px " src="website/images/favicon-medical.png"/>
+             
+            
          </div>
      </div>
      <!--End PreLoader-->
