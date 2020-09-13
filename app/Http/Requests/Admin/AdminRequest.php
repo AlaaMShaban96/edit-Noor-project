@@ -13,7 +13,18 @@ class AdminRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return [
+            'name' => 'required', 
+            
+            'email' => 'required', 
+            
+            'password' => 'required',
+            'active' => 'required',
+            'role' => 'required',
+            'passwordConfrim' => 'required',
+             
+            
+        ];
     }
 
     /**
@@ -24,7 +35,18 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name.required' => 'name required', 
+            
+            'email.required' => 'email required', 
+        
+            
+            'password.required' => 'password required',
+             
+            'active.required' => 'active required', 
+             
+            'role.required' => 'role required', 
+             
+            'passwordConfrim.required' => 'passwordConfrim required', 
         ];
     }
 }

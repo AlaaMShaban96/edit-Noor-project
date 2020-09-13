@@ -29,11 +29,11 @@ Route::group(['prefix' => 'admin'], function() {
     //Routes Dashboard
     Route::get('/', 'Cpanel\Dashboard\DashboardController@index');
     Route::get('dashboard', 'Cpanel\Dashboard\DashboardController@index');
-
+ 
     //Routes Admin
     Route::get('admin-index','Cpanel\Admin\AdminController@index');
     Route::get('admin-create','Cpanel\Admin\AdminController@create');
-    Route::post('admin-store','Cpanel\Admin\AdminControlle@store'); 
+    Route::post('admin-store','Cpanel\Admin\AdminController@store'); 
     Route::get('admin-edit/{id}','Cpanel\Admin\AdminControlle@edit');
     Route::post('admin-update/{id}','Cpanel\Admin\AdminControlle@update');
     Route::get('admin-delete/{id}','Cpanel\Admin\AdminControlle@destroy');  
