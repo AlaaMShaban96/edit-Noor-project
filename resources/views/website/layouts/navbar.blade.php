@@ -81,20 +81,23 @@
      
                      </li>
 
-                     <li>
+                     <li> 
                          <a href="{{ url('/Category') }}">category</a>
 						<ul class="submenu">
                             @foreach ($categories as $category)
-                            @if ($category->language_code=='en')
-                            <li> 
-                                <a href="">{{$category->name}}</a>
-                                <ul class="submenu">
-                                    @foreach ($category->category->items as $item)
-                                        <li> <a href="">{{$item->id}}</a> </li>
-                                    @endforeach
-                                </ul> 
-                            </li>   
-                            @endif
+                                @if ($category->language_code=='en')
+                                    <li> 
+                                        <a href="">{{$category->name}}</a>
+                                        <ul class="submenu">
+                                            @foreach ($category->category->subCategories as $subCategories)
+                                                @foreach ($subCategories->subCategoryTranslation as $subCategory)
+                                                    <li> <a href="">{{$subCategory->name}}</a> </li>
+                                                @endforeach
+                                            
+                                            @endforeach
+                                        </ul> 
+                                    </li>   
+                                @endif
                             
                             @endforeach
                         
