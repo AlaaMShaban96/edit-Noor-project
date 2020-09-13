@@ -24,7 +24,17 @@ class PhoneRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'phone' => ['required','numeric','digits:10', 'unique:phone_numbers'],
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'phone.required' => 'The Phone field is required.',
+            'phone.numeric' => 'The Phone must be a number.',
+            'phone.digits' => 'The Phone must be 10 digits.',
+            'phone.unique' => 'The Phone has already been taken.',
+         ];
     }
 }

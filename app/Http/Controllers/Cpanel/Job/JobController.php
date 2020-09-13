@@ -55,7 +55,7 @@ class JobController extends Controller
         $job->gender = $request->gender;
       
         $job->save();
-
+                                                
         foreach ($request->language_code as $key => $code) {   
             $jobTranslation = new JobTranslation();
             $jobTranslation->job_id = $job->id;

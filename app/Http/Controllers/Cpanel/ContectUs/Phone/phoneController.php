@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContectUs\Phone\PhoneRequest;
 use App\Models\PhoneNumber;
-use App\Models\Footer;
 
 class phoneController extends Controller
 {
@@ -18,13 +17,13 @@ class phoneController extends Controller
     public function index()
     {
         //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"phone",'name'=>"Phone"]
         ];
-
-        return view('cpanel.contectUs.phone.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        $phone = PhoneNumber::all();
+        return view('cpanel.contectUs.phone.index',compact('phone','breadcrumbs'));
+        // return response([ 'success' => true,compact('phone','breadcrumbs')]);
     }
 
     /**
@@ -35,6 +34,7 @@ class phoneController extends Controller
     public function create()
     {
         //
+        return view('cpanel.contectUs.phone.create');
     }
 
     /**
@@ -46,6 +46,12 @@ class phoneController extends Controller
     public function store(PhoneRequest $request)
     {
         //
+        $phoneNumber = new PhoneNumber();
+        $phoneNumber->footer_id = '1';
+        $phoneNumber->phone = $request->phone;
+        $phoneNumber->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -68,6 +74,12 @@ class phoneController extends Controller
     public function edit($id)
     {
         //
+        $breadcrumbs = [
+            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"phone",'name'=>"Phone"]
+        ];
+        $phoneNumber = PhoneNumber::find($id);
+        return view('cpanel.contectUs.phone.edit', compact('phoneNumber','breadcrumbs'));
     }
 
     /**
@@ -79,7 +91,10 @@ class phoneController extends Controller
      */
     public function update(PhoneRequest $request, $id)
     {
-        //
+        
+        $phoneNumber = PhoneNumber::find($id);
+        $phoneNumber->phone = $request->phone;
+        $phoneNumber->save();
     }
 
     /**
@@ -90,6 +105,9 @@ class phoneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $phoneNumber = PhoneNumber::find($id);
+        $phoneNumber->delete();
+
+        return redirect('cpanel/admin/phone');
     }
 }
