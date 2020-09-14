@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Website\Partner;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\OurPartnersTranslation;
 
 class PartnerController extends Controller
 {
@@ -15,7 +16,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
-        return view('website.partner.index');
+        $partners =OurPartnersTranslation::all();
+        return view('website.partner.index',compact('partners'));
     }
 }
