@@ -23,43 +23,43 @@
                         <form class="form" wfd-id="112" action="{{route('job.store')}}" method="post">
                             @csrf
                             <div class="form-body" wfd-id="113">
-                               
+                                
                                     
                                     <div class="row" wfd-id="114">
                                        
                                         <div class="col-md-6 col-12" wfd-id="133">
                                             <div class="form-label-group" wfd-id="134">
-                                                <textarea  id="last-name-column" class="form-control"  placeholder="Titel" name="name" wfd-id="547" required></textarea>
+                                                <textarea  id="last-name-column" class="form-control"  placeholder="Titel" name="name[]" wfd-id="547" required></textarea>
                                                 <label for="last-name-column" wfd-id="135">description</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="133">
                                             <div class="form-label-group" wfd-id="134">
-                                                <textarea  id="last-name-column" class="form-control"  placeholder="description" name="description" wfd-id="547" required></textarea>
+                                                <textarea  id="last-name-column" class="form-control"  placeholder="description[]" name="description" wfd-id="547" required></textarea>
                                                 <label for="last-name-column" wfd-id="135">description</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="130">
                                             <div class="form-label-group" wfd-id="131">
-                                                <textarea  id="responsibility-column" class="form-control" placeholder="responsibility" name="responsibility" wfd-id="546" required></textarea>
+                                                <textarea  id="responsibility-column" class="form-control" placeholder="responsibility[]" name="responsibility" wfd-id="546" required></textarea>
                                             <label for="responsibility-column" wfd-id="132">responsibility</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="127">
                                             <div class="form-label-group" wfd-id="128">
-                                                <textarea   id="qualification-floating" class="form-control" placeholder="qualification"  name="qualification" wfd-id="545" required></textarea>
+                                                <textarea   id="qualification-floating" class="form-control" placeholder="qualification[]"  name="qualification" wfd-id="545" required></textarea>
                                                 <label for="qualification-floating" wfd-id="129">qualification</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="124">
                                             <div class="form-label-group" wfd-id="125">
-                                                <textarea    id="experience-column" class="form-control" placeholder="experience"  name="experience" wfd-id="544" required></textarea>
+                                                <textarea    id="experience-column" class="form-control" placeholder="experience"  name="experience[]" wfd-id="544" required></textarea>
                                                 <label for="experience-column" wfd-id="126">experience</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="121">
                                             <div class="form-label-group" wfd-id="122">
-                                                <textarea    id="skills-column" class="form-control"  placeholder="skills" name="skills" wfd-id="544" required></textarea>
+                                                <textarea    id="skills-column" class="form-control"  placeholder="skills" name="skills[]" wfd-id="544" required></textarea>
 
                                                 <label for="skills-column" wfd-id="123">skills</label>
                                             </div>

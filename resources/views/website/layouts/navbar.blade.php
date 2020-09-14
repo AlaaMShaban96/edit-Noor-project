@@ -108,17 +108,17 @@
 					</ul>
 					</li>
  
-                     <li><a href="{{ url('/news') }}">News</a></li>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.news.index') ? 'item-select' : '' }}" ><a href="{{ url('/news') }}">News</a></li>
  
                   
  
-                     <li class="parent"><a href="{{ url('/job') }}">Jobs</a>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.job.index') ? 'item-select' : '' }}" ><a href="{{ route('website.job.index') }}">Jobs</a>
                  
                      </li>
  
                      <li><a href="{{ url('/partner') }}">Partners</a></li>
  
-                     <li class="parent"><a href="{{ url('/contectUs') }}">Contact Us</a>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.contectUs.index') ? 'item-select' : '' }}" ><a href="{{ route('website.contectUs.index') }}">Contact Us</a>
                  
                      </li>
  

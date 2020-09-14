@@ -175,13 +175,13 @@
                                     <div class="detail">
                                         <h4>{{$category->name}}</h4>
                                         <p>{{$category->description}}</p>
-                                        <a href="about-us.html">Read More</a>
+                                        <a href="{{url("/category/".$category->category->id)}}">Show Sub Category </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endif
-                @endforeach
+                @endforeach 
             </div>
         </div>
     </div>

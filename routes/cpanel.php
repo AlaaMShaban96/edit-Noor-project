@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin'], function() {
 
                 //Route job
                 Route::resource('job', 'Cpanel\Job\JobController');
-
+ 
                 //Route Jobs applicants
                 Route::get('Jobs-applicants', 'Cpanel\RecruitmentForm\RecruitmentFormController@index');
         });

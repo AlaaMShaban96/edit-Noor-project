@@ -15,6 +15,6 @@ class ContectUsController extends Controller
     public function index()
     {
         //
-        return view('website.contectUs.index');
+        return view('website.contectus.index');
     }
 }

@@ -22,7 +22,7 @@ class Job extends Model
     {
         return $this->belongsTo(OurAddress::class);
     }
-
+  
     public function JobTranslation()
     {
         return $this->hasMany(JobTranslation::class);
