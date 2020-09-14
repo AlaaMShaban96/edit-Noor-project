@@ -1,5 +1,6 @@
-@extends('cpanel/layouts/contentLayoutMaster') @section('title', 'slide
-controll') @section('page-style')
+@extends('cpanel/layouts/contentLayoutMaster')
+ @section('title', 'Nano Tech')
+  @section('page-style')
 {{-- Page css files --}}
 {{--
 <link
@@ -49,7 +50,7 @@ controll') @section('page-style')
 
           <td class="product-action">
             <a
-              href="{{url('cpanel/admin/slide/'.$slide->slide->id.'/edit')}}"
+              href="{{url('cpanel/admin/slider/'.$slide->slide->id.'/edit')}}"
               ><span class="action-edit"><i class="feather icon-edit"></i></span
             ></a>
             {{--
@@ -66,7 +67,7 @@ controll') @section('page-style')
           <form
             style="display: none"
             id="delete{{$slide->slide->id}}"
-            action="{{url('cpanel/admin/slide/'.$slide->slide->id)}}"
+            action="{{url('cpanel/admin/slider/'.$slide->slide->id)}}"
             method="post"
           >
             @method('delete') @csrf {{-- <button type="submit"></button> --}}
@@ -81,7 +82,7 @@ controll') @section('page-style')
 
   {{-- add new sidebar starts --}}
   <div class="add-new-data-sidebar">
-    <form action="{{ url('cpanel/admin/silde') }}"id="CatecoryForm" method="post"enctype="multipart/form-data">
+    <form action="{{ url('cpanel/admin/slider') }}"id="CatecoryForm" method="post"enctype="multipart/form-data">
       @csrf {{--
       <input type="hidden" name="category_id" value="{{$category->id}}" /> --}}
       <div class="overlay-bg"></div>
@@ -89,7 +90,7 @@ controll') @section('page-style')
       <div class="add-new-data">
         <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
           <div>
-            <h4 class="text-uppercase">slide controll</h4>
+            <h4 class="text-uppercase">Slide </h4>
           </div>
           <div class="hide-data-sidebar">
             <i class="feather icon-x"></i>
@@ -98,7 +99,7 @@ controll') @section('page-style')
         <div class="data-items pb-3">
           <div class="data-fields px-2 mt-1">
             <div class="row">
-              <div class="col-sm-12 data-field-col">
+              {{-- <div class="col-sm-12 data-field-col">
                 <label for="data-name">Tilte Arbic</label>
                 <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked/>
                 <input
@@ -116,9 +117,9 @@ controll') @section('page-style')
                   rows="10"
                   required="required"
                 ></textarea>
-              </div>
+              </div> --}}
               <div class="col-sm-12 data-field-col">
-                <label for="data-name">tilit Englash</label>
+                <label for="data-name">Title</label>
                 <input
                   type="checkbox"
                   id="vehicle1"
@@ -133,7 +134,7 @@ controll') @section('page-style')
                   id="data-name_en"
                   required="required"
                 />
-                <label for="data-name">Description Englash</label>
+                <label for="data-name">Description </label>
                 <textarea
                   name="descriptions[]"
                   id="data-description_en"
@@ -169,26 +170,15 @@ controll') @section('page-style')
 {{-- Data list view end --}}
 @endsection @section('vendor-script')
 {{-- vendor js files --}}
-<script src="{{ asset('vendors/js/extensions/dropzone.min.js') }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/datatables.min.js')
-  }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/datatables.buttons.min.js')
-  }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js')
-  }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/buttons.bootstrap.min.js')
-  }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/dataTables.select.min.js')
-  }}"></script>
-<script src="{{
-    asset('vendors/js/tables/datatable/datatables.checkboxes.min.js')
-  }}"></script>
-@endsection @section('page-script')
+    <script src="{{ asset('vendors/js/extensions/dropzone.min.js') }}"></script>
+    <script src="{{asset('vendors/js/tables/datatable/datatables.min.js')}}"></script>
+    <script src="{{ asset('vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>
+    <script src="{{asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('vendors/js/tables/datatable/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('vendors/js/tables/datatable/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('vendors/js/tables/datatable/datatables.checkboxes.min.js')}}"></script>
+@endsection
+@section('page-script')
 {{-- Page js files --}}
 <script>
   function deletee(id) {

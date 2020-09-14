@@ -1,4 +1,4 @@
-<!-- Mobile Menu -->				
+// <!-- Mobile Menu -->				
 $(document).ready(function() {
 "use strict";
 $("#menu").mmenu({
@@ -22,9 +22,9 @@ $("#menu").mmenu({
 
 
 
-<!-- Sticky Header -->
+// <!-- Sticky Header -->
 
-<!-- Header One -->
+// <!-- Header One -->
 $(window).scroll(function() {
     if ($(this).scrollTop() > 1){  
         $('header').addClass("sticky");
@@ -35,7 +35,7 @@ $(window).scroll(function() {
 });
 
 
-<!-- Header Two -->
+// <!-- Header Two -->
 $(window).scroll(function() {
     if ($(this).scrollTop() > 1){  
         $('.header2').addClass("sticky");
@@ -47,7 +47,7 @@ $(window).scroll(function() {
 
 
 
-<!-- Smooth Scrol -->	 
+// <!-- Smooth Scrol -->	 
 $(function(){
 
 var $window = $(window);		//Window object
@@ -76,7 +76,7 @@ overwrite: 5
 
 
 
-<!-- Time Table -->
+// <!-- Time Table -->
 $(function() {
 var Accordion = function(el, multiple) {
 this.el = el || {};
@@ -110,7 +110,7 @@ var accordion = new Accordion($('#accordion2'), false);
 
 
 
-<!-- Make an Appointment Accordion -->				
+// <!-- Make an Appointment Accordion -->				
 var Accordion = function(el, multiple) {
 this.el = el || {};
 this.multiple = multiple || false;
@@ -140,7 +140,7 @@ var accordion = new Accordion($('#accordion'), false);
 
 
 
-<!-- Why Choose Accordion -->				
+// <!-- Why Choose Accordion -->				
 $(function() {
 var Accordion = function(el, multiple) {
 this.el = el || {};
@@ -174,7 +174,7 @@ var accordion = new Accordion($('#why-choose'), false);
 
 
 
-<!-- Date Picker and input hover -->
+// <!-- Date Picker and input hover -->
 // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
 
 [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
@@ -221,7 +221,7 @@ inline: true
 
 
 
-<!-- Welcome Tabs -->	
+// <!-- Welcome Tabs -->	
 /* jQuery activation and setting options for the tabs*/
 var tabbedNav = $("#tabbed-nav").zozoTabs({
 orientation: "horizontal",
@@ -247,8 +247,8 @@ tabbedNav.data("zozoTabs").setOptions({ "animation": { "effects": effects } });
 
 
 
-<!-- All Carousel -->
-<!-- Home News-Posts Carousel -->
+// <!-- All Carousel -->
+// <!-- Home News-Posts Carousel -->
 $("#owl-demo").owlCarousel({
 items :3,
 lazyLoad : true,
@@ -262,10 +262,10 @@ items :3,
 lazyLoad : true,
 navigation : true
 });
+ 
 
 
-
-<!-- Testimonials Carousel -->
+// <!-- Testimonials Carousel -->
 $("#owl-demo2").owlCarousel({
 autoPlay : 111110,
 stopOnHover : true,
@@ -281,7 +281,7 @@ autoHeight : true,
 
 
 
-<!-- Team Detail -->
+// <!-- Team Detail -->
 $("#team-detail").owlCarousel({
 
 navigation : true,
@@ -301,7 +301,7 @@ singleItem : true
 
 
 
-<!-- Home2 services slide Carousel -->
+// <!-- Home2 services slide Carousel -->
 $("#services-slide").owlCarousel({
 
 navigation : true,
@@ -319,7 +319,7 @@ singleItem : true
 });
 
 
-<!-- Blog images slide Carousel -->
+// <!-- Blog images slide Carousel -->
 $("#blog-slide").owlCarousel({
 
 navigation : true,
@@ -340,7 +340,7 @@ singleItem : true
 
 
 
-<!-- Back to Top -->
+// <!-- Back to Top -->
 jQuery(document).ready(function($){
 // browser window scroll (in pixels) after which the "back to top" link is shown
 var offset = 300,

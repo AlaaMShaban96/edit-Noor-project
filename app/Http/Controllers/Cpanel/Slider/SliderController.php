@@ -54,12 +54,12 @@ class SliderController extends Controller
         $slide->image = $this->uploadeImage($request);
         $slide->save();
 
-        foreach ($request->language_code as $key => $code) {   
+        foreach ($request->language_codes as $key => $code) {   
             $slideTranslation = new SlideTranslation();
             $slideTranslation->slide_id = $slide->id;
             $slideTranslation->language_code = $code;
-            $slideTranslation->name = $request->name[$key];
-            $slideTranslation->description = $request->description[$key];
+            $slideTranslation->name = $request->names[$key];
+            $slideTranslation->description = $request->descriptions[$key];
             $slideTranslation->save();
         }
         return redirect()->back();
@@ -83,15 +83,16 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Slide $slider)
     {
+       
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
             ['link'=>"slider",'name'=>"Slider"]
         ];
-        $slide = Slide::find($id);
-        return view('cpanel.slider.edit', compact('slide','breadcrumbs'));
+        
+        return view('cpanel.slider.edit', compact('slider','breadcrumbs'));
     }
 
     /**
@@ -101,22 +102,22 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SliderUpdateRequest $request,$id)
+    public function update(SliderUpdateRequest $request,Slide $slider)
     {
         //
-        $slide = Slide::find($id);
+      
 
         if ($request->image == null) {
 
         }else{
-            $slide->image = $this->uploadeImage($request);
-            $slide->save();
+            $slider->image = $this->uploadeImage($request);
+            $slider->save();
         }
-        foreach ($slide->slideTranslation as $key=> $translation) {
+        foreach ($slider->slideTranslation as $key=> $translation) {
             
-            $translation->slide_id = $slide->id;
-            $translation->name = $request->name[$key];
-            $translation->description = $request->description[$key];
+            $translation->slide_id = $slider->id;
+            $translation->name = $request->names[$key];
+            $translation->description = $request->descriptions[$key];
             
             $translation->save();
         }

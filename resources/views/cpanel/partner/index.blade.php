@@ -75,7 +75,7 @@
     <div class="add-new-data-sidebar">
         <form action="{{url('cpanel/admin/partner')}}" id="CatecoryForm" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="type" value="{{$type}}">
+            
             <div class="overlay-bg"></div>
            
             <div class="add-new-data">
@@ -90,18 +90,18 @@
                 <div class="data-items pb-3">
                 <div class="data-fields px-2 mt-1">
                     <div class="row">
-                    <div class="col-sm-12 data-field-col">
+                    {{-- <div class="col-sm-12 data-field-col">
                         <label for="data-name">Name Arbic</label>
                         <input type="checkbox" id="vehicle" name="language_codes[]" value="ar" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_ar" required='required'>
                         <label for="data-name">Description Arbic</label>
                         <textarea name="descriptions[]" id="data-description_ar" cols="30" rows="10"required='required'></textarea>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12 data-field-col">
-                        <label for="data-name">Name Englash</label>
+                        <label for="data-name">Name </label>
                         <input type="checkbox" id="vehicle1" name="language_codes[]" value="en" checked>
                         <input type="text" name="names[]" class="form-control" id="data-name_en" required='required'>
-                        <label for="data-name">Description Englash</label>
+                        <label for="data-name">Description </label>
                         <textarea name="descriptions[]" id="data-description_en" cols="30" rows="10" required='required'></textarea>
                     </div>
                     <div class="col-sm-12 data-field-col data-list-upload">

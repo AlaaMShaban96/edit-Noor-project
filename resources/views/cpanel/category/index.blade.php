@@ -37,7 +37,7 @@
             <th></th>
             <th>Image</th>
             <th>NAME</th>
-            <th>CATEGORY</th>
+            {{-- <th>CATEGORY</th> --}}
             <th>ACTION</th>
           </tr>
         </thead>
@@ -53,7 +53,7 @@
               <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder">
               </td>
               <td class="product-name">{{ $category->name }}</td>
-              <td class="product-category">{{ $category->description }}</td>
+              {{-- <td class="product-category">{{ $category->description }}</td> --}}
             
               <td class="product-action">
                 <a href='{{url("cpanel/admin/category/".$category->category->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>

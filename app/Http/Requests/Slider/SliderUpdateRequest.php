@@ -24,11 +24,11 @@ class SliderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-             'language_code' => 'required', 
+             'language_codes' => 'required', 
             
-             'name' => 'required', 
+             'names' => 'required', 
              
-             'description' => 'required','string'
+             'descriptions' => 'required','string'
         ];
     }
 

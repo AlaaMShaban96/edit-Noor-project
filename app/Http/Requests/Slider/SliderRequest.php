@@ -19,18 +19,18 @@ class SliderRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array 
      */
     public function rules()
     {
         return [
             'image' => 'required',
 
-            'language_code' => 'required', 
+            'language_codes' => 'required', 
             
-            'name' => 'required', 
+            'names' => 'required', 
             
-            'description' => 'required','string'
+            'descriptions' => 'required','string'
         ];
     }
 

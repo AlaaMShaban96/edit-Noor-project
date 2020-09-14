@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Website\Home;
 
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Models\PostTranslation;
 use App\Models\SlideTranslation;
@@ -17,7 +18,8 @@ class HomeController extends Controller
         $sliders  = SlideTranslation::all();
         $posts    = PostTranslation::orderBy('id', 'asc')->take(5)->get();
         $partners = OurPartnersTranslation::all();
-        return view('website.home.index',compact('categoies','sliders','posts','partners'));
+        $suppliers = Supplier::all();
+        return view('website.home.index',compact('categoies','suppliers','sliders','posts','partners'));
     }
 }
  

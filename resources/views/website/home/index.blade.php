@@ -357,7 +357,7 @@
     
                   <div id="owl-demo" class="owl-carousel">
                     @foreach ($posts as $post)
-                    @if ($post->language_code='en')
+                    @if ($post->post->type=='News')
                         <div class="post item">
                             <img class="lazyOwl" src="{{$post->post->image}}" alt="">
                             <div class="detail">
@@ -437,7 +437,7 @@
             <div class="row">
             <div class="col-md-12">
             <div class="main-title main-title2">
-                <h2>Our Suppliers </h2>
+                <h2>Our Partners </h2>
             </div>
             </div>
             </div>
@@ -451,42 +451,16 @@
     
                 <div id="owl-demo2" class="owl-carousel">
     
-                  <div class="testi-sec">
-    
-    
-                    <img src="website/images/testimonial-img1.jpg" alt="">
-                    <div class="height10"></div>
-                    <span class="name">Elebana Front</span>
-                    <span class="patient">Heart Patient</span>
-                    <div class="height30"></div>    
-    
-                  </div>
-                  <div class="testi-sec">
-    
-    
-                    <img src="website/images/testimonial-img2.jpg" alt="">
-                    <div class="height10"></div>
-                    <span class="name">Johny Bravo</span>
-                    <span class="patient">Hair Patient</span>
-                    <div class="height30"></div>
-    
-    
-    
-    
-                  </div>
-                  <div class="testi-sec">
-                      <img src="website/images/testimonial-img3.jpg" alt="">
-                    <div class="height10"></div>
-                    <span class="name">Rubica Noi</span>
-                    <span class="patient">Skin Patient</span>
-                    <div class="height30"></div>
-    
-    
-    
-    
-                  </div>
-    
-    
+                    @foreach ($partners as $partner)
+                        <div class="testi-sec">
+                            <img src="{{$partner->ourPartners->image}}" alt="">
+                            <div class="height10"></div>
+                            <span class="name">{{$partner->name}}</span>
+                            <span class="patient">{{$partner->description}}</span>
+                            <div class="height30"></div>    
+                        </div>
+                    @endforeach
+
                 </div>
     
               </div>
@@ -508,20 +482,18 @@
        <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="row" >
             <div class=col-md-12>
-                <h2 class="text-center">Our partners    </h2>
+                <h2 class="text-center">Our Suppliers    </h2>
             </div>
         </div>
         <div class="row">
         <div class="col-md-12">
       <section class="customer-logos slider">
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-        <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+          @foreach ($suppliers as $supplier)
+          <div class="slide">
+              <a href="#"><img src="{{$supplier->image}}"></a>
+             </div>
+          @endforeach
+        
       </section>
      </div>
  </div>
