@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Website\Service;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -14,7 +16,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
-        return view('website.service.index');
+        $categories=Category::all();
+        return view('website.category.index',compact('categories'));
+    }
+    public function show(SubCategory $subCategory)
+    {
+       
+        return view('website.category.subcategory.item.index',compact('subCategory'));
+    }
+    public function showSubCategory(Category $category)
+    {
+        return view('website.category.subcategory.index',compact('category'));
     }
 }

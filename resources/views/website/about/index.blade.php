@@ -7,19 +7,12 @@
 
 <div class="sub-banner">
 
-  <img class="banner-img" src="images/about2.jpg" alt="">
+  <img class="banner-img" src="website/images/about2.jpg" alt="">
   <div class="detail">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
 
-          <div class="paging">
-            <h2>About Us</h2>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a>About Us</a></li>
-            </ul>
-          </div>
 
         </div>
       </div>
@@ -68,7 +61,7 @@
           </div>
         </div>
         <div class="col-md-6" style="padding: 10px; border: solid 2px rgba(0,0,0,0.05); ">
-          <img src="images/img.jpg" alt="">
+          <img src="website/images/img.jpg" alt="">
         </div>
       </div>
 
@@ -77,43 +70,6 @@
     <!--End Welcome-->
 
 
-
-    <!--Start Pie Chart-->
-    <!-- <section class="piechart-section dark-back" id="pie-charts">
-         <div class="container">
-             
-             <div class="row">
-             <div class="col-md-12">
-                 <div class="main-title">
-                     <h2><span>Successful</span> Fatality Cases</h2>
-                     <p>If you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing elit. Ut volutpat eros  adipiscing nonummy.</p>
-                 </div>
-             </div>
-             </div>
-             
-             <div class="text-center">
-             <span class="chart first" data-percent="95">
-                 <span class="percent">95</span>
-             <span class="year">2010</span>
-             <canvas height="181" width="181"></canvas></span>
-             
-        
-             <span class="chart" data-percent="90">
-                 <span class="percent">90</span>
-                 <span class="year">2018</span>
-             <canvas height="181" width="181"></canvas></span>
-             <span class="chart" data-percent="75">
-                 <span class="percent">75</span>
-                 <span class="year">2019</span>
-             <canvas height="181" width="181"></canvas></span>
-             <span class="chart" data-percent="95">
-                 <span class="percent">95</span>
-                 <span class="year">2020</span>
-             <canvas height="181" width="181"></canvas></span>
-             </div>
-             
-         </div>
-     </section> -->
     <!--End Pie Chart-->
 
     <div class="container">
@@ -221,14 +177,10 @@
         <div class="row">
           <div class="col-md-12">
             <section class="customer-logos slider">
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
-              <div class="slide"><a href="#"><img src="images/img1.jpg"></a> </div>
+              @foreach ($partners as $partner)
+                <div class="slide"><a href="#"><img src="{{asset($partner->ourPartners->image)}}"></a> </div>  
+              @endforeach
+              
             </section>
           </div>
         </div>

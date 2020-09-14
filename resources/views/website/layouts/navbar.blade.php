@@ -7,14 +7,14 @@
          <div id="status">&nbsp;</div>
  
          <div class="loader">
-             <img style="margin-bottom: 20px " src="website/images/favicon-medical.png"/>
+             <img style="margin-bottom: 20px " src="{{asset('website/images/favicon-medical.png')}}"/>
              
             
          </div>
      </div>
      <!--End PreLoader-->
  
- 
+   
     <!--Start Top Bar-->
     <div class="top-bar">
             <div class="container">
@@ -39,7 +39,7 @@
                          </ul>
  
                          <ul  class="social-icons">
-                             <li><a href="#." class=""><i class=""></i>عربي</a></li>
+                             {{-- <li><a href="#." class=""><i class=""></i>عربي</a></li> --}}
                          <li><a href="#." class="fb"><i class="icon-euro"></i> </a></li>
                          <li><a href="#." class="tw"><i class="icon-yen"></i> </a></li>
  
@@ -71,25 +71,25 @@
  
                  <nav class="menu-2">
                  <ul class="nav wtf-menu">
-                     <li class=" parent {{ (\Request::route()->getName() == 'website.home.index') ? 'item-select' : '' }}"><a href="{{ url('/home') }}">Home</a>
+                     <li class=" parent {{ (\Request::route()->getName() == 'website.home.index') ? 'item-select' : '' }}"><a href="{{ url('/') }}">Home</a>
  
                      </li>
  
-                     <li class="parent  {{ (\Request::route()->getName() == 'website.service.index') ? 'item-select' : '' }}"><a href="{{'website.service.index'}}">About Us</a>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.about.index') ? 'item-select' : '' }}"><a href="{{ route('website.about.index')}}">About Us</a>
      
                      </li>
 
-                     <li> 
-                         <a href="{{ url('/Category') }}">category</a>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.category.index') ? 'item-select' : '' }}"> 
+                         <a href="{{ url('/category') }}">category</a>
 						<ul class="submenu">
                             @foreach ($categories as $category)
                                 @if ($category->language_code=='en')
                                     <li> 
-                                        <a href="">{{$category->name}}</a>
+                                        <a href="{{url("/category/".$category->category->id)}}">{{$category->name}}</a>
                                         <ul class="submenu">
                                             @foreach ($category->category->subCategories as $subCategories)
                                                 @foreach ($subCategories->subCategoryTranslation as $subCategory)
-                                                    <li> <a href="">{{$subCategory->name}}</a> </li>
+                                                    <li> <a href="{{url('/category/subcategory/'.$subCategory->subCategory->id)}}">{{$subCategory->name}}</a> </li>
                                                 @endforeach
                                             
                                             @endforeach

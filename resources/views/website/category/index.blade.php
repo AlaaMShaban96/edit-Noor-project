@@ -1,13 +1,23 @@
 @extends('website.layouts.master')
-@section('titel','service')
+@section('titel','category')
 
+@section('style')
+	<style>
+		  .defult{
+		  display: none;
+	  }
+	  .procedures {
+    		padding:  0px;
+		}
+	</style>
+@endsection
 @section('content')
 
 
 <!--Start Content-->
 <div class="content" style="margin-bottom: 50px;" >
   <div class="procedures">
-    <div class="container">
+    <div class="container" style="margin-bottom: 4%;">
 
       <div class="row">
         <div class="col-md-4">
@@ -15,17 +25,17 @@
           <div class="procedures-links">
            
             <ul id="procedures-links" class="accordion">
-              <li>
-                <div class="link">Medicom Trials<i class="icon-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li><a href="#.">Trials Section One</a></li>
-                  <li><a href="#">Trials Section Two</a></li>
-                  <li><a href="#">Trials Section Three</a></li>
-                  <li><a href="#">Trials Section Four</a></li>
-                  <li><a href="#">Trials Section Five</a></li>
-                </ul>
-              </li>
-              <li class="open">
+				@foreach ($categories as $category)
+
+					@foreach ($category->categoryTranslation as $category)
+						<li>
+							<div class="link" onclick="openPage({{$category->category->id}})" > {{$category->name}}<i class="icon-chevron-down"></i></div>
+					  	</li>
+					@endforeach
+					
+				@endforeach
+             
+              {{-- <li class="open">
                 <div class="link">Cancer<i class="icon-chevron-down"></i></div>
                 <ul class="submenu" style="display:block;">
                   <li><a href="#">Cell Death Research</a></li>
@@ -72,7 +82,7 @@
                   <li><a href="#">Department Four</a></li>
                   <li><a href="#">Department Five</a></li>
                 </ul>
-              </li>
+              </li> --}}
 
             </ul>
 
@@ -85,182 +95,34 @@
 
         <div class="col-md-8">
 			<div class="row">
-				     <!-- single-item-Wrapper-->
-					 <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-						<div class="single-item-Wrapper">
-						  <div class="shop-img-item">
-							<img src="website/images/cart-img2.jpg" alt="image">
-						  </div>
-						  <div class="single-Text-item">
-							<h5> Allergy </h5>
-						  </div>
-						</div> <!-- /.single-item-Wrapper-->
-					  </div>
-					       <!-- single-item-Wrapper-->
-						   <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-							<div class="single-item-Wrapper">
-							  <div class="shop-img-item">
-								<img src="website/images/cart-img2.jpg" alt="image">
-							  </div>
-							  <div class="single-Text-item">
-								<h5> Allergy </h5>
-							  </div>
-							</div> <!-- /.single-item-Wrapper-->
-						  </div>
-						       <!-- single-item-Wrapper-->
-							   <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-								<div class="single-item-Wrapper">
-								  <div class="shop-img-item">
-									<img src="website/images/cart-img2.jpg" alt="image">
-								  </div>
-								  <div class="single-Text-item">
-									<h5> Allergy </h5>
-								  </div>
-								</div> <!-- /.single-item-Wrapper-->
-							  </div>
-							       <!-- single-item-Wrapper-->
-							     <!-- single-item-Wrapper-->
-								 <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
+				@foreach ($categories as $category)
+					<div id="{{$category->id}}" class="defult">
+						@foreach ($category->subCategories as $subCategory)
+						
 
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
-								  <div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
-									<div class="single-item-Wrapper">
-									  <div class="shop-img-item">
-										<img src="website/images/cart-img2.jpg" alt="image">
-									  </div>
-									  <div class="single-Text-item">
-										<h5> Allergy </h5>
-									  </div>
-									</div> <!-- /.single-item-Wrapper-->
-								  </div>
+								@foreach ($subCategory->subCategoryTranslation as $subCategory)
+
+											<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
+												<a href="{{url('/category/subcategory/'.$subCategory->subCategory->id)}}">
+													<div class="single-item-Wrapper">
+														<div class="shop-img-item">
+															<img src="{{$subCategory->subCategory->image}}" alt="image">
+														</div>
+														<div class="single-Text-item">
+															<span> {{$subCategory->name}}</span>
+														</div>
+													</div>
+												</a>	
+											</div>
+										
+								@endforeach
+								
+						
+						@endforeach
+					</div>	
+				@endforeach
+					 <!-- single-item-Wrapper-->
+					
 			</div>
 
         </div>
@@ -268,3 +130,17 @@
     </div>
     <!--End Content-->
     @endsection
+@section('script')
+
+<script>
+	var lastPage="";
+	
+	function openPage(pageName) {
+  
+		lastPage==""?"": document.getElementById(lastPage).style.display = "none";
+		document.getElementById(pageName).style.display = "block"
+		lastPage=pageName;
+	}
+</script>
+	
+@endsection
