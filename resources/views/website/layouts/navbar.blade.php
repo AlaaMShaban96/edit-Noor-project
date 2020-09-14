@@ -116,7 +116,7 @@
                  
                      </li>
  
-                     <li><a href="{{ url('/partner') }}">Partners</a></li>
+                     <li class="parent  {{ (\Request::route()->getName() == 'website.Partner.index') ? 'item-select' : '' }}" ><a href="{{ url('/partner') }}">Partners</a></li>
  
                      <li class="parent  {{ (\Request::route()->getName() == 'website.contectUs.index') ? 'item-select' : '' }}" ><a href="{{ route('website.contectUs.index') }}">Contact Us</a>
                  
