@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => 'admin'], function() {
 
-  
+   
     //Routes Auth
     Route::get('/login','Cpanel\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Cpanel\Auth\LoginController@login')->name('admin.login.submit');
@@ -26,11 +26,11 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/password/reset/{token}','Cpanel\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','Cpanel\Auth\ResetPasswordController@reset');
   
-    // Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['admin']], function () {
         
-    
+       
                 //Routes Dashboard
-                Route::get('/', 'Cpanel\Dashboard\DashboardController@index');
+                Route::get('/', 'Cpanel\Dashboard\DashboardController@index')->name('cpanel.admin.index');
                 Route::get('dashboard', 'Cpanel\Dashboard\DashboardController@index');
             
                 //Routes Admin
@@ -85,4 +85,4 @@ Route::group(['prefix' => 'admin'], function() {
                 //Route Jobs applicants
                 Route::get('Jobs-applicants', 'Cpanel\RecruitmentForm\RecruitmentFormController@index');
         });
-// });
+});

@@ -15,9 +15,9 @@
 //     return view('welcome');
 // });
 
-Auth::routes();
-Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
-
+// Auth::routes();
+// Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
+ 
 Route::get('/', 'Website\Home\HomeController@index')->name('website.home.index');
 Route::get('/about', 'Website\About\AboutController@index')->name('website.about.index');
 Route::get('/category', 'Website\Service\ServiceController@index')->name('website.category.index');

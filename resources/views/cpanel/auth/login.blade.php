@@ -24,9 +24,10 @@
                       <p class="px-2">Welcome back, please login to your account.</p>
                       <div class="card-content">
                           <div class="card-body pt-1">
-                              <form action="dashboard-analytics">
+                              <form action="{{route('admin.login.submit')}}" method="POST">
+                                @csrf
                                   <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                      <input type="text" class="form-control" id="user-name" placeholder="Username" required>
+                                      <input type="text" class="form-control" id="user-name" name="email" placeholder="Username" required>
                                       <div class="form-control-position">
                                           <i class="feather icon-user"></i>
                                       </div>
@@ -34,7 +35,7 @@
                                   </fieldset>
 
                                   <fieldset class="form-label-group position-relative has-icon-left">
-                                      <input type="password" class="form-control" id="user-password" placeholder="Password" required>
+                                      <input type="password" class="form-control" id="user-password" name="password" placeholder="Password" required>
                                       <div class="form-control-position">
                                           <i class="feather icon-lock"></i>
                                       </div>
@@ -73,6 +74,14 @@
                         </div>
                       </div>
                   </div>
+                  @if ($errors->any())
+                  @foreach ($errors->all() as $error)
+                   <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                        <i class="feather icon-info mr-1 align-middle"></i>
+                        <span>{{ $error }}</span>
+                    </div>
+                  @endforeach
+                @endif
               </div>
           </div>
       </div>

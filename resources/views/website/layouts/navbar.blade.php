@@ -39,10 +39,14 @@
                          </ul>
  
                          <ul  class="social-icons">
-                             {{-- <li><a href="#." class=""><i class=""></i>عربي</a></li> --}}
+                         
                          <li><a href="#." class="fb"><i class="icon-euro"></i> </a></li>
-                         <li><a href="#." class="tw"><i class="icon-yen"></i> </a></li>
- 
+                         {{-- <li><a href="#." class="tw"><i class="icon-yen"></i> </a></li> --}}
+                         @auth('admin')
+                         <li><a href="{{url('cpanel/admin/')}}" class=""><i class=""></i>dashboard</a></li>  
+                         <li><a href="{{url('cpanel/admin/logout')}}" class=""><i class=""></i>logout</a></li>  
+                         @endauth
+                         
                          </ul>
  
                      </div>

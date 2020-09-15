@@ -45,16 +45,17 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
-
         $credential = [
             'email' => $request->email,
             'password' => $request->password
         ];
-
+       
+        // auth()->attempt($loginData)
         //Attempt to log the admin in
-        if (Auth::guard('admin')->attempt($credential, $request->member)) {
+        
+        if (auth('admin')->attempt($credential, $request->member)) {
             // if login succesful, then redirect to their intended location
-            return redirect()->intended(route('admin.home'));
+            return redirect()->intended(route('website.home.index'));
         }
 
         // if Unsuccessful, then redirect back to the login with the form data
