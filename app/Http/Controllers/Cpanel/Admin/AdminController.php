@@ -20,14 +20,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        $pageConfigs = [
-            'pageHeader' => false
+       
+        $breadcrumbs = [
+            ['link'=>"dashboard-analytics",'name'=>"Home"], 
+            ['name'=>"Admin "],
+           
         ];
-
-        return view('cpanel.admin.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        $admins=Admin::all();
+        return view('cpanel.admin.index',compact('breadcrumbs','admins'));
     }
 
     /**
@@ -37,14 +37,14 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //   
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['link'=>"/cpanel/admin/",'name'=>"Home"], 
+            ['name'=>"Admin "],
+            ['name'=>"Add "],
+           
         ];
 
-        return view('cpanel.admin.create', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        return view('cpanel.admin.create',compact('breadcrumbs'));
     }
 
     /**
@@ -59,7 +59,7 @@ class AdminController extends Controller
             "email" => "unique:admins,email",
         ]);
         if ($request->password == $request->passwordConfrim) {
-            if ($request->image!=null) {
+  
                 Admin::create([
                     'name' => $request->name, 
                     
@@ -70,27 +70,15 @@ class AdminController extends Controller
                     'active' => $request->active,
                     
                     
-                    'image' => $this->uploadeImage($request),
+                    'image' => $request->image!=null?$this->uploadeImage($request):'',
     
                 ])->roles()->attach($request->role);
-            }else {
-                Admin::create([
-                    'name' => $request->name, 
-                    
-                    'email' => $request->email, 
-                    
-                    'password' => Hash::make($request->password) ,
-    
-                    'active' => $request->active,
-                    
-    
-                ])->roles()->attach($request->role);
-            }
+            
         }else {
-            dd('not same things');
+            return redirect()->back()->withErrors($validator);
         }
        
-        dd('done');
+        return redirect('cpanel/admin/admin-index');
     }
 
     /**
@@ -99,9 +87,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Admin $admin)
     {
-        //
+        
     }
 
     /**
@@ -110,9 +98,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Admin $admin)
     {
-        //
+        $breadcrumbs = [
+            ['link'=>"/cpanel/admin/",'name'=>"Home"], 
+            ['name'=>"Admin "],
+            ['name'=>"Edit "],
+           
+        ];
+        return view('cpanel.admin.edit',compact('breadcrumbs','admin'));
     }
 
     /**
@@ -122,9 +116,31 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminRequest $request, $id)
+    public function update(AdminRequest $request,Admin $admin)
     {
-        //
+       
+        if ($request->password == $request->passwordConfrim) {
+            
+                
+                    $admin->name = $request->name; 
+                    
+                    $admin->email = $request->email; 
+                    
+                    $admin->password = Hash::make($request->password) ;
+    
+                    $admin->active = $request->active;
+
+                    $request->image!=null? $admin->image = $this->uploadeImage($request):'';
+               
+                    $admin->roles()->attach($request->role);
+                    $admin->save();
+
+           
+        }else {
+            return redirect()->back()->withErrors($validator);
+        }
+       
+        return redirect('cpanel/admin/admin-index');
     }
 
     /**

@@ -53,7 +53,7 @@ class PostController extends Controller
         //
         $post = new Post();
         // $post->admin_id = auth('admin')->user()->id;
-        $post->admin_id = 1;
+        $post->admin_id = auth('admin')->user()->id;;
         $post->type = $request->type;
         if ($request->image != null) {
 

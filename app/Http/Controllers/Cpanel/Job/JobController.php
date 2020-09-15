@@ -55,7 +55,7 @@ class JobController extends Controller
         //
         $job = new Job();
         // $job->admin_id = auth('admin')->user()->id;
-        $job->admin_id = 1;
+        $job->admin_id = auth('admin')->user()->id;
         $job->our_address_id = 1;
         // $job->our_address_id = $request->our_address_id;
         // $job->gender = $request->gender;

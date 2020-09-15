@@ -49,13 +49,21 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-       
+        Auth::guard('admin')->logout();
         // auth()->attempt($loginData)
         //Attempt to log the admin in
         
         if (auth('admin')->attempt($credential, $request->member)) {
             // if login succesful, then redirect to their intended location
-            return redirect()->intended(route('website.home.index'));
+            
+            if (auth('admin')->user()->active === 0) {
+                Auth::guard('admin')->logout();
+                return redirect('cpanel/admin/login')->withErrors(['this user not active ']);
+
+            }else {
+            
+                return redirect()->intended(route('website.home.index'));
+            }
         }
 
         // if Unsuccessful, then redirect back to the login with the form data

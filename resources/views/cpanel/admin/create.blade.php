@@ -1,6 +1,6 @@
 @extends('cpanel/layouts/contentLayoutMaster') 
 
-@section('title', 'admin add') 
+@section('title', 'Nano Tech') 
 
 @section('content')
 <!-- users edit start -->

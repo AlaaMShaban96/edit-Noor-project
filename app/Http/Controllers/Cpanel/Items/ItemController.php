@@ -56,7 +56,7 @@ class ItemController extends Controller
     {
         
         $item = new Item();
-        $item->admin_id = 1;
+        $item->admin_id = auth('admin')->user()->id;
         $item->sub_category_id = $request->sub_category_id;
         if ($request->image != null) {
             $item->image=$this->uploadeImage( $request);

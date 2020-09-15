@@ -51,7 +51,7 @@ class SubCategoryController extends Controller
     public function store(SubCategoryRequest $request)
     {
         $subCategory = new SubCategory();
-        $subCategory->admin_id = 1;
+        $subCategory->admin_id = auth('admin')->user()->id;
         $subCategory->category_id = $request->category_id;
         if ($request->image != null) {
             $subCategory->image=$this->uploadeImage( $request);

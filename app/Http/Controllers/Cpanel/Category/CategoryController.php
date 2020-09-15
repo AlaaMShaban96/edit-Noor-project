@@ -48,7 +48,7 @@ class CategoryController extends Controller
   
         
         $category = new Category();
-        $category->admin_id = 1;
+        $category->admin_id = auth('admin')->user()->id;
         if ($request->image != null){
             $category->image  =$this->uploadeImage($request);
         }

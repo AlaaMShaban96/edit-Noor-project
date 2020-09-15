@@ -10,9 +10,7 @@
         {{-- <link rel="stylesheet" href="{{ asset('vendors/css/tables/datatable/extensions/dataTables.checkboxes.css') }}"> --}}
 @endsection
 @section('page-style')
-        {{-- Page css files --}}
-        {{-- <link rel="stylesheet" href="{{ asset('css/plugins/file-uploaders/dropzone.css') }}"> --}}
-        <link rel="stylesheet" href="{{ asset('css/pages/data-list-view.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/pages/data-list-view.css') }}">
 @endsection
 @section('content')
 {{-- Data list view starts --}}
