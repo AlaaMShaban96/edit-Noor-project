@@ -231,3 +231,13 @@ return [
     ],
 
 ];
+# config/app.php
+
+'providers' => [
+    ...
+    Spatie\Analytics\AnalyticsServiceProvider::class,
+];
+'aliases' => [
+    ...
+    'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
+];
