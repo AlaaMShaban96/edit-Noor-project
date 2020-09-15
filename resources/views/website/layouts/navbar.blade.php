@@ -21,7 +21,7 @@
              <div class="row">
  
                  <div class="col-md-5">
-                     <span >MedicalGuide Come to Expect the Best in Town.</span>
+                     <span >NA - Noor Al-Amana Pharmaceuticals &amp; Medical Supplies l.t.d  </span>
                  </div>
  
                  <div class="col-md-7">
