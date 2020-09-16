@@ -2,7 +2,7 @@
     $categories=App\Models\CategoryTranslation::all();
   
     $logo=App\Models\Logo::all();
-    $footer=App\Models\Footer::findOrFail(1);
+    $footer=App\Models\Footer::all()->first();
 
 @endphp
 <div id="wrap">
@@ -30,15 +30,29 @@
  
                  <div class="col-md-7">
  
- 
- 
- 
- 
                      <div class="get-touch">
  
                          <ul>
-                         <li><a><i class="icon-phone4"></i>+{{$footer->phoneNumber()->first()==null?"218 21 340 7995":$footer->phoneNumber()->first()->phone}}</a></li>
-                         <li><span><i class="icon-location"></i> {{$footer->ourAddress()->first()->ourAddressTranslation()->first()==null?"":$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}</span></li>
+                            <li>
+                                <a>
+                                <i class="icon-phone4"></i>
+                                    @if($footer->phoneNumber->isEmpty())
+                                    +{{"218 21 340 7995"}}
+                                    @else
+                                    +{{ $footer->phoneNumber()->first()->phone}}
+                                    @endif
+                                </a>
+                            </li>
+                            <li>
+                                <span>
+                                    <i class="icon-location"></i>
+                                    @if($footer->ourAddress->isEmpty())
+                                    Al-sheikh St, Al-Noflieen, Tripoli-Libya
+                                    @else
+                                    {{$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}
+                                    @endif
+                                </span>
+                            </li>
  
                          </ul>
  

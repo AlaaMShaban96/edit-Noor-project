@@ -25,9 +25,29 @@
 
 
                              <ul>
-                                 <li><i class="icon-location"></i> <span>{{$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}} </span></li>
-                                 <li><i class="icon-phone4"></i> <span>+{{$footer->phoneNumber()->first()->phone}}</span></li>
-                                 <li><a href="#."><i class="icon-dollar"></i> <span>{{$footer->email()->where('email_type_id',2)->first()->link}}</span></a></li>
+                                 <li><i class="icon-location"></i> <span>
+                                    @if($footer->ourAddress->isEmpty())
+                                    Al-sheikh St, Al-Noflieen, Tripoli-Libya
+                                    @else
+                                    {{$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}
+                                    @endif
+                                    </span></li>
+                                 <li>
+                                     <i class="icon-phone4"></i> <span>
+                                    @if($footer->phoneNumber->isEmpty())
+                                    +218 21 340 7995 
+                                    @else
+                                    +{{$footer->phoneNumber()->first()->phone}}
+                                    @endif
+                                    </span></li>
+                                 <li><a href="#."><i class="icon-dollar"></i> <span>
+                                    @if($footer->email->isEmpty())
+                                    commercial@noormed.com
+                                    @else
+                                    {{$footer->email()->where('email_type_id',2)->first==null?"aa":$footer->email()->where('email_type_id',2)->first()->link}}
+                                    @endif
+                                     
+                                    </span></a></li>
                              </ul>
 
                          </div>
