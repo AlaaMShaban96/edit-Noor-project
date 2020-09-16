@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <section class="row flexbox-container">
-  <div class="col-xl-8 col-11 d-flex justify-content-center">
+  <div class="col-xl-12 col-11 d-flex justify-content-center">
       <div class="card bg-authentication rounded-0 mb-0">
           <div class="row m-0">
               <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
@@ -26,12 +26,13 @@
                           <div class="card-body pt-1">
                               <form action="{{route('admin.login.submit')}}" method="POST">
                                 @csrf
+
                                   <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                      <input type="text" class="form-control" id="user-name" name="email" placeholder="Username" required>
+                                      <input type="text" class="form-control" id="user-name" name="email" placeholder="Email" required>
                                       <div class="form-control-position">
-                                          <i class="feather icon-user"></i>
+                                          <i class="feather icon-mail"></i>
                                       </div>
-                                      <label for="user-name">Username</label>
+                                      <label for="user-name">Email</label>
                                   </fieldset>
 
                                   <fieldset class="form-label-group position-relative has-icon-left">
@@ -41,11 +42,23 @@
                                       </div>
                                       <label for="user-password">Password</label>
                                   </fieldset>
+                                 
                                   <div class="form-group d-flex justify-content-between align-items-center">
                                    
                                       <div class="text-right"><a href="{{url('cpanel/admin/password/reset')}}" class="card-link">Forgot Password?</a></div>
                                   </div>
-                                  {{-- <a href="auth-register" class="btn btn-outline-primary float-left btn-inline">Register</a> --}}
+                                  @if ($errors->any())
+                                  @foreach ($errors->all() as $error)
+                                   <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                        <i class="feather icon-info mr-1 align-middle"></i>
+                                        <span>{{ $error }}</span>
+                                    </div>
+                                  @endforeach 
+                                @endif
+                                
+                                  @if(Session::has('message'))
+                                  <p class="alert alert-info">{{ Session::get('message') }}</p>
+                                  @endif
                                   <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
                               </form>
                           </div>
@@ -62,18 +75,9 @@
                         </div> --}}
                       </div>
                   </div>
-                  @if ($errors->any())
-                  @foreach ($errors->all() as $error)
-                   <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                        <i class="feather icon-info mr-1 align-middle"></i>
-                        <span>{{ $error }}</span>
-                    </div>
-                  @endforeach 
-                @endif
+                 
                 
-                @if(Session::has('message'))
-                <p class="alert alert-info">{{ Session::get('message') }}</p>
-                @endif
+               
               </div>
           </div>
       </div>

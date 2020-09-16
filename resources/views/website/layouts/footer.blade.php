@@ -44,7 +44,7 @@
                                     @if($footer->email->isEmpty())
                                     commercial@noormed.com
                                     @else
-                                    {{$footer->email()->where('email_type_id',2)->first==null?"aa":$footer->email()->where('email_type_id',2)->first()->link}}
+                                    {{$footer->email->where('email_type_id',2)->first==null?"aa":$footer->email->where('email_type_id',2)->first()['link']}}
                                     @endif
                                      
                                     </span></a></li>
