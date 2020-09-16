@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @include('website.layouts.style.style')
     @yield('style')
-    <title>@yield('titel')</title>
+    <title>NA - Noor Al-Amana | @yield('titel')</title>
 </head>
 <body>
 

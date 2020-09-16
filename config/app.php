@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class,
 
     ],
 
@@ -190,6 +191,7 @@ return [
     */
 
     'aliases' => [
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
 
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
@@ -231,3 +233,4 @@ return [
     ],
 
 ];
+# config/app.php
