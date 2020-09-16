@@ -69,13 +69,15 @@ Route::group(['prefix' => 'admin'], function() {
 
                 //Route phone
                 Route::resource('phone', 'Cpanel\ContectUs\Phone\phoneController');
+                Route::delete('phone/','Cpanel\ContectUs\Phone\phoneController@destroy');
 
                 //Route email
                 Route::resource('email', 'Cpanel\ContectUs\Email\EmailController');
+                Route::delete('email/','Cpanel\ContectUs\Email\EmailController@destroy');
 
                 //Route address
                 Route::resource('address', 'Cpanel\ContectUs\Address\AddressController');
-
+                Route::delete('address/','Cpanel\ContectUs\Address\AddressController@destroy');
                 //Route post
                 Route::resource('post', 'Cpanel\Post\PostController');
 
