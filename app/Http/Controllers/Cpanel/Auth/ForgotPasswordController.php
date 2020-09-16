@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Cpanel\Auth;
 
+use App\Models\Admin;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -57,13 +60,18 @@ class ForgotPasswordController extends Controller
     public function sendResetLinkEmail(Request $request)
     {
         $email=$request->email;
-        Mail::send("cpanel.auth.passwords.x",compact('request'), function($message) use ($email )   {
+        $admine =Admin::where('email',$request->email)->first();
+        $number= Str::random(10);
+        $admine->password=Hash::make($number);
+        $admine->save();
+        Mail::send("cpanel.auth.passwords.x",compact('number'), function($message) use ($email )   {
 
             $message->to($email)->subject("test");
             // $message->to($email)->attach(public_path($cv_path), [
             //     'as' => 'sample.pdf',
             //     'mime' => 'application/pdf',]);     
             });
+            return redirect('cpanel/admin/login')->with('message', 'check your Email for New Password');
         // $this->validateEmail($request);
 
         // We will send the password reset link to this user. Once we have attempted

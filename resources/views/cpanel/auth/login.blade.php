@@ -42,19 +42,7 @@
                                       <label for="user-password">Password</label>
                                   </fieldset>
                                   <div class="form-group d-flex justify-content-between align-items-center">
-                                      {{-- <div class="text-left">
-                                          <fieldset class="checkbox">
-                                            <div class="vs-checkbox-con vs-checkbox-primary">
-                                              <input type="checkbox">
-                                              <span class="vs-checkbox">
-                                                <span class="vs-checkbox--check">
-                                                  <i class="vs-icon feather icon-check"></i>
-                                                </span>
-                                              </span>
-                                              <span class="">Remember me</span>
-                                            </div>
-                                          </fieldset>
-                                      </div> --}}
+                                   
                                       <div class="text-right"><a href="{{url('cpanel/admin/password/reset')}}" class="card-link">Forgot Password?</a></div>
                                   </div>
                                   {{-- <a href="auth-register" class="btn btn-outline-primary float-left btn-inline">Register</a> --}}
@@ -81,6 +69,10 @@
                         <span>{{ $error }}</span>
                     </div>
                   @endforeach
+                @endif
+                
+                @if(Session::has('message'))
+                <p class="alert alert-info">{{ Session::get('message') }}</p>
                 @endif
               </div>
           </div>

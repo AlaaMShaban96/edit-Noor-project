@@ -76,11 +76,4 @@
 </section>
   @endsection
 
-{{-- @section('vendor-script')
-        <!-- vendor files -->
-        <script src="{{ asset('vendors/js/charts/apexcharts.min.js')) }}"></sript>
-@endsection
-@section('page-script')
-        <!-- Page js files -->
-        <script src="{{ asset('js/scripts/pages/dashboard-analytics.js')) }}"></sript>
-@endsection --}}
+

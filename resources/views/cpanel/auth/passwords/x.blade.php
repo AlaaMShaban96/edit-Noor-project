@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>welcome</h4>
+    <h4>welcome to reset password </h4>
+    <h6>new Password is </h6>
+    <h3>{{$number}}</h3>
 </body>
 </html>
