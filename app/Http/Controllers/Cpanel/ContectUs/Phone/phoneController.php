@@ -18,12 +18,12 @@ class phoneController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
-            ['link'=>"phone",'name'=>"Phone"]
+            ['link'=>"cpanel/admin",'name'=>"Home"],
+            ['name'=>"Contact Us "],
+            ['name'=>"Phone"]
         ];
-        $phone = PhoneNumber::all();
-        return view('cpanel.contectUs.phone.index',compact('phone','breadcrumbs'));
+        $phones = PhoneNumber::all();
+        return view('cpanel.contectUs.phone.index',compact('phones','breadcrumbs'));
         // return response([ 'success' => true,compact('phone','breadcrumbs')]);
     }
 
@@ -46,13 +46,29 @@ class phoneController extends Controller
      */
     public function store(PhoneRequest $request)
     {
-        //
-        $phoneNumber = new PhoneNumber();
-        $phoneNumber->footer_id = '1';
-        $phoneNumber->phone = $request->phone;
-        $phoneNumber->save();
+        if ($request->exists('footer_id')) {
+            foreach ($request->phone as $key => $value) {
+                $phoneNumber = PhoneNumber::find($request->id[$key]);
+                $phoneNumber->footer_id = $request->footer_id;
+                $phoneNumber->phone = $value;
+                $phoneNumber->save();
+            }
+           $date='Update Phone Number  is success';
+        }else {
+            foreach ($request->phone as $key => $value) {
+                if ($value==null) {
+                break;
+                }
+                $phoneNumber = new PhoneNumber();
+                $phoneNumber->footer_id = '1';
+                $phoneNumber->phone = $value;
+                $phoneNumber->save();
+            }
+           $date='Create Phone Number  is success';
+        }
+       
 
-        return redirect()->back();
+        return redirect()->back()->with('message',$date);
     }
 
     /**
@@ -105,11 +121,10 @@ class phoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $phoneNumber = PhoneNumber::find($id);
-        $phoneNumber->delete();
+        PhoneNumber::query()->delete();
 
-        return redirect('cpanel/admin/phone');
+        return redirect('cpanel/admin/phone')->with('message','Reset Phone is success');;
     }
 }

@@ -18,16 +18,16 @@ class EmailController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
-            ['link'=>"email",'name'=>"Emails"]
+            ['link'=>"cpanel/admin",'name'=>"Home"],
+            ['name'=>"Contact Us "],
+            ['name'=>"Emails"]
         ];
-        $email = Email::all();
-        return view('cpanel.contectUs.email.index',compact('email','breadcrumbs'));
+        $emails = Email::all();
+        return view('cpanel.contectUs.email.index',compact('emails','breadcrumbs'));
         // return response([ 'success' => true,compact('email','breadcrumbs')]);
 
     }
-
+  
     /**
      * Show the form for creating a new resource.
      *
@@ -47,14 +47,36 @@ class EmailController extends Controller
      */
     public function store(EmailRequest $request)
     {
-        $email = new Email();
-        $email->footer_id = '1';
+        if ($request->exists('id')) {
+            foreach ($request->id as $key => $id) {
+                $email = Email::find($id);
+                $email->footer_id = $request->footer_id;
+                $email->email_type_id = $request->email_type_id[$key];
+                $email->link = $request->link[$key];
+                $email->save();
+            }
+            $date='Update Emils is success';
+        }else {
+            foreach ($request->email_type_id as $key => $emailType) {
+                if ($emailType==null) {
+                break;
+                }
+                $email = new Email();
+                $email->footer_id = $request->footer_id;
+                $email->email_type_id = $emailType;
+                $email->link = $request->link[$key];
+                $email->save();
+            }
+            $date='Create Emils is success';
+        }
+        // $email = new Email();
+        // $email->footer_id = '1';
         // $email->email_type_id = $request->email_type_id;
-        $email->email_type_id = '1';
-        $email->link = $request->link;
-        $email->save();
+        // $email->email_type_id = '1';
+        // $email->link = $request->link;
+        // $email->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('message',$date);
     }
 
     /**
@@ -109,11 +131,9 @@ class EmailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $email = Email::find($id);
-        $email->delete();
-
-        return redirect('cpanel/admin/email');
+        Email::query()->delete();
+        return redirect('cpanel/admin/email')->with('message','Reset Emils is success');
     }
 }

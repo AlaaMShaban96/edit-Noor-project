@@ -25,7 +25,8 @@ class EmailRequest extends FormRequest
     {
         
         return [
-            'link' => ['required','unique:emails','regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
+            'link' => ['required',
+            'unique:emails']
         ];
     }
 

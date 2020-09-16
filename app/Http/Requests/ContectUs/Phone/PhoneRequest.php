@@ -24,7 +24,11 @@ class PhoneRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => ['required','numeric','digits:10', 'unique:phone_numbers'],
+            'phone' => ['required',
+                        // 'numeric',
+                        // 'digits:10',
+                        'unique:phone_numbers'
+                    ],
         ];
     }
 

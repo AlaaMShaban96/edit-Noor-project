@@ -19,13 +19,13 @@ class AddressController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
-            ['link'=>"address",'name'=>"Address"]
+            ['link'=>"cpanel/admin",'name'=>"Home"],
+            ['name'=>"Contact Us "],
+            ['name'=>"Address"]
         ];
 
-        $ourAddressTranslation = OurAddressTranslation::all();
-        return view('cpanel.contectUs.address.index',compact('ourAddressTranslation','breadcrumbs'));
+        $address = OurAddressTranslation::all();
+        return view('cpanel.contectUs.address.index',compact('address','breadcrumbs'));
     }
 
     /**
@@ -46,17 +46,37 @@ class AddressController extends Controller
      */
     public function store(AddressRequest $request)
     {
-        $address = new OurAddress();
-        $address->footer_id = 1;
-        $address->save();
+        if ($request->exists('footer_id')) {
 
-        $ourAddressTranslation = new OurAddressTranslation();
-        $ourAddressTranslation->our_address_id = $address->id;
-        $ourAddressTranslation->language_code = "en";
-        $ourAddressTranslation->name = $request->name;
-        $ourAddressTranslation->save();
+            foreach ($request->name as $key => $value) {
+                $address = OurAddressTranslation::find($request->id[$key]);
+                $address->language_code = $request->language_code;
+                $address->language_code->ourAddress->footer_id = $request->footer_id;
+                $address->name = $value;
+                $address->save();
+            }
+            $date='Update Address is success';
+        }else {
 
-        return redirect()->back();
+            foreach ($request->name as $key => $value) {
+                if ($value==null) {
+                break;
+                }
+                $address = new OurAddress();
+                $address->footer_id = 1;
+                $address->save();
+
+                $ourAddressTranslation = new OurAddressTranslation();
+                $ourAddressTranslation->language_code = $request->language_code;
+                $ourAddressTranslation->our_address_id = $address->id;
+                $ourAddressTranslation->name = $value== null?"":$value;
+                $ourAddressTranslation->save();
+            }
+
+            $date='Create Address is success';
+        }
+
+        return redirect()->back()->with('message',$date);
     }
 
     /**
@@ -110,11 +130,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OurAddress $address)
+    public function destroy()
     {
-        $address->ourAddressTranslation()->delete();
-        $address->delete();
+        OurAddressTranslation::query()->delete();
+        OurAddress::query()->delete();
 
-        return redirect('cpanel/admin/address');
+        return redirect('cpanel/admin/address')->with('message','Reset Address is success');
     }
 }
