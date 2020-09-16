@@ -15,7 +15,7 @@
                                 <h3>{{$job->name}}</h3>
                                 <p>{{$job->description}}</p>
                                 <p>
-                                    <a href="{{url("/job/".$job->Job->id."/apply")}}" class="btn btn-primary btn-sm">Apply</a>
+                                    <a href="{{url("/job/".$job->Job->id."/apply?title=".$job->name)}}" class="btn btn-primary btn-sm">Apply</a>
                                     <a href="{{url("/job/".$job->Job->id."/detils")}}" class="btn btn-default btn-sm">show detils</a>
                                 </p>
                             </div>

@@ -71,19 +71,18 @@
 
             </div>
      </div>
-     <div class="row" style="padding-top: 20px;
-     ">
+     <div class="row" style="padding-top: 20px;">
          <div class="col-md-12">
              <br>
              <h3> <b>skiles job</b> </h3>
              <br>
-             <p>{{$job->skiles}}</p>
+             <p>{{$job->skills}}</p>
 
             </div>
      </div>
      <div class="row " style="padding-top: 20px;">
          
-         <a href="{{url("/job/".$job->Job->id."/apply")}}" name="job app" class="btn btn-success col-md-12">submit</a>
+         <a href="{{url("/job/".$job->Job->id."/apply?title=".$job->name)}}" name="job app" class="btn btn-success col-md-12">submit</a>
 
      </div>
     

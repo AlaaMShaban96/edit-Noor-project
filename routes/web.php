@@ -30,6 +30,7 @@ Route::get('/partner/{partner}', 'Website\Partner\PartnerController@show')->name
 Route::get('/job', 'Website\Job\JobController@index')->name('website.job.index');
 Route::get('/job/{job}/apply', 'Website\Job\JobController@apply');
 Route::get('/job/{job}/detils', 'Website\Job\JobController@detils');
+Route::post('/job/send-cv', 'Website\Job\JobController@sendCv');
 Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('website.contectUs.index');
 
   
