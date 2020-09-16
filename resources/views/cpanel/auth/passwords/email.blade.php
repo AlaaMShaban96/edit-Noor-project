@@ -1,10 +1,10 @@
-@extends('layouts/fullLayoutMaster')
+@extends('cpanel/layouts/fullLayoutMaster')
 
 @section('title', 'Forgot Password')
 
 @section('page-style')
         {{-- Page Css files --}}
-        <link rel="stylesheet" href="{{ asset(mix('css/pages/authentication.css')) }}">
+        <link rel="stylesheet" href="{{ asset('css/pages/authentication.css') }}">
 @endsection
 @section('content')
 <section class="row flexbox-container">
@@ -30,7 +30,7 @@
                               </div>
                             @endif
 
-                              <form method="POST" action="{{ route('password.email') }}">
+                              <form method="POST" action="{{ route('admin.password.email') }}">
                                 @csrf
                                   <div class="form-label-group">
                                       <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email"> -->
@@ -46,7 +46,7 @@
                                   </div>
 
                                   <div class="float-md-left d-block mb-1">
-                                    <a href="login" class="btn btn-outline-primary btn-block px-75">Back to Login</a>
+                                    <a href="{{url('cpanel/admin/login')}}" class="btn btn-outline-primary btn-block px-75">Back to Login</a>
                                   </div>
                                   <div class="float-md-right d-block mb-1">
                                     <button type="submit" class="btn btn-primary btn-block px-75">Recover Password</button>

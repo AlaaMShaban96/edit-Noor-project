@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="main-title text-center">
-          <h2>لتقديكم للوظيفة </h2>
-          <p>يرجاء تعبية جميع البيانات بشكل صحيح !</p>
+          <h2>To offer you the job</h2>
+          <p>Please fill in all data correctly!</p>
         </div>
       </div>
     </div>
@@ -63,9 +63,9 @@
                   <select class='input__field input__field--kohana' id="input-333" name="input-333" name='genderroma'
                     style="color: black;">
 
-                    <option> طرابلس </option>
-                    <option>مصراته </option>
-                    <option>بنغازي </option>
+                    <option> Tripoli </option>
+                    <option> Misurata </option>
+                    <option> Benghazi </option>
                   </select>
 
 

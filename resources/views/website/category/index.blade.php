@@ -34,55 +34,7 @@
 					@endforeach
 					
 				@endforeach
-             
-              {{-- <li class="open">
-                <div class="link">Cancer<i class="icon-chevron-down"></i></div>
-                <ul class="submenu" style="display:block;">
-                  <li><a href="#">Cell Death Research</a></li>
-                  <li class="item-seclect"><a href="#">Cancer Center</a></li>
-                  <li><a href="#">Brain Cancer</a></li>
-                  <li><a href="#">Tumor Microenvironment</a></li>
-                  <li><a href="#">Breast Cancer</a></li>
-                  <li><a href="#">Childhood Cancers</a></li>
-                  <li><a href="#">Endocrine Cancers</a></li>
-                  <li><a href="#">Skin Cancer</a></li>
-                  <li><a href="#">Male Cancers</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link">Children's Health<i class="icon-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li><a href="#">Skin Care</a></li>
-                  <li><a href="#">Face Care</a></li>
-                  <li><a href="#">Hair Care</a></li>
-                  <li><a href="#">Health Care</a></li>
-                  <li><a href="#">Body Care</a></li>
-                  <li><a href="#">Arm Care</a></li>
-                  <li><a href="#">Chest Care</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link">Department One<i class="icon-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li><a href="#">Department One</a></li>
-                  <li><a href="#">Department Two</a></li>
-                  <li><a href="#">Department Three</a></li>
-                  <li><a href="#">Department Four</a></li>
-                  <li><a href="#">Department Five</a></li>
-                  <li><a href="#">Department Six</a></li>
-                  <li><a href="#">Department Seven</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link">Department Two<i class="icon-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li><a href="#">Department One</a></li>
-                  <li><a href="#">Department Two</a></li>
-                  <li><a href="#">Department Three</a></li>
-                  <li><a href="#">Department Four</a></li>
-                  <li><a href="#">Department Five</a></li>
-                </ul>
-              </li> --}}
+        
 
             </ul>
 
@@ -106,7 +58,7 @@
 												<a href="{{url('/category/subcategory/'.$subCategory->subCategory->id)}}">
 													<div class="single-item-Wrapper">
 														<div class="shop-img-item">
-															<img src="{{$subCategory->subCategory->image}}" alt="image">
+															<img src="{{asset($subCategory->subCategory->image)}}" alt="image">
 														</div>
 														<div class="single-Text-item">
 															<span> {{$subCategory->name}}</span>

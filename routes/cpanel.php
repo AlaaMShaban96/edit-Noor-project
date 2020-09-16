@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/password/reset/{token}','Cpanel\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','Cpanel\Auth\ResetPasswordController@reset');
   
-    Route::group(['middleware' => ['admin']], function () {
+    Route::group(['middleware' => ['admin']], function () { 
         
        
                 //Routes Dashboard

@@ -1,6 +1,23 @@
 @extends('website.layouts.master')
 @section('titel','Home')
-    
+@section('style')
+<style>
+      .post-content-text {
+            white-space: nowrap; 
+            width: 100%; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
+           
+        }
+      .post-content-text-partner {
+            white-space: nowrap; 
+            width: 100%; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
+           
+        }
+</style>
+@endsection
 @section('content')
     
 
@@ -33,7 +50,7 @@
                     @if ($slide->language_code='en')
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on"  data-title="Intro Slide">
             
-                        <img src="{{$slide->slide->image}}" alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <img src="{{asset($slide->slide->image)}}" alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                 
                 
                         <div class="tp-caption customin customout rs-parallaxlevel-0"
@@ -121,7 +138,7 @@
     
     
           </ul>
-        <div class="tp-bannertimer"></div>	</div>
+        <dipost-content-textv class="tp-bannertimer"></div>	</div>
     </div>
     
        <!--End Banner-->
@@ -144,7 +161,7 @@
             <div class="col-md-12">
                 <div class="main-title">
                     <h2><span>Welcome to</span> Noor AL-Amana</h2>
-                    <p>text text text text </p>
+                    {{--         --}}
                 </div>
             </div>
         </div>
@@ -168,7 +185,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="welcome-serv-img">
-                                        <img src="{{$category->category->image}}" alt="">
+                                        <img src="{{asset($category->category->image)}}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -188,151 +205,10 @@
 </div>
 
 
-       <!--End Welcome-->
-    
-    
-    
-       <!--Start Specialists-->
-       {{-- <div class="meet-specialists">
-               <div class="container">
-    
-    
-                <div class="row">
-                <div class="col-md-12">
-                <div class="main-title">
-                    <h2><span>Meet Our</span> Specialists</h2>
-                    <p>If you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing elit. Ut volutpat eros  adipiscing nonummy.</p>
-                </div>
-                </div>
-                </div>
-    
-                <div id="demo">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-    
-                  <div id="owl-demo4" class="owl-carousel">
-    
-                    <div class="post item">
-    
-                            <div class="gallery-sec">
-                                <div class="website/image-hover img-layer-slide-left-right">
-                                <img src="website/images/team-member1.jpg" alt="">
-                                <div class="layer">
-                                        <a href="#."><i class="icon-euro"></i></a>
-                                        <a href="#."><i class="icon-yen"></i></a>
-                                        <a href="#."><i class="icon-caddieshoppingstreamline"></i></a>
-                                     </div>
-                                </div>
-                            </div>
-    
-                        <div class="detail">
-                            <h6>Dr. Andrew Bert</h6>
-                            <span>Outpatient Surgery</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo.</p>
-                            <a href="team-member-detail.html">- View Profile</a>
-                        </div>
-    
-                    </div>
-                    <div class="post item">
-    
-                        <div class="gallery-sec">
-                                <div class="website/image-hover img-layer-slide-left-right">
-                                <img src="website/images/team-member2.jpg" alt="">
-                                <div class="layer">
-                                        <a href="#."><i class="icon-euro"></i></a>
-                                        <a href="#."><i class="icon-yen"></i></a>
-                                        <a href="#."><i class="icon-caddieshoppingstreamline"></i></a>
-                                     </div>
-                                </div>
-                            </div>
-    
-                        <div class="detail">
-                            <h6>Dr. Sara Stefon</h6>
-                            <span>Cardiologist</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo.</p>
-                            <a href="team-member-detail.html">- View Profile</a>
-                        </div>
-    
-                    </div>
-                    <div class="post item">
-    
-                        <div class="gallery-sec">
-                                <div class="website/image-hover img-layer-slide-left-right">
-                                <img src="website/images/team-member3.jpg" alt="">
-                                <div class="layer">
-                                        <a href="#."><i class="icon-euro"></i></a>
-                                        <a href="#."><i class="icon-yen"></i></a>
-                                        <a href="#."><i class="icon-caddieshoppingstreamline"></i></a>
-                                     </div>
-                                </div>
-                            </div>
-    
-                        <div class="detail">
-                            <h6>Dr. Wahab Apple</h6>
-                            <span>Heart Specialist</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo.</p>
-                            <a href="team-member-detail.html">- View Profile</a>
-                        </div>
-    
-                    </div>
-    
-                    <div class="post item">
-    
-                        <div class="gallery-sec">
-                                <div class="image-hover img-layer-slide-left-right">
-                                <img src="website/images/team-member4.jpg" alt="">
-                                <div class="layer">
-                                        <a href="#."><i class="icon-euro"></i></a>
-                                        <a href="#."><i class="icon-yen"></i></a>
-                                        <a href="#."><i class="icon-caddieshoppingstreamline"></i></a>
-                                     </div>
-                                </div>
-                            </div>
-    
-                        <div class="detail">
-                            <h6>Dr. Mecan smith</h6>
-                            <span>Heart Specialist</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo.</p>
-                            <a href="team-member-detail.html">- View Profile</a>
-                        </div>
-    
-                    </div>
-    
-                    <div class="post item">
-    
-                            <div class="gallery-sec">
-                                <div class="website/image-hover img-layer-slide-left-right">
-                                <img src="website/images/team-member5.jpg" alt="">
-                                <div class="layer">
-                                        <a href="#."><i class="icon-euro"></i></a>
-                                        <a href="#."><i class="icon-yen"></i></a>
-                                        <a href="#."><i class="icon-caddieshoppingstreamline"></i></a>
-                                     </div>
-                                </div>
-                            </div>
-    
-                        <div class="detail">
-                            <h6>Dr. Jack Bravo</h6>
-                            <span>Heart Specialist</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec eros eget nisl fringilla commodo.</p>
-                            <a href="team-member-detail.html">- View Profile</a>
-                        </div>
-    
-                    </div>
-    
-                    </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-       </div> --}}
-       <!--End Specialists-->
     
     
        <!--Start Latest News-->
-       <div class="latest-news dark-back">
+       <div class="latest-news dark-back" style="padding-top: 0px;">
                <div class="container">
     
                 <div class="row">
@@ -342,7 +218,7 @@
                         <span>Latest News from</span>
                          Noor AL-Amana
                     </h2>
-                    <p>text text text text </p>
+                  
                 </div>
                 </div>
                 </div>
@@ -359,62 +235,19 @@
                     @foreach ($posts as $post)
                     @if ($post->post->type=='News')
                         <div class="post item">
-                            <img class="lazyOwl" src="{{$post->post->image}}" alt="">
+                            <img class="lazyOwl" src="{{asset($post->post->image)}}" alt="">
                             <div class="detail">
                                 <img height="188px" src="images/news-dr1.jpg" alt="">
-                                <h4><a href="news-detail.html">{{$post->title}}</a></h4>
-                                <p>{{$post->content}}</p>
-                                <span><i class="icon-clock3"></i> Apr 22, 2016</span>
+                                <h4><a href="{{url("/news/$post->id")}}">{{$post->title}}</a></h4>
+                                <p class="post-content-text">{{$post->content}}</p>
+                                <span><i class="icon-clock3"></i>{{$post->created_at->diffForHumans()}}</span>
                                 {{-- <span class="comment"><a href="news-detail.html"><i class="icon-icons206"></i> 5 Comments</a></span> --}}
                             </div>
                         </div>
                     @endif
                     @endforeach
                    
-                    {{-- <div class="post item">
-                        <img class="lazyOwl" src="website/images/news-img2.jpg" alt="">
-                        <div class="detail">
-                            <img src="website/images/news-dr2.jpg" alt="">
-                            <h4><a href="news-detail.html">Laboratory Tests</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eros...</p>
-                            <span><i class="icon-clock3"></i> Apr 09, 2016</span>
-                            <span class="comment"><a href="news-detail.html"><i class="icon-icons206"></i> 3 Comments</a></span>
-                        </div>
-                    </div>
-    
-                    <div class="post item">
-                        <img class="lazyOwl" src="website/images/news-img3.jpg" alt="">
-                        <div class="detail">
-                            <img src="images/news-dr1.jpg" alt="">
-                            <h4><a href="news-detail.html">Research Center</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eros...</p>
-                            <span><i class="icon-clock3"></i> Mar 28, 2016</span>
-                            <span class="comment"><a href="news-detail.html"><i class="icon-icons206"></i> 0 Comments</a></span>
-                        </div>
-                    </div>
-    
-                    <div class="post item">
-                        <img class="lazyOwl" src="website/images/news-img4.jpg" alt="">
-                        <div class="detail">
-                            <img src="website/images/news-dr2.jpg" alt="">
-                            <h4><a href="news-detail.html">Child Birth</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eros...</p>
-                            <span><i class="icon-clock3"></i> Mar 15, 2016</span>
-                            <span class="comment"><a href="news-detail.html"><i class="icon-icons206"></i> 0 Comments</a></span>
-                        </div>
-                    </div>
-    
-                    <div class="post item">
-                        <img class="lazyOwl" src="website/images/news-img5.jpg" alt="">
-                        <div class="detail">
-                            <img src="website/images/news-dr2.jpg" alt="">
-                            <h4><a href="news-detail.html">Special Treatment</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eros...</p>
-                            <span><i class="icon-clock3"></i> Mar 04, 2016</span>
-                            <span class="comment"><a href="news-detail.html"><i class="icon-icons206"></i> 11 Comments</a></span>
-                        </div>
-                    </div> --}}
-    
+              
                   </div>
     
                 </div>
@@ -453,10 +286,10 @@
     
                     @foreach ($partners as $partner)
                         <div class="testi-sec">
-                            <img src="{{$partner->ourPartners->image}}" alt="">
+                            <img src="{{asset($partner->ourPartners->image)}}" alt="">
                             <div class="height10"></div>
                             <span class="name">{{$partner->name}}</span>
-                            <span class="patient">{{$partner->description}}</span>
+                            <p class="post-content-text-partner patient">{{$partner->description}}</p>
                             <div class="height30"></div>    
                         </div>
                     @endforeach
@@ -490,7 +323,7 @@
       <section class="customer-logos slider">
           @foreach ($suppliers as $supplier)
           <div class="slide">
-              <a href="#"><img src="{{$supplier->image}}"></a>
+              <a href="#"><img src="{{asset($supplier->image)}}"></a>
              </div>
           @endforeach
         

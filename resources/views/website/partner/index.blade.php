@@ -10,29 +10,27 @@
     <div class="services-content">
       <div class="container">
 
-        {{-- <div class="row">
+        <div class="row">
           <div class="col-md-12">
             <div class="main-title">
-              <h2 class="text-center"><span>Special</span> Services</h2>
+              <h2 class="text-center"><span>Our</span> Partners</h2>
             </div>
           </div>
-        </div> --}}
+        </div>
 
         <div class="row">
-          {{-- @foreach ($partners as $partner)
+          @foreach ($partners as $partner)
               <div class="col-md-4">
                 <div class="serv-sec">
-                  <img class="banner-img" src="{{ asset($partner->ourPartners->image)}}" alt="">
-                  <div class="detail">
-                    <h5>{{$partner->name}}</h5>
-              
-                  </div>
+                  <a href="{{url("partner/$partner->id")}}">
+                    <img class="banner-img" src="{{ asset($partner->ourPartners->image)}}" alt="">
+                  </a>
                 </div>
               </div>
-          @endforeach --}}
+          @endforeach
        
 
-          <div class="col-md-4">
+          {{-- <div class="col-md-4">
             <div class="serv-sec">
               <img class="banner-img" src="website/images/service-two-img4.jpg" alt="">
               <div class="detail">
@@ -100,7 +98,7 @@
 
               </div>
             </div>
-          </div>
+          </div> --}}
 
 
 

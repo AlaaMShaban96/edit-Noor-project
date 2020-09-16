@@ -17,6 +17,11 @@ class PartnerController extends Controller
     public function index()
     {
         $partners =OurPartnersTranslation::all();
+        
         return view('website.partner.index',compact('partners'));
+    }
+    public function show(OurPartnersTranslation  $partner)
+    {
+        return view('website.partner.show',compact('partner'));
     }
 }

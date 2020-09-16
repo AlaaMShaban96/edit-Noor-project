@@ -46,7 +46,7 @@ class PartnerController extends Controller
     public function store(PartnerRequest $request)
     {
         $partner = new OurPartners();  
-        $partner->image=$this->uploadeImage($request);
+        $partner->image=$request->image!=null?$this->uploadeImage($request):'';
         $partner->save();
 
         foreach ($request->language_codes as $key => $code) {

@@ -42,7 +42,7 @@
                                       <label for="user-password">Password</label>
                                   </fieldset>
                                   <div class="form-group d-flex justify-content-between align-items-center">
-                                      <div class="text-left">
+                                      {{-- <div class="text-left">
                                           <fieldset class="checkbox">
                                             <div class="vs-checkbox-con vs-checkbox-primary">
                                               <input type="checkbox">
@@ -54,10 +54,10 @@
                                               <span class="">Remember me</span>
                                             </div>
                                           </fieldset>
-                                      </div>
-                                      <div class="text-right"><a href="auth-forgot-password" class="card-link">Forgot Password?</a></div>
+                                      </div> --}}
+                                      <div class="text-right"><a href="{{url('cpanel/admin/password/reset')}}" class="card-link">Forgot Password?</a></div>
                                   </div>
-                                  <a href="auth-register" class="btn btn-outline-primary float-left btn-inline">Register</a>
+                                  {{-- <a href="auth-register" class="btn btn-outline-primary float-left btn-inline">Register</a> --}}
                                   <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
                               </form>
                           </div>

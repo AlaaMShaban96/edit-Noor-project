@@ -20,7 +20,7 @@ class PartnerRequest extends FormRequest
             
             'descriptions' => 'required',
              
-            'image' => 'required', 
+            // 'image' => 'required', 
         ];
     }
     public function messages()

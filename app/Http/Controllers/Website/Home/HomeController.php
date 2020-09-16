@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+       
         $categoies= CategoryTranslation::all();
         $sliders  = SlideTranslation::all();
         $posts    = PostTranslation::orderBy('id', 'asc')->take(5)->get();

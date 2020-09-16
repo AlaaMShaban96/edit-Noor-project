@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Website\News;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\PostTranslation;
+use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {
@@ -14,7 +16,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
-        return view('website.news.index');
+        $posts=PostTranslation::all();
+        return view('website.news.index',compact('posts'));
+    }
+    public function show(PostTranslation $post)
+    {
+        return view('website.news.show',compact('post'));
     }
 }

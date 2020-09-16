@@ -100,7 +100,7 @@
          <div class="row">
 
              <div class="col-md-6">
-                 <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear());</script>  Noor Al-Amana. All right reserved <a href="www.nano-tech.ly" style="color: #fff;"><b>nano tech </b></a></span>
+                 <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear());</script>  Noor Al-Amana. All right reserved <a href="{{ URL::to('http://www.nano-tech.ly') }}" target="__blink" style="color: #fff;"><b>Nano tech </b></a></span>
              </div>
 
              <div class="col-md-6">

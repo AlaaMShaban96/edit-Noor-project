@@ -44,8 +44,7 @@
          
 
            @if ($post->post->type==$type)
-               
-          
+                        
             <tr>
               <td></td>
               <td class="product-img"><img src="{{ asset($post->post->image) }}" alt="Img placeholder">
@@ -56,7 +55,7 @@
             
               <td class="product-action">
                 <a href='{{url("cpanel/admin/post/".$post->post->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-                {{-- <a href='{{url("cpanel/admin/partner")}}' ><span class="fonticon-wrap"><i class="fa fa-spartnerap"></i></span></a> --}}
+                <a href='{{url("/news/$post->id")}}' ><span class="action-edit"  ><i class="fa fa-eye"></i></span></a>
                 <a href="#" onclick="deletee({{$post->post->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
               <form style="display: none" id="delete{{$post->post->id}}" action="{{url('cpanel/admin/post/'.$post->post->id)}}" method="post">
