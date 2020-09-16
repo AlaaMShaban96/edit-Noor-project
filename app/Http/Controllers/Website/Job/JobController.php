@@ -38,7 +38,7 @@ class JobController extends Controller
         $cv_path=$this->uploadeImage($request);
         Mail::send("emails.sendCv",compact('request'), function($message) use ($email,$title,$cv_path )   {
 
-            $message->to($email)->subject("job".$title);
+            $message->to($email)->subject("job $title");
             $message->to($email)->attach(public_path($cv_path), [
                 'as' => 'cv.pdf',
                 'mime' => 'application/pdf',], public_path('website/images/favicon-medical.png'), [

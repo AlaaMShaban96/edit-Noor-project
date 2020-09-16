@@ -31,22 +31,22 @@
         {
             "url": "/cpanel/admin/category",
             "name": "Categroy ",
-            "icon": "feather icon-box"
+            "icon": "feather icon-folder"
         },
         {
             "url": "/cpanel/admin/partner",
             "name": "Partners",
-            "icon": "feather icon-box"
+            "icon": "feather icon-tag"
         },
         {
             "url": "/cpanel/admin/supplier",
             "name": "Supplier",
-            "icon": "feather icon-box"
+            "icon": "feather icon-sunset"
         },
         {
             "url": "/cpanel/admin/post",
             "name": "Post",
-            "icon": "feather icon-clipboard",
+            "icon": "feather icon-file-plus",
             "submenu": [
                 {
                     "url": "/cpanel/admin/post?type=Advertising",
