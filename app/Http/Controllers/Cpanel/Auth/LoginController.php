@@ -64,6 +64,8 @@ class LoginController extends Controller
             
                 return redirect()->intended(route('website.home.index'));
             }
+        }else {
+            return redirect('cpanel/admin/login')->withErrors(['email or password feild']);
         }
 
         // if Unsuccessful, then redirect back to the login with the form data

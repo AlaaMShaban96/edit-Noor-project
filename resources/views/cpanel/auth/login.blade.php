@@ -68,7 +68,7 @@
                         <i class="feather icon-info mr-1 align-middle"></i>
                         <span>{{ $error }}</span>
                     </div>
-                  @endforeach
+                  @endforeach 
                 @endif
                 
                 @if(Session::has('message'))
