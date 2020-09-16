@@ -135,6 +135,7 @@ class AdminController extends Controller
 
                     $request->image!=null? $admin->image = $this->uploadeImage($request):'';
                
+                    $admin->roles()->detach();
                     $admin->roles()->attach($request->role);
                     $admin->save();
 
