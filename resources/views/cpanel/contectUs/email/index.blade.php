@@ -45,14 +45,6 @@
                           </div>
                       @empty
                       <input type="hidden" name="footer_id" value="1">
-                            <label>Facebook</label>
-                              <div class="input-group mb-75">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text feather icon-facebook" id="basic-addon4"></span>
-                                </div>
-                                <input type="text" class="form-control" name="link[]" value="" placeholder="https://www.facebook.com/" aria-describedby="basic-addon4">
-                                <input type="hidden" name="email_type_id[]" value="1">
-                              </div>
                             <label>Email</label>
                             <div class="input-group mb-75">
                               <div class="input-group-prepend">
@@ -61,6 +53,15 @@
                               <input type="text" class="form-control" name="link[]" value="" placeholder="https://www.twitter.com/" aria-describedby="basic-addon3">
                               <input type="hidden" name="email_type_id[]" value="2">
                             </div>
+                            <label>Facebook</label>
+                              <div class="input-group mb-75">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text feather icon-facebook" id="basic-addon4"></span>
+                                </div>
+                                <input type="text" class="form-control" name="link[]" value="" placeholder="https://www.facebook.com/" aria-describedby="basic-addon4">
+                                <input type="hidden" name="email_type_id[]" value="1">
+                              </div>
+                           
                             <label>LinkedIn</label>
                             <div class="input-group mb-75">
                               <div class="input-group-prepend">
@@ -104,7 +105,7 @@
                   <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
                     <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Save
                       Changes</button>
-                    <button type="reset" class="btn btn-outline-warning">Reset</button>
+                    <button type="reset" onclick="deletee()" class="btn btn-outline-warning">Reset</button>
                   </div>
                 </div>
               </form>
@@ -115,4 +116,20 @@
       </div>
     </div>
   </section>
+  <form style="display: none" id="delete" action="{{url('cpanel/admin/email')}}" method="post">
+    @method('delete')
+    @csrf
+  {{-- <button  type="submit"></button> --}}
+
+</form>
+@endsection
+@section('page-script')
+        {{-- Page js files --}}
+        <script>
+        
+          function deletee() {
+              
+              document.getElementById("delete").submit();
+          }
+      </script>
 @endsection

@@ -1,5 +1,9 @@
 @php
     $categories=App\Models\CategoryTranslation::all();
+  
+    $logo=App\Models\Logo::all();
+    $footer=App\Models\Footer::findOrFail(1);
+
 @endphp
 <div id="wrap">
     <!--Start PreLoader-->
@@ -33,17 +37,17 @@
                      <div class="get-touch">
  
                          <ul>
-                         <li><a><i class="icon-phone4"></i>+218 21 340 7995</a></li>
-                         <li><span><i class="icon-location"></i> Al-Sheikh St,Al-Noflieen,Tripoli-Libya</span></li>
+                         <li><a><i class="icon-phone4"></i>+{{$footer->phoneNumber()->first()==null?"218 21 340 7995":$footer->phoneNumber()->first()->phone}}</a></li>
+                         <li><span><i class="icon-location"></i> {{$footer->ourAddress()->first()->ourAddressTranslation()->first()==null?"":$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}</span></li>
  
                          </ul>
  
                          <ul  class="social-icons">
                          
                          <li><a href="#." class="fb"><i class="icon-euro"></i> </a></li>
-                         {{-- <li><a href="#." class="tw"><i class="icon-yen"></i> </a></li> --}}
+                         
                          @auth('admin')
-                         <li><a href="{{url('cpanel/admin/')}}" class=""><i class=""></i>dashboard</a></li>  
+                         <li><a href="{{url('cpanel/admin/')}}" class=""><i class=""></i>Cpanel</a></li>  
                          <li><a href="{{url('cpanel/admin/logout')}}" class=""><i class=""></i>logout</a></li>  
                          @endauth
                          
@@ -67,7 +71,7 @@
          <div class="row">
  
              <div class="col-md-3">
-                 <a href="website/images/favicon-medical.png" class="logo"><img src="website/images/logo.png" alt=""></a>
+                 <a href="website/images/favicon-medical.png" class="logo"><img src="{{asset($logo->first()==null?'website/images/logo.png':$logo->first()->image)}}" alt=""></a>
              </div>
              
              <div class="col-md-9">
@@ -103,12 +107,7 @@
                             
                             @endforeach
                         
-                        {{-- <li> 
-                            <a href="">Home Page 2</a> 
-                        </li>
-                        <li> 
-                            <a href="">Home Page 3</a>
-                         </li> --}}
+                      
 					</ul>
 					</li>
  

@@ -15,7 +15,7 @@ class PhoneNumber extends Model
      * @var array
      */
     protected $fillable = [
-        'footer_id', 'number', 
+        'footer_id', 'phone', 
     ];
 
     public function footer()

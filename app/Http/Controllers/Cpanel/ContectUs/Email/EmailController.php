@@ -57,14 +57,14 @@ class EmailController extends Controller
             }
             $date='Update Emils is success';
         }else {
-            foreach ($request->email_type_id as $key => $emailType) {
-                if ($emailType==null) {
+            foreach ($request->link as $key => $link) {
+                if ($link==null) {
                 break;
                 }
                 $email = new Email();
                 $email->footer_id = $request->footer_id;
-                $email->email_type_id = $emailType;
-                $email->link = $request->link[$key];
+                $email->email_type_id = $request->email_type_id[$key];
+                $email->link = $link;
                 $email->save();
             }
             $date='Create Emils is success';

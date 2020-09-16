@@ -60,6 +60,12 @@
                                 <input type="text" class="form-control" name="name[]"  placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
                               </div>
                             </div>
+                            <div class="form-group">
+                              <div class="controls">
+                                <label>Address Three</label>
+                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
+                              </div>
+                            </div>
           
                         </div>
                        
