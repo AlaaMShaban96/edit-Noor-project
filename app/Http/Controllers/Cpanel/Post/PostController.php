@@ -18,8 +18,8 @@ class PostController extends Controller
     public function index(Request $request)
     {
        $type =$request->type;
-        $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
+        $breadcrumbs = [ 
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
             ['name'=>"Post"],
             ['name'=>$request->type]
         ];
@@ -70,8 +70,7 @@ class PostController extends Controller
             $postTranslation->content = $request->content[$key];
             $postTranslation->save();
         }
-        return redirect()->back();
-        // return response(['post' => $post,'PostTranslation' => $postTranslation]);
+        return redirect()->back()->with('message', 'Create '.$request->type.'  is success');
     }
 
     /**
@@ -95,9 +94,9 @@ class PostController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
             ['name'=>"Post"],
-            ['name'=>$post->type],
+            ['link'=>"/cpanel/admin/post?type=$post->type",'name'=>$post->type],
             ['name'=>"Edit"],
         ];
       
@@ -135,9 +134,7 @@ class PostController extends Controller
             $translation->save();
         }
   
-        return redirect('cpanel/admin/post?type='.$post->type);
-        // return response()->json($translation);
-        // return response(['slide' => $slide,'SlideTranslation' => $translation]);
+        return redirect('cpanel/admin/post?type='.$post->type)->with('message', 'Update '.$request->type.'  is success');
     }
 
     /**
@@ -148,17 +145,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $type=$post->type;
+
+        $post->postTranslation()->delete();
+        $post->image == null ?"":unlink($post->image);
+        $post->delete();
         
-     
-        if ($post->image == null) {
-            $post->postTranslation()->delete();
-            $post->delete();
-        }else{
-            $post->postTranslation()->delete();
-            // unlink($post->image);
-            $post->delete();
-        }
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Create '.$type.'  is success');
 
     }
 

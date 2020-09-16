@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin'], function() {
                 //Routes Profile
                 Route::get('Profile-index','Cpanel\Profile\ProfileController@index');
                 Route::get('Profile-edit/{id}','Cpanel\Profile\ProfileController@edit');
-                Route::post('Profile-update/{id}','Cpanel\Profile\ProfileController@update');
+                Route::put('profile-update/{admin}','Cpanel\Profile\ProfileController@update');
 
                 //Route Slider
                 Route::resource('slider', 'Cpanel\Slider\SliderController');

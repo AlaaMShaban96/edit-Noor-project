@@ -21,9 +21,9 @@ class ItemController extends Controller
     public function index(SubCategory $subcategory)
     {
         $breadcrumbs = [
-            ['name'=>"Home"],
-            ['name'=>"Categories "],
-            ['name'=>"Sub Categor "],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/category",'name'=>"Category "],
+            ['link'=>"/cpanel/admin/subcategory/".$subcategory->category->id."/category",'name'=>"Sub Categor "],
             ['name'=>"Items "],
         ];
         $ids=array();
@@ -70,7 +70,7 @@ class ItemController extends Controller
             $translation->language_code=$code;
             $translation->save();
         }
-       return redirect()->back();
+       return redirect()->back()->with('message', 'Create Item  is success');
     }
 
     /**
@@ -126,7 +126,7 @@ class ItemController extends Controller
             $translation->name=$request->names[$key];
             $translation->save();
         }
-        return redirect('cpanel/admin/item/'.$item->sub_category_id.'/subcategory');
+        return redirect('cpanel/admin/item/'.$item->sub_category_id.'/subcategory')->with('message', 'Update Item  is success');
     }
 
     /**
@@ -141,7 +141,7 @@ class ItemController extends Controller
         $item->itemTranslation()->delete();
         $item->image==null?"":unlink($item->image);
         $item->delete();
-        return redirect('cpanel/admin/item/'.$sub_category_id.'/subcategory');
+        return redirect('cpanel/admin/item/'.$sub_category_id.'/subcategory')->with('message', 'Update Item  is success');
     }
     private function uploadeImage(Request $request)
     {

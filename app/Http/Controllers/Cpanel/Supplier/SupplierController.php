@@ -17,7 +17,7 @@ class SupplierController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
             ['name'=>"Supplier "],
         ];
         $suppliers=Supplier::all();
@@ -52,7 +52,7 @@ class SupplierController extends Controller
             "image"=>$request->image==null?"":$this->uploadeImage($request),
         ]);
         
-       return redirect('cpanel/admin/supplier');
+       return redirect('cpanel/admin/supplier')->with('message', 'Create Supplier  is success');
     }
 
     /**
@@ -75,8 +75,8 @@ class SupplierController extends Controller
     public function edit(Supplier $supplier)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
-            ['name'=>"Supplier "],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/supplier",'name'=>"Supplier "],
             ['name'=>"Edit "],
         ];
        
@@ -99,7 +99,7 @@ class SupplierController extends Controller
         $supplier->website=$request->website;
         $supplier->image=$request->image==null?$supplier->image:$this->uploadeImage($request);
         $supplier->save();
-        return redirect('cpanel/admin/supplier');
+        return redirect('cpanel/admin/supplier')->with('message', 'Update Supplier  is success');
     }
 
     /**
@@ -113,7 +113,7 @@ class SupplierController extends Controller
 
         unlink($supplier->image);
         $supplier->delete();
-        return redirect('cpanel/admin/supplier');
+        return redirect('cpanel/admin/supplier')->with('message', 'Delete Supplier  is success');
     }
     private function uploadeImage(Request $request)
     {

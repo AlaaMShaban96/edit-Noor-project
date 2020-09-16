@@ -19,7 +19,7 @@ class JobController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
             ['link'=>"job",'name'=>"Job"]
         ];
         $jobs = JobTranslation::all();
@@ -35,8 +35,8 @@ class JobController extends Controller
     public function create()
     {
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['name'=>"Job"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/job",'name'=>"Job"],
             ['name'=>"Add"],
         ];
        
@@ -51,10 +51,7 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
-       
-        //
         $job = new Job();
-        // $job->admin_id = auth('admin')->user()->id;
         $job->admin_id = auth('admin')->user()->id;
         $job->our_address_id = 1;
         // $job->our_address_id = $request->our_address_id;
@@ -74,7 +71,7 @@ class JobController extends Controller
             $jobTranslation->skills = $request->skills[$key];
             $jobTranslation->save();
         }
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Update Job  is success');
     }
 
     /**
@@ -98,8 +95,8 @@ class JobController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['name'=>"Job"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/job",'name'=>"Job"],
             ['name'=>"Edit"]
         ];
         return view('cpanel.job.edit', compact('job','breadcrumbs'));
@@ -114,10 +111,7 @@ class JobController extends Controller
      */
     public function update(JobRequest $request, Job $job)
     {
-        //
-       
-        // $job->admin_id = auth('admin')->user()->id;
-        $job->admin_id = 1;
+        $job->admin_id = auth('admin')->user()->id;
         $job->our_address_id = 1;
         // $job->our_address_id = $request->our_address_id;
         $job->gender = $request->gender;
@@ -132,9 +126,7 @@ class JobController extends Controller
            $translation->skills = $request->skills[$key];
            $translation->save();
        }
-       return redirect('cpanel/admin/job');
-       // return response()->json($translation);
-       // return response(['slide' => $slide,'SlideTranslation' => $translation]);
+       return redirect('cpanel/admin/job')->with('message', 'Update Job  is success');
     }
 
     /**

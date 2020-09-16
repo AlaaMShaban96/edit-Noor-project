@@ -21,8 +21,8 @@ class SliderController extends Controller
         // 
         
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            // ['link'=>"slider",'name'=>"Slider"]
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['name'=>"Slider"]
         ];
         $slideTranslation=SlideTranslation::all();
         return view('cpanel.slider.index',compact('slideTranslation','breadcrumbs'));
@@ -62,7 +62,7 @@ class SliderController extends Controller
             $slideTranslation->description = $request->descriptions[$key];
             $slideTranslation->save();
         }
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Create Slider  is success');
         // return response(['slide' => $slide,'SlideTranslation' => $slideTranslation]); 
     }
 
@@ -88,8 +88,9 @@ class SliderController extends Controller
        
         //
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"slider",'name'=>"Slider"]
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/slider",'name'=>"Slider"],
+            ['name'=>"Edit"],
         ];
         
         return view('cpanel.slider.edit', compact('slider','breadcrumbs'));
@@ -121,9 +122,8 @@ class SliderController extends Controller
             
             $translation->save();
         }
-        return redirect('cpanel/admin/slider');
-        // return response()->json($translation);
-        // return response(['slide' => $slide,'SlideTranslation' => $translation]);
+        return redirect('cpanel/admin/slider')->with('message', 'Update Slider  is success');
+
     }
 
     /**
@@ -141,7 +141,7 @@ class SliderController extends Controller
         unlink($slide->image);
         $slide->delete();
 
-        return redirect('cpanel/admin/slider');
+        return redirect('cpanel/admin/slider')->with('message', 'Delete Slider  is success');
 
     }
 

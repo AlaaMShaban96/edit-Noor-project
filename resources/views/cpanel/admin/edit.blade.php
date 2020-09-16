@@ -16,16 +16,6 @@
   <div class="card">
     <div class="card-content">
       <div class="card-body">
-        <ul class="nav nav-tabs mb-3" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center active" id="account-tab" data-toggle="tab" href="#account"
-              aria-controls="account" role="tab" aria-selected="true">
-              <i class="feather icon-user mr-25"></i><span class="d-none d-sm-block">Informtion </span>
-            </a>
-          </li>
-          
- 
-        </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
             <!-- users edit media object start -->
@@ -128,7 +118,7 @@
                 <button type="submit" class="btn btn-primary mr-1 mb-1">Update</button>
                 <a href="{{url('cpanel/admin/admin-index')}}" class="btn btn-danger mr-1 mb-1">Cancel</a>
               </div>
-              </form>
+            </form>
              <!-- permissions start -->
     
   </div>

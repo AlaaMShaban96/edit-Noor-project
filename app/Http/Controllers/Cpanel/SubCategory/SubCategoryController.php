@@ -19,8 +19,8 @@ class SubCategoryController extends Controller
     public function index(Category $category)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
-            ['name'=>"Categories "],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/category",'name'=>"Category "],
             ['name'=>"Sub Category "],
         ];
         $ids=array();
@@ -65,7 +65,7 @@ class SubCategoryController extends Controller
             $translation->language_code=$code;
             $translation->save();
         }
-       return redirect()->back();
+       return redirect()->back()->with('message', 'Create SubCategory  is success');
     }
 
     /**
@@ -88,9 +88,9 @@ class SubCategoryController extends Controller
     public function edit(SubCategory $subcategory)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
-            ['name'=>"Categories "],
-            ['name'=>"Sub Categor "],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/category",'name'=>"Category "],
+            ['link'=>"/cpanel/admin/item/$subcategory->id/subcategory",'name'=>"Sub Categor "],
             ['name'=>"Edit "],
         ];
         return view('cpanel.subcategory.edit', compact('subcategory','breadcrumbs'));
@@ -119,7 +119,7 @@ class SubCategoryController extends Controller
             $translation->name=$request->names[$key];
             $translation->save();
         }
-        return redirect('cpanel/admin/subcategory/'.$subcategory->category_id.'/category');
+        return redirect('cpanel/admin/subcategory/'.$subcategory->category_id.'/category')->with('message', 'Update SubCategory  is success');
     }
 
     /**
@@ -134,7 +134,7 @@ class SubCategoryController extends Controller
         $subcategory->subCategoryTranslation()->delete();
         unlink($subcategory->image);
         $subcategory->delete();
-        return redirect('cpanel/admin/subcategory/'.$category_id.'/category');
+        return redirect('cpanel/admin/subcategory/'.$category_id.'/category')->with('message', 'Delete SubCategory  is success');
     }
     private function uploadeImage(Request $request)
     {

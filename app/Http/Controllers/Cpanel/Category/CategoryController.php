@@ -64,7 +64,7 @@ class CategoryController extends Controller
             $translation->save();
         }
        
-       return redirect()->back();
+       return redirect()->back()->with('message', 'Create Category is success');
 
     }
 
@@ -119,7 +119,7 @@ class CategoryController extends Controller
             
             $translation->save();
         }
-       return redirect('cpanel/admin/category');
+       return redirect('cpanel/admin/category')->with('message', 'Update Category is success');
 
     }
 
@@ -135,7 +135,7 @@ class CategoryController extends Controller
         $category->image==null?"" : unlink($category->image);
         $category->delete();
 
-        return redirect('cpanel/admin/category');
+        return redirect('cpanel/admin/category')->with('message', 'Delet Category is success');
 
     }
     private function uploadeImage(Request $request)

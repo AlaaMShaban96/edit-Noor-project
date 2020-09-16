@@ -5,9 +5,7 @@
 
 
 @section('page-style')
-        {{-- Page css files --}}
-        {{-- <link rel="stylesheet" href="{{ asset('css/plugins/file-uploaders/dropzone.css') }}"> --}}
-        <link rel="stylesheet" href="{{ asset('css/pages/data-list-view.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/data-list-view.css') }}">
 @endsection
 @section('content')
 {{-- Data list view starts --}}
@@ -26,6 +24,9 @@
         </div>
       @endforeach
     @endif
+    @if(Session::has('message'))
+        <p class="alert alert-success">{{ Session::get('message') }}</p>
+    @endif
     {{-- dataTable starts --}}
     <div class="table-responsive">
       <table class="table data-thumb-view" >
@@ -43,20 +44,13 @@
                     <td class="product-img">
                         {{$job->name}}
                     </td>
-               
-                    
-                    
                     <td class="product-action">
                         <a href='{{url("cpanel/admin/job/".$job->job->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
-
                         <a href="#" onclick="deletee({{$job->job->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
                     </td>
-                    
                     <form style="display: none" id="delete{{$job->job->id}}" action="{{url('cpanel/admin/job/'.$job->job->id)}}" method="post">
                         @method('delete')
                         @csrf
-                      {{-- <button  type="submit"></button> --}}
-                    
                     </form>
                 </tr>          
             @endforeach        
@@ -64,12 +58,6 @@
       </table>
     </div>
     {{-- dataTable ends --}}
-
-    
-
-    
-    
-    {{-- add new sidebar ends --}}
   </section>
   {{-- Data list view end --}}
 @endsection

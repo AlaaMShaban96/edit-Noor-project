@@ -18,7 +18,7 @@ class PartnerController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
             ['name'=>"Partner "] 
         ];
         $partners= OurPartnersTranslation::all();
@@ -59,7 +59,7 @@ class PartnerController extends Controller
             $translation->save();
         }
        
-       return redirect()->back();
+       return redirect()->back()->with('message', 'Create Partner  is success');
     }
 
     /**
@@ -82,8 +82,8 @@ class PartnerController extends Controller
     public function edit(OurPartners $partner)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"], 
-            ['name'=>"Partners "],
+            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['link'=>"/cpanel/admin/partner",'name'=>"Partner "] ,
             ['name'=>"Edit "]
         ];
         return view('cpanel.partner.edit', compact('partner','breadcrumbs'));
@@ -117,7 +117,7 @@ class PartnerController extends Controller
             $translation->save();
         }
        
-       return redirect('cpanel/admin/partner');
+       return redirect('cpanel/admin/partner')->with('message', 'Update Partner  is success');;
 
     }
 
@@ -133,7 +133,7 @@ class PartnerController extends Controller
         unlink($partner->image);
         $partner->delete();
 
-        return redirect('cpanel/admin/partner');
+        return redirect('cpanel/admin/partner')->with('message', 'Delete Partner  is success');;
     }
     private function uploadeImage(Request $request)
     {

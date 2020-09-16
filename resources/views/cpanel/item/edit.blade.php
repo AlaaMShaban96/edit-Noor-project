@@ -11,13 +11,16 @@
 @endsection
 @section('content')
 {{-- Data list view starts --}}
-@if ($errors->any())
+    @if ($errors->any())
       @foreach ($errors->all() as $error)
        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
             <i class="feather icon-info mr-1 align-middle"></i>
             <span>{{ $error }}</span>
         </div>
       @endforeach
+    @endif
+    @if(Session::has('message'))
+        <p class="alert alert-success">{{ Session::get('message') }}</p>
     @endif
 <section id="data-thumb-view" class="data-thumb-view-header">
 

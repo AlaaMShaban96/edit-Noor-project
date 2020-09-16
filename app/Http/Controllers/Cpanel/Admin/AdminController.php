@@ -118,6 +118,9 @@ class AdminController extends Controller
      */
     public function update(AdminRequest $request,Admin $admin)
     {
+        $validator=[
+            'error'=>'Enter Sane Password'
+        ];
        
         if ($request->password == $request->passwordConfrim) {
             
@@ -126,7 +129,7 @@ class AdminController extends Controller
                     
                     $admin->email = $request->email; 
                     
-                    $admin->password = Hash::make($request->password) ;
+                    $admin->password =$request->password==$admin->password? $admin->password : Hash::make($request->password) ;
     
                     $admin->active = $request->active;
 

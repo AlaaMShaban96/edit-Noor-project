@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Cpanel\Profile;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Requests\Profile\ProfileRequest;
-use App\Models\Admin;
 
 class ProfileController extends Controller
 {
@@ -44,9 +46,43 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProfileRequest $request, $id)
+    public function update(AdminRequest $request,Admin $admin)
     {
-        //
+        $validator=[
+            'error'=>'Enter Sane Password'
+        ];
+       
+        if ($request->password == $request->passwordConfrim) {
+            
+                
+                    $admin->name = $request->name; 
+                    
+                    $admin->email = $request->email; 
+                    
+                    $admin->password =$request->password==$admin->password? $admin->password : Hash::make($request->password) ;
+    
+                    $admin->active = $request->active;
+
+                    $request->image!=null? $admin->image = $this->uploadeImage($request):'';
+               
+                    $admin->roles()->attach($request->role);
+                    $admin->save();
+
+           
+        }else {
+            return redirect()->back()->withErrors($validator);
+        }
+       return redirect()->back()->with('message', 'Update Your Informtion');;
+        // return redirect('cpanel/admin/admin-index');
+    }
+    private function uploadeImage(Request $request)
+    {
+        
+        $imageName = time().".png";
+
+        $path ="storage/". $request->file('image')->storeAs('uploads/Admin', $imageName, 'public');
+    
+        return $path;
     }
 
 }
