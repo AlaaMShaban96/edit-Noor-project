@@ -7,36 +7,35 @@
             "badgeClass": "badge badge-warning badge-pill float-right",
             "icon": "feather icon-home"
         },
-       
+
         {
             "url": "/cpanel/admin/slider",
             "name": "Slider",
-            "icon": "feather icon-box"
+            "icon": "feather icon-layers"
         },
         {
             "url": "/cpanel/admin/category",
             "name": "Categroy ",
             "icon": "feather icon-folder"
         },
-     
-      
+
+
         {
             "url": "/cpanel/admin/post",
             "name": "Post",
-            "icon": "feather icon-file-plus",
-            "submenu": [
-                {
+            "icon": "feather icon-edit",
+            "submenu": [{
                     "url": "/cpanel/admin/post?type=Advertising",
                     "name": "Advertising",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/post?type=News",
                     "name": "News",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 }
             ]
         }
-      
+
     ]
 }
