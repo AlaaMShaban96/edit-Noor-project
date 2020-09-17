@@ -32,30 +32,30 @@
                       <div class="form-group">
                         <div class="controls">
                           <label>Phone {{$key}}</label>
-                          <input type="number" class="form-control" name="phone[]" value="{{$phone->phone}}" placeholder="Enter Your Business Phone"  
-                            data-validation-required-message="This username field is required">
+                          <input type="tel" class="form-control" name="phone[]" value="{{$phone->phone}}" placeholder="Enter Your Phone Number"  
+                            data-validation-required-message="This phone field is required">
                         </div>
                       </div> 
                     @empty    
                         <div class="form-group">
                           <div class="controls">
                             <label>Phone One</label>
-                            <input type="number" class="form-control" name="phone[]"  placeholder="Enter Your Business Phone"  
-                              data-validation-required-message="This username field is required">
+                            <input type="tel" class="form-control" name="phone[]"  placeholder="Enter Your Phone Number"  
+                              data-validation-required-message="This phone field is required">
                           </div>
                         </div>                 
                           <div class="form-group">
                               <div class="controls">
                                 <label>Phone Two</label>
-                                <input type="number" class="form-control" name="phone[]" placeholder="Enter Your Business Phone"  
-                                  data-validation-required-message="This username field is required">
+                                <input type="tel" class="form-control" name="phone[]" placeholder="Enter Your Phone Number"  
+                                  data-validation-required-message="This phone field is required">
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="controls">
                                 <label>Phone Three</label>
-                                <input type="number" class="form-control" name="phone[]" placeholder="Enter Your Business Phone"  
-                                  data-validation-required-message="This username field is required">
+                                <input type="tel" class="form-control" name="phone[]" placeholder="Enter Your Phone Number"  
+                                  data-validation-required-message="This phone field is required">
                               </div>
                             </div>
           

@@ -3,7 +3,7 @@
     <div class="header-navbar navbar-expand-sm navbar navbar-horizontal {{ $configData['navbarClass'] }} navbar-light navbar-without-dd-arrow navbar-shadow navbar-brand-center" role="navigation" data-menu="menu-wrapper" data-nav="brand-center">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="dashboard">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="{{ route('cpanel.admin.index') }}">
                     <div class="brand-logo"></div>
                     <h2 class="brand-text mb-0">Nano-Tech</h2></a></li>
                 <li class="nav-item nav-toggle">

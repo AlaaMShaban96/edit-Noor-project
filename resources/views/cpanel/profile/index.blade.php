@@ -61,7 +61,7 @@
                     @method('PUT')
                   <div class="media">
                     <a href="javascript: void(0);">
-                      <img src="{{ asset(auth('admin')->user()->image==null?'images/portrait/small/avatar-s-12.jpg':auth('admin')->user()->image) }}" class="rounded mr-75"
+                      <img src="{{ asset(auth('admin')->user()->image==null?'images/user.png':auth('admin')->user()->image) }}" class="rounded mr-75"
                         alt="profile image" height="64" width="64">
                     </a>
                     <div class="media-body mt-75">

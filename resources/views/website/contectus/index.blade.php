@@ -2,6 +2,9 @@
 @section('titel','contectUs')
     
 @section('content')
+@php
+    $footer=App\Models\Footer::find(1);
+@endphp
     <div class="content">
     
     
@@ -62,9 +65,27 @@
                         
                         <div class="get-in-touch">
                         <div class="detail">
-                            <span><b>Phone:</b> 1.800.555.6789</span>
-                            <span><b>Email:</b> <a href="#.">support@medical.com</a></span>
-                            <span><b>Address:</b> 12345 North Main Street, New York, NY</span>
+                            <span><b>Phone:</b>
+                                @if($footer->phoneNumber->isEmpty())
+                                +218 21 340 7995 
+                                @else
+                                +{{$footer->phoneNumber()->first()->phone}}
+                                @endif
+                            </span>
+                            <span><b>Email:</b> <a href="#.">
+                                    @if($footer->email->isEmpty())
+                                    commercial@noormed.com
+                                    @else
+                                    {{$footer->email->where('email_type_id',2)->first==null?"commercial@noormed.com":$footer->email->where('email_type_id',2)->first()['link']}}
+                                    @endif    
+                            </a></span>
+                            <span><b>Address:</b> 
+                                @if($footer->ourAddress->isEmpty())
+                                Al-sheikh St, Al-Noflieen, Tripoli-Libya
+                                @else
+                                {{$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}
+                                @endif
+                            </span>
                         </div>
                         
                         <div class="social-icons">
