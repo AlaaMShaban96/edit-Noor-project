@@ -47,6 +47,7 @@
             <img
               src="{{ asset($slide->slide->image) }}"
               alt="Img placeholder"
+              style="width:150px; height:150px;"
             />
           </td>
           <td class="product-name">{{ $slide->name }}</td>

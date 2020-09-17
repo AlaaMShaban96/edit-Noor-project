@@ -46,9 +46,6 @@
         </thead>
         <tbody>
           @foreach ($suppliers as $key=>$supplier)
-         
-               
-          
             <tr>
               <td></td>
               <td class="product-img"><img src="{{ asset($supplier->image) }}" alt="Img placeholder">
