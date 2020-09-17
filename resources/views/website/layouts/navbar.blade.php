@@ -85,7 +85,7 @@
          <div class="row">
  
              <div class="col-md-3">
-                 <a href="website/images/favicon-medical.png" class="logo"><img src="{{asset($logo->first()==null?'website/images/logo.png':$logo->first()->image)}}" alt=""></a>
+                 <a href="{{ url('/') }}" class="logo"><img src="{{asset($logo->first()==null?'website/images/logo.png':$logo->first()->image)}}" alt=""></a>
              </div>
              
              <div class="col-md-9">

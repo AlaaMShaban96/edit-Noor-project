@@ -19,7 +19,7 @@ class EmailController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"cpanel/admin",'name'=>"Home"],
-            ['name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['name'=>"Emails"]
         ];
         $emails = Email::all();
@@ -100,7 +100,7 @@ class EmailController extends Controller
     {
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['link'=>"email",'name'=>"Emails"]
         ];
         $email = Email::find($id);

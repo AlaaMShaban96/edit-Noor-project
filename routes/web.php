@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Auth::routes();
 // Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
  
@@ -32,8 +28,6 @@ Route::get('/job/{job}/apply', 'Website\Job\JobController@apply');
 Route::get('/job/{job}/detils', 'Website\Job\JobController@detils');
 Route::post('/job/send-cv', 'Website\Job\JobController@sendCv');
 Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('website.contectUs.index');
-
-  
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 Route::view('/about-us', 'website.about.index');
 // Route::view('/category', 'website.category.index');

@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 <section class="row flexbox-container">
-  <div class="col-xl-7 col-md-9 col-10 d-flex justify-content-center px-0">
+  <div class="col-xl-12 col-md-9 col-10 d-flex justify-content-center px-0">
       <div class="card bg-authentication rounded-0 mb-0">
           <div class="row m-0">
               <div class="col-lg-6 d-lg-block d-none text-center align-self-center">
@@ -21,7 +21,7 @@
                               <h4 class="mb-0">Recover your password</h4>
                           </div>
                       </div>
-                      <p class="px-2 mb-0">Please enter your email address and we'll send you instructions on how to reset your password.</p>
+                      <p class="px-2 mb-0">Please enter your email address and well send you instructions on how to reset your password.</p>
                       <div class="card-content">
                           <div class="card-body">
                             @if (session('status'))
@@ -35,7 +35,7 @@
                                   <div class="form-label-group">
                                       <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email"> -->
                                       <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
-
+                                      
                                       <label for="email">Email</label>
 
                                       @error('email')

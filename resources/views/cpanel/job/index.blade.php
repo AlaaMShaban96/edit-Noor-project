@@ -32,17 +32,39 @@
       <table class="table data-thumb-view" >
         <thead>
           <tr>
-            <th></th>
-            <th> Titel</th>
+            <th>#</th>
+            <th>Name</th>
+            <th>description</th>
+            <th>responsibility</th>
+            <th>qualification</th>
+            <th>experience</th>
+            <th>skills</th>
             <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
             @foreach ($jobs as $job)
                 <tr>
-                    <td></td>
+                    <td class="product-img">
+                        {{$job->job->id}}
+                    </td>
                     <td class="product-img">
                         {{$job->name}}
+                    </td>
+                    <td class="product-img">
+                        {{$job->description}}
+                    </td>
+                    <td class="product-img">
+                        {{$job->responsibility}}
+                    </td>
+                    <td class="product-img">
+                        {{$job->qualification}}
+                    </td>
+                    <td class="product-img">
+                        {{$job->experience}}
+                    </td>
+                    <td class="product-img">
+                        {{$job->skills}}
                     </td>
                     <td class="product-action">
                         <a href='{{url("cpanel/admin/job/".$job->job->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>

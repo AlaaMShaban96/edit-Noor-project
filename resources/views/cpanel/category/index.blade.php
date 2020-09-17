@@ -51,7 +51,7 @@
           
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($category->category->image) }}" alt="Img placeholder" style="width:150px; height:150px;">
               </td>
               <td class="product-name">{{ $category->name }}</td>
               {{-- <td class="product-category">{{ $category->description }}</td> --}}

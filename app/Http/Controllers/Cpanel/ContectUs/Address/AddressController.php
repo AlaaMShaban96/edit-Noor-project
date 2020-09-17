@@ -20,7 +20,7 @@ class AddressController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"cpanel/admin",'name'=>"Home"],
-            ['name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['name'=>"Address"]
         ];
 
@@ -100,7 +100,7 @@ class AddressController extends Controller
     {
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['link'=>"address",'name'=>"Address"]
         ];
         $ourAddress = OurAddress::find($id);

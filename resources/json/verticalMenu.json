@@ -14,19 +14,19 @@
             "submenu": [{
                     "url": "/cpanel/admin/admin-index",
                     "name": "View",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/admin-create",
                     "name": "Add",
-                    "icon": "feather icon-user-check"
+                    "icon": "feather icon-circle"
                 }
             ]
         },
         {
             "url": "/cpanel/admin/slider",
             "name": "Slider",
-            "icon": "feather icon-box"
+            "icon": "feather icon-layers"
         },
         {
             "url": "/cpanel/admin/category",
@@ -36,75 +36,73 @@
         {
             "url": "/cpanel/admin/partner",
             "name": "Partners",
-            "icon": "feather icon-tag"
+            "icon": "feather icon-user"
         },
         {
             "url": "/cpanel/admin/supplier",
             "name": "Supplier",
-            "icon": "feather icon-sunset"
+            "icon": "feather icon-user"
         },
         {
             "url": "/cpanel/admin/post",
             "name": "Post",
-            "icon": "feather icon-file-plus",
-            "submenu": [
-                {
+            "icon": "feather icon-edit",
+            "submenu": [{
                     "url": "/cpanel/admin/post?type=Advertising",
                     "name": "Advertising",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/post?type=News",
                     "name": "News",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 }
             ]
         },
         {
             "url": "",
             "name": "Jobs And applicants",
-            "icon": "feather icon-anchor",
-            "submenu": [
-                {
+            "icon": "feather icon-briefcase",
+            "submenu": [{
                     "url": "/cpanel/admin/job",
                     "name": "view All Jobs",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/job/create",
                     "name": "Add Job",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/Jobs-applicants",
                     "name": "Jobs applicants",
-                    "icon": "feather icon-user-check"
+                    "icon": "feather icon-circle"
                 }
             ]
         },
         {
             "url": "",
-            "name": "Contect Us ",
-            "icon": "feather icon-camera",
+            "name": "Settings",
+            "icon": "feather icon-settings",
             "submenu": [{
                     "url": "/cpanel/admin/phone",
                     "name": "Phones",
-                    "icon": "feather icon-user-plus"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/email",
                     "name": " Emails ",
-                    "icon": "feather icon-user-check"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/address",
                     "name": " Address ",
-                    "icon": "feather icon-user-check"
+                    "icon": "feather icon-circle"
                 },
                 {
                     "url": "/cpanel/admin/logo",
                     "name": "Logo ",
-                    "icon": "feather icon-user-check"
+                    "icon": "feather icon-circle"
                 }
             ]
         }

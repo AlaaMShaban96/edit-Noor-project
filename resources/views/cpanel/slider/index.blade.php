@@ -32,9 +32,10 @@
     <table class="table data-thumb-view">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Text</th>
+            <th></th>
           <th>Image</th>
+          <th>Title</th>
+          <th>Description</th>
           <th>ACTION</th>
         </tr>
       </thead>
@@ -47,10 +48,11 @@
             <img
               src="{{ asset($slide->slide->image) }}"
               alt="Img placeholder"
+              style="width:150px; height:150px;"
             />
           </td>
           <td class="product-name">{{ $slide->name }}</td>
-
+          <td class="product-name">{{ $slide->description }}</td>
           <td class="product-action">
             <a
               href="{{url('cpanel/admin/slider/'.$slide->slide->id.'/edit')}}"

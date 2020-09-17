@@ -63,7 +63,7 @@
                             data-easing="Power3.easeInOut"
                             data-elementdelay="0.1"
                             data-endelementdelay="0.1"
-                            style="z-index: 4;"><img style="border-bottom:solid 6px #3c763d;" src="website/images/slides/transprint-bg.png" alt="" >
+                            style="z-index: 4;"><img style="border-bottom:solid 6px #3a539b;" src="website/images/slides/transprint-bg.png" alt="" >
                 
                         </div>
                 
@@ -127,7 +127,7 @@
                             data-elementdelay="0.05"
                             data-endelementdelay="0.1"
                             data-endspeed="300"
-                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; border-radius: 5px;"><div style="text-align:left; background:#525866; border-radius: 5px;">
+                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; border-radius: 5px;"><div style="text-align:left; background:#3a539b; border-radius: 5px;">
 
                             </div>
                         </div>

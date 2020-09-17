@@ -37,33 +37,33 @@
                       <div class="form-group">
                         <div class="controls">
                           <label>address {{$key}}</label>
-                          <input type="text" class="form-control" name="name[]" value="{{$address->name}}" placeholder="Enter Your Business Address"  
-                            data-validation-required-message="This username field is required">
+                          <input type="text" class="form-control" name="name[]" value="{{$address->name}}" placeholder="Enter Your Address"  
+                            data-validation-required-message="This Address field is required">
                         </div>
                       </div> 
                     @empty    
                         <div class="form-group">
                           <div class="controls">
                             <label>Address One</label>
-                            <input type="text" class="form-control" name="name[]"   placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
+                            <input type="text" class="form-control" name="name[]"   placeholder="Enter Your  Address" data-validation-required-message="This Address field is required">
                           </div>
                         </div>                 
                           <div class="form-group">
                               <div class="controls">
                                 <label>Address Two</label>
-                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
+                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your  Address" data-validation-required-message="This Address field is required">
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="controls">
                                 <label>Address Three</label>
-                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
+                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your  Address" data-validation-required-message="This Address field is required">
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="controls">
                                 <label>Address Three</label>
-                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your Business Address" data-validation-required-message="This username field is required">
+                                <input type="text" class="form-control" name="name[]"  placeholder="Enter Your  Address" data-validation-required-message="This Address field is required">
                               </div>
                             </div>
           

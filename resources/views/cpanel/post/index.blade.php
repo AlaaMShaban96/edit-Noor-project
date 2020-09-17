@@ -37,8 +37,8 @@
             <th></th>
             <th>Image</th>
             <th>titel</th>
-            <th>type</th>
-            
+            <th>content</th>
+            <th>type</th>        
             <th>ACTION</th>
           </tr>
         </thead>
@@ -50,9 +50,16 @@
                         
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($post->post->image) }}" alt="Img placeholder">
+              <td class="product-img">
+                @if($post->post->image)
+                     <img src="{{ asset($post->post->image) }}" alt="Img placeholder" style="width:150px; height:150px;">
+                @else
+                    <img src="{{asset('images/Placeholder.png')}}" style="width:150px; height:150px;">
+                @endif
+               
               </td>
               <td class="product-name">{{ $post->title }}</td>
+              <td class="product-name">{{ $post->content }}</td>
               <td class="product-name">{{ $post->post->type }}</td>
              
             

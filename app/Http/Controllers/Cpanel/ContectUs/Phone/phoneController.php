@@ -19,7 +19,7 @@ class phoneController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"cpanel/admin",'name'=>"Home"],
-            ['name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['name'=>"Phone"]
         ];
         $phones = PhoneNumber::all();
@@ -93,7 +93,7 @@ class phoneController extends Controller
         //
         $breadcrumbs = [
             ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Contact Us "],
+            ['link'=>"dashboard",'name'=>"Settings"],
             ['link'=>"phone",'name'=>"Phone"]
         ];
         $phoneNumber = PhoneNumber::find($id);

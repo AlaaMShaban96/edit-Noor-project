@@ -29,8 +29,8 @@
                                        
                                         <div class="col-md-6 col-12" wfd-id="133">
                                             <div class="form-label-group" wfd-id="134">
-                                                <textarea  id="last-name-column" class="form-control"  placeholder="Titel" name="name[]"  wfd-id="547" required>{{$job->name}}</textarea>
-                                                <label for="last-name-column" wfd-id="135">description</label>
+                                                <textarea  id="last-name-column" class="form-control"  placeholder="Name" name="name[]"  wfd-id="547" required>{{$job->name}}</textarea>
+                                                <label for="last-name-column" wfd-id="135">Name</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12" wfd-id="133">

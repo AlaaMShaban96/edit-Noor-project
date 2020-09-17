@@ -44,7 +44,7 @@
                                     @if($footer->email->isEmpty())
                                     commercial@noormed.com
                                     @else
-                                    {{$footer->email()->where('email_type_id',2)->first==null?"aa":$footer->email()->where('email_type_id',2)->first()->link}}
+                                    {{$footer->email->where('email_type_id',2)->first==null?"commercial@noormed.com":$footer->email->where('email_type_id',2)->first()['link']}}
                                     @endif
                                      
                                     </span></a></li>
@@ -118,7 +118,7 @@
          <div class="row">
 
              <div class="col-md-6">
-                 <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear());</script>  Noor Al-Amana. All right reserved <a href="{{ URL::to('http://www.nano-tech.ly') }}" target="__blink" style="color: #fff;"><b>Nano tech </b></a></span>
+                 <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear());</script>  Noor Al-Amana. All Right Reserved <a href="{{ URL::to('http://www.nano-tech.ly') }}" target="__blink" style="color: #fff;"><b>Nano-Tech </b></a></span>
              </div>
 
              <div class="col-md-6">

@@ -40,34 +40,34 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text feather icon-twitter" id="basic-addon3"></span>
                             </div>
-                            <input type="text" class="form-control" name="link[]" value="{{$email->link}}" placeholder="https://www.twitter.com/" aria-describedby="basic-addon3">
-                            <input type="hidden" name="email_type_id[]" value="{{$email->email_type_id}}">
+                            <input type="text" class="form-control" name="link[]" value="{{$email->link}}" placeholder="Add Link" aria-describedby="basic-addon3">
+                            <input type="url" name="email_type_id[]" value="{{$email->email_type_id}}">
                           </div>
                       @empty
                       <input type="hidden" name="footer_id" value="1">
                             <label>Email</label>
                             <div class="input-group mb-75">
                               <div class="input-group-prepend">
-                                <span class="input-group-text feather icon-email" id="basic-addon3"></span>
+                                <span class="input-group-text feather" id="basic-addon3"></span>
                               </div>
-                              <input type="text" class="form-control" name="link[]" value="" placeholder="https://www.twitter.com/" aria-describedby="basic-addon3">
+                              <input type="url" class="form-control" name="link[]" value="" placeholder="Add Link" aria-describedby="basic-addon3">
                               <input type="hidden" name="email_type_id[]" value="2">
                             </div>
                             <label>Facebook</label>
                               <div class="input-group mb-75">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text feather icon-facebook" id="basic-addon4"></span>
+                                  <span class="input-group-text feather " id="basic-addon4"></span>
                                 </div>
-                                <input type="text" class="form-control" name="link[]" value="" placeholder="https://www.facebook.com/" aria-describedby="basic-addon4">
+                                <input type="url" class="form-control" name="link[]" value="" placeholder="Add Link" aria-describedby="basic-addon4">
                                 <input type="hidden" name="email_type_id[]" value="1">
                               </div>
                            
                             <label>LinkedIn</label>
                             <div class="input-group mb-75">
                               <div class="input-group-prepend">
-                                <span class="input-group-text feather icon-linkedin" id="basic-addon5"></span>
+                                <span class="input-group-text feather " id="basic-addon5"></span>
                               </div>
-                              <input type="text" class="form-control" name="link[]" value=""  placeholder="https://www.instagram.com/" aria-describedby="basic-addon5">
+                              <input type="url" class="form-control" name="link[]" value=""  placeholder="Add Link" aria-describedby="basic-addon5">
                               <input type="hidden" name="email_type_id[]" value="3">
                             </div>
                       @endforelse
