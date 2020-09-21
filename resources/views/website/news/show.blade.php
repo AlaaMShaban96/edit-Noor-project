@@ -10,7 +10,7 @@
                 
                 <div class="col-md-8 col-xs-6">
                         <div class="news-sec">
-                            <img src="{{asset($post->post->image)}}" style="width: 50%;" alt="">
+                            <img src="{{asset($post->post->image)}}" style="width: 50%;" alt="Image" lazy="loadoing">
                             <div class="detail">
                                 <span>{{$post->created_at->diffForHumans()}}</span>
                                 <h3>{{$post->titel}}</h3>

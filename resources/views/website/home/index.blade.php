@@ -31,7 +31,7 @@
     <li><span class="day">Saturday</span> <span class="divider">-</span> <span class="time">9.15 - 17.00</span></li>
     <li><span class="day">Sunday</span> <span class="divider">-</span> <span class="time">9.45 - 15.00</span></li>
     </ul>
-    <div class="link"><img class="time-tab" src="website/images/timetable-menu-dark-blue.png" alt=""></div>
+    <div class="link"><img class="time-tab" src="website/images/timetable-menu-dark-blue.png" alt="" lazy="loadoing"></div>
     
     </li>
     </ul>
@@ -50,7 +50,7 @@
                     @if ($slide->language_code='en')
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on"  data-title="Intro Slide">
             
-                        <img src="{{asset($slide->slide->image)}}" alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <img src="{{asset($slide->slide->image)}}" alt="" lazy="loadoing" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                 
                 
                         <div class="tp-caption customin customout rs-parallaxlevel-0"
@@ -185,7 +185,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="welcome-serv-img">
-                                        <img src="{{asset($category->category->image)}}" alt="">
+                                        <img src="{{asset($category->category->image)}}" alt="" lazy="loadoing" style="width:500px; height:500px;">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -235,7 +235,7 @@
                     @foreach ($posts as $post)
                     @if ($post->post->type=='News')
                         <div class="post item">
-                            <img class="lazyOwl" src="{{asset($post->post->image)}}" alt="">
+                            <img class="lazyOwl" src="{{asset($post->post->image)}}" alt="" lazy="loadoing">
                             <div class="detail">
                                 <img height="188px" src="images/news-dr1.jpg" alt="">
                                 <h4><a href="{{url("/news/$post->id")}}">{{$post->title}}</a></h4>
@@ -264,6 +264,8 @@
     
     
        <!--Start Testimonials-->
+
+       @if ($partners->first() !=null)
        <div class="patients-testi dark-testi">
            <div class="container">
     
@@ -286,7 +288,7 @@
     
                     @foreach ($partners as $partner)
                         <div class="testi-sec">
-                            <img src="{{asset($partner->ourPartners->image)}}" alt="">
+                            <img src="{{asset($partner->ourPartners->image)}}" alt="" lazy="loadoing">
                             <div class="height10"></div>
                             <span class="name">{{$partner->name}}</span>
                             <p class="post-content-text-partner patient">{{$partner->description}}</p>
@@ -305,7 +307,7 @@
     
         </div>
        </div>
-    
+       @endif
     
        <!--End Testimonials-->
     
@@ -323,7 +325,7 @@
       <section class="customer-logos slider">
           @foreach ($suppliers as $supplier)
           <div class="slide">
-              <a href="#"><img src="{{asset($supplier->image)}}"></a>
+              <a href="#"><img src="{{asset($supplier->image)}}" lazy="loadoing"></a>
              </div>
           @endforeach
         

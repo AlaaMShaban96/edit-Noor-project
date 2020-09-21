@@ -130,11 +130,12 @@ class PartnerController extends Controller
     public function destroy(OurPartners $partner)
     {
         $partner->ourPartnersTranslation()->delete();
-        unlink($partner->image);
+        $partner->image==null?"" : unlink($partner->image);
         $partner->delete();
 
-        return redirect('cpanel/admin/partner')->with('message', 'Delete Partner  is success');;
+        return redirect('cpanel/admin/partner')->with('message', 'Delete Partner  is success');
     }
+
     private function uploadeImage(Request $request)
     {
         

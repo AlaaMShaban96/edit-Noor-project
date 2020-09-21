@@ -3,6 +3,7 @@
   
     $logo=App\Models\Logo::all();
     $footer=App\Models\Footer::all()->first();
+    $partners = App\Models\OurPartnersTranslation::all();
 
 @endphp
 <div id="wrap">
@@ -44,14 +45,14 @@
                                 </a>
                             </li>
                             <li>
-                                <span>
+                                <a>
                                     <i class="icon-location"></i>
                                     @if($footer->ourAddress->isEmpty())
                                     Al-sheikh St, Al-Noflieen, Tripoli-Libya
                                     @else
                                     {{$footer->ourAddress()->first()->ourAddressTranslation()->first()->name}}
                                     @endif
-                                </span>
+                                </a>
                             </li>
  
                          </ul>
@@ -132,9 +133,10 @@
                      <li class="parent  {{ (\Request::route()->getName() == 'website.job.index') ? 'item-select' : '' }}" ><a href="{{ url('/job') }}">Jobs</a>
                  
                      </li>
- 
+                     @if ($partners->first() !=null)
                      <li class="parent  {{ (\Request::route()->getName() == 'website.partner.index') ? 'item-select' : '' }}" ><a href="{{ url('/partner') }}">Partners</a></li>
- 
+                     @endif
+                    
                      <li class="parent  {{ (\Request::route()->getName() == 'website.contectUs.index') ? 'item-select' : '' }}" ><a href="{{ route('website.contectUs.index') }}">Contact Us</a>
                  
                      </li>

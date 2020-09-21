@@ -32,7 +32,7 @@
 												<a href="{{url('/category/subcategory/'.$subcategory->subCategory->id)}}">
 													<div class="single-item-Wrapper">
 														<div class="shop-img-item">
-															<img src="{{asset($subcategory->subcategory->image)}}" alt="{{$subcategory->subcategory->image}}">
+															<img src="{{asset($subcategory->subcategory->image)}}" alt="{{$subcategory->subcategory->image}}" lazy="loadoing">
 														</div>
 														<div class="single-Text-item">
 															<span> {{$subcategory->name}}</span>

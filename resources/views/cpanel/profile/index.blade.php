@@ -79,8 +79,10 @@
                   <hr>
                  
                     <div class="row">
+                      @if (auth('admin')->user()->roles->first->get()->name=='Super')
                       <div class="col-12 col-sm-6">
       
+                       
                         <div class="form-group">
                           <div class="controls">
                             <label>Name </label>
@@ -94,6 +96,7 @@
                               >
                           </div>
                         </div>
+                     
                         <div class="form-group" style="display: none;">
                           <div class="controls">
                             <label>Password</label>
@@ -102,10 +105,38 @@
                           </div>
                         </div>
                    
-      
                       </div>
+                      @else 
+                      <div class="col-12 col-sm-12">
+      
+                       
+                          <div class="form-group">
+                            <div class="controls">
+                              <label>Name </label>
+                              <input type="text" name="name" value="{{auth('admin')->user()->name}}" class="form-control" placeholder="Enter  Name" >
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="controls">
+                              <label>Email </label>
+                              <input type="email"  name="email" value="{{auth('admin')->user()->email}}" class="form-control" placeholder="Enter Email" disabled
+                                >
+                            </div>
+                          </div>
+                       
+                          <div class="form-group" style="display: none;">
+                            <div class="controls">
+                              <label>Password</label>
+                              <input type="password" name="password" value="{{auth('admin')->user()->password}}" class="form-control" placeholder="Enter Password" 
+                               >
+                            </div>
+                          </div>
+                     
+                        </div>
+                      @endif
                       <div class="col-12 col-sm-6">
       
+                        @if (auth('admin')->user()->roles->first->get()->name=='Super')
                         <div class="form-group">
                           <label>Status </label>
                           <select class="form-control" name="active">
@@ -146,7 +177,7 @@
       
                           </ul>
                         </div>
-                        
+                        @endif
                         <div class="form-group" style="display: none;">
                           <div class="controls">
                             <label>Confirm Password</label>

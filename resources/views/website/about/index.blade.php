@@ -7,7 +7,7 @@
 
 <div class="sub-banner">
 
-  <img class="banner-img" src="website/images/about2.jpg" alt="">
+  <img class="banner-img" src="website/images/about2.jpg" alt="" lazy="loadoing">
   <div class="detail">
     <div class="container">
       <div class="row">
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="col-md-6" style="padding: 10px; border: solid 2px rgba(0,0,0,0.05); ">
-          <img src="website/images/img.jpg" alt="">
+          <img src="website/images/img.jpg" alt="" lazy="loadoing">
         </div>
       </div>
 
@@ -178,7 +178,7 @@
           <div class="col-md-12">
             <section class="customer-logos slider">
               @foreach ($partners as $partner)
-                <div class="slide"><a href="#"><img src="{{asset($partner->ourPartners->image)}}"></a> </div>  
+                <div class="slide"><a href="#"><img src="{{asset($partner->ourPartners->image)}} " lazy="loadoing"></a> </div>  
               @endforeach
               
             </section>

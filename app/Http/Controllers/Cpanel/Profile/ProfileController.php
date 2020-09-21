@@ -52,7 +52,7 @@ class ProfileController extends Controller
         
         // $admin->email = $request->email; 
         
-        $ $admin->password = Hash::make($request->password) ;
+         $admin->password = Hash::make($request->password) ;
 
         $admin->active = $request->active;
 
