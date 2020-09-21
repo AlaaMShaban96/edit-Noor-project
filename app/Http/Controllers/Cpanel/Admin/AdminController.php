@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Admin\AdminRequest;
+use App\Http\Requests\Admin\AdminUpdateRequest;
 
 class AdminController extends Controller
 {
@@ -20,11 +21,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-       
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"], 
-            ['name'=>"Admin "],
-           
+            ['name'=>"Home"],
+            ['name'=>"Admin"],
+            ['name'=>"View"],
         ];
         $admins=Admin::all();
         return view('cpanel.admin.index',compact('breadcrumbs','admins'));
@@ -38,7 +38,7 @@ class AdminController extends Controller
     public function create()
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"], 
+            ['name'=>"Home"], 
             ['name'=>"Admin "],
             ['name'=>"Add "],
            
@@ -55,29 +55,15 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        $request->validate([
-            "email" => "unique:admins,email",
-        ]);
-        if ($request->password == $request->passwordConfrim) {
   
                 Admin::create([
-                    'name' => $request->name, 
-                    
+                    'name' => $request->name,   
                     'email' => $request->email, 
-                    
                     'password' => Hash::make($request->password) ,
-    
                     'active' => $request->active,
-                    
-                    
                     'image' => $request->image!=null?$this->uploadeImage($request):'',
-    
                 ])->roles()->attach($request->role);
             
-        }else {
-            return redirect()->back()->withErrors($validator);
-        }
-       
         return redirect('cpanel/admin/admin-index');
     }
 
@@ -101,10 +87,9 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"], 
-            ['name'=>"Admin "],
-            ['name'=>"Edit "],
-           
+            ['name'=>"Home"],
+            ['name'=>"Admin"],
+            ['name'=>"Edit"]
         ];
         return view('cpanel.admin.edit',compact('breadcrumbs','admin'));
     }
@@ -116,20 +101,14 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminRequest $request,Admin $admin)
+    public function update(AdminUpdateRequest $request,Admin $admin)
     {
-        $validator=[
-            'error'=>'Enter Sane Password'
-        ];
-       
-        if ($request->password == $request->passwordConfrim) {
-            
-                
+ 
                     $admin->name = $request->name; 
                     
-                    $admin->email = $request->email; 
+                    // $admin->email = $request->email; 
                     
-                    $admin->password =$request->password==$admin->password? $admin->password : Hash::make($request->password) ;
+                    $admin->password = Hash::make($request->password) ;
     
                     $admin->active = $request->active;
 
@@ -138,11 +117,6 @@ class AdminController extends Controller
                     $admin->roles()->detach();
                     $admin->roles()->attach($request->role);
                     $admin->save();
-
-           
-        }else {
-            return redirect()->back()->withErrors($validator);
-        }
        
         return redirect('cpanel/admin/admin-index');
     }
@@ -153,9 +127,12 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Admin $admin)
     {
-        //
+        $admin->image==null?"" : unlink($admin->image);
+        $admin->delete();
+
+        return redirect('cpanel/admin/admin-index')->with('message', 'Delet Admin is success');
     }
     private function uploadeImage(Request $request)
     {

@@ -19,7 +19,7 @@ class PostController extends Controller
     {
        $type =$request->type;
         $breadcrumbs = [ 
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Post"],
             ['name'=>$request->type]
         ];

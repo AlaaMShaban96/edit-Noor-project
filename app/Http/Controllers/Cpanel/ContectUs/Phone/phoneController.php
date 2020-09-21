@@ -18,8 +18,8 @@ class phoneController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"cpanel/admin",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Settings"],
+            ['name'=>"Home"],
+            ['name'=>"Settings"],
             ['name'=>"Phone"]
         ];
         $phones = PhoneNumber::all();

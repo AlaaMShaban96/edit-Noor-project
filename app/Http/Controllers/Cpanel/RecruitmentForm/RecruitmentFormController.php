@@ -15,14 +15,13 @@ class RecruitmentFormController extends Controller
      */
     public function index()
     {
-        //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['name'=>"Home"],
+            ['name'=>"Jobs And applicants"],
+            ['name'=>"Jobs applicants"],
         ];
-
-        return view('cpanel.recruitmentForm.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+       
+        return view('cpanel.recruitmentForm.index',compact('breadcrumbs'));
     }
 
 }

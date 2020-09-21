@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin'], function() {
                 Route::post('admin-store','Cpanel\Admin\AdminController@store'); 
                 Route::get('admin-edit/{admin}/edit','Cpanel\Admin\AdminController@edit');
                 Route::put('admin-update/{admin}','Cpanel\Admin\AdminController@update');
-                Route::get('admin-delete/{admin}','Cpanel\Admin\AdminController@destroy');  
+                Route::delete('admin-delete/{admin}','Cpanel\Admin\AdminController@destroy');  
 
                 //Routes Profile
                 Route::get('Profile-index','Cpanel\Profile\ProfileController@index');

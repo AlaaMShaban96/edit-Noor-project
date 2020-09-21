@@ -33,8 +33,8 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text feather icon-twitter" id="basic-addon3"></span>
                         </div>
-                        <input type="text" class="form-control" name="twitter" value="{{$supplier->twitter}}" 
-                          placeholder="https://www.twitter.com/" aria-describedby="basic-addon3">
+                        <input type="url" class="form-control" name="twitter" value="{{$supplier->twitter}}" 
+                          placeholder="" aria-describedby="basic-addon3">
                       </div>
   
                       <label>Facebook</label>
@@ -42,16 +42,16 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text feather icon-facebook" id="basic-addon4"></span>
                         </div>
-                        <input type="text" class="form-control" name="facebook"  value="{{$supplier->facebook}}" 
-                          placeholder="https://www.facebook.com/" aria-describedby="basic-addon4">
+                        <input type="url" class="form-control" name="facebook"  value="{{$supplier->facebook}}" 
+                          placeholder="" aria-describedby="basic-addon4">
                       </div>
                       <label>Linkedin</label>
                       <div class="input-group mb-75">
                         <div class="input-group-prepend">
                           <span class="input-group-text feather icon-linkedin" id="basic-addon5"></span>
                         </div>
-                        <input type="text" class="form-control" name="linkedin" value="{{$supplier->linkedin}}" 
-                          placeholder="https://www.linkedin.com/" aria-describedby="basic-addon5">
+                        <input type="url" class="form-control" name="linkedin" value="{{$supplier->linkedin}}" 
+                          placeholder="" aria-describedby="basic-addon5">
                       </div>
                     </fieldset>
                   </div>
@@ -59,10 +59,10 @@
                     <label>Website</label>
                     <div class="input-group mb-75">
                       <div class="input-group-prepend">
-                        <span class="input-group-text feather icon-web" id="basic-addon5"></span>
+                        <span class="input-group-text feather icon-mail" id="basic-addon5"></span>
                       </div>
-                      <input type="text" class="form-control" name="website" value="{{$supplier->website}}" 
-                        placeholder="https://www.linkedin.com/" aria-describedby="basic-addon5">
+                      <input type="url" class="form-control" name="website" value="{{$supplier->website}}" 
+                        placeholder="" aria-describedby="basic-addon5">
                     </div>
                    
                     <label for="basicInputFile">Upload Photo</label>

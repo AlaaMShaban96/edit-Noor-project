@@ -18,7 +18,7 @@ class PartnerController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Partner "] 
         ];
         $partners= OurPartnersTranslation::all();

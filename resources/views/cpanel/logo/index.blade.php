@@ -47,7 +47,7 @@
             @if ($logo!=null)
                 <tr>
                     <td></td>
-                    <td class="product-img"><img src="{{ asset($logo->image) }}" alt="Img placeholder">
+                    <td class="product-img"><img src="{{ asset($logo->image) }}" alt="Image" style="width:120px; height:120px;">
                     </td>
                     <td class="product-name">
                         <fieldset class="form-group">

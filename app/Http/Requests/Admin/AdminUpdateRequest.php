@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminRequest extends FormRequest
+class AdminUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,10 @@ class AdminRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:40'], 
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:admins'],
-            'password'=> ['required','string', 'min:8','confirmed'],
+            // 'email' => ['required', 'string', 'email', 'max:50', 'unique:admins'],
+            'password'=> ['nullable','string', 'min:8','confirmed'],
             'active' => ['required'],
-            'role' => ['required'],     
+            'role' => ['required'],
         ];
     }
 
@@ -39,20 +39,24 @@ class AdminRequest extends FormRequest
             'name.string' => 'The Name field must be a string.',
             'name.max' => 'The Name field has not more that 40 chars.',
             
-            'email.required' => 'The Email field is required.',
-            'email.string' => 'The Email field must be a string.',
-            'email.email' => 'The Email field is missing email formating.',
-            'email.max' => 'The Email field has not more that 50 chars.',
-            'email.unique' => 'The email has already been taken.',
+            // 'email.required' => 'The Email field is required.',
+            // 'email.string' => 'The Email field must be a string.',
+            // 'email.email' => 'The Email field is missing email formating.',
+            // 'email.max' => 'The Email field has not more that 50 chars.',
+            // 'email.unique' => 'The email has already been taken.',
             
-            'password.required' => 'The password field is required.',
             'password.string' => 'The Password field must be a string.',
             'password.min' => 'The Password field must be at least 8 characters.',
+            'password.same' => 'The password confirmation does not match.',
             'password.confirmed' => 'The password confirmation does not match.',
-             
+
             'active.required' => 'active required', 
              
-            'role.required' => 'role required',
+            'role.required' => 'role required', 
+            
+            'passwordConfrim.string' => 'The Password field must be a string.',
+            'passwordConfrim.min' => 'The Password field must be at least 8 characters.',
+            'passwordConfrim.same' => 'The password confirmation does not match.',
         ];
     }
 }
