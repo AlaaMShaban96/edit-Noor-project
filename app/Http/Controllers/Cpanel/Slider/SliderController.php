@@ -21,7 +21,7 @@ class SliderController extends Controller
         // 
         
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Slider"]
         ];
         $slideTranslation=SlideTranslation::all();

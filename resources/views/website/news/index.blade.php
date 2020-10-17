@@ -26,7 +26,7 @@
                         @foreach ($posts as $post)
 						<div class="col-md-4 col-sm-6 col-xs-6 shop-item-width">
                             <div class="news-sec">
-                            <img class="image-card-content" src="{{asset($post->post->image)}}"  alt="">
+                            <img class="image-card-content" src="{{asset($post->post->image)}}"  alt="image" lazy="loadoing">
                             <div class="detail">
                                 <span>{{$post->created_at->diffForHumans()}}</span>
                                 <h3>{{$post->titel}}</h3>

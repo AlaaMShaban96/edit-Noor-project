@@ -32,10 +32,12 @@
       <table class="table data-thumb-view" >
         <thead>
           <tr>
-            <th></th>
+            <th>#</th>
             <th>Image</th>
             <th>NAME</th>
-            <th>STATUS</th>
+            <th>Email</th>
+            <th>Permission</th>
+            <th>Status</th>
             <th>ACTION</th>
           </tr>
         </thead>
@@ -43,21 +45,28 @@
           @foreach ($admins as $key=>$admin)
           
             <tr>
-              <td></td>
-              <td class="product-img"><img src="{{ asset($admin->image) }}" alt="Img placeholder">
+              <td class="product-name">{{ $admin->id }}</td>
+              <td 
+              class="product-img">
+              @if($admin->image)
+                <img src="{{asset($admin->image)}}"  style="width:120px; height:120px;" />
+                @else
+                <img src="{{asset('storage/user.png')}}" style="width:120px; height:120px;" />
+                @endif
               </td>
               <td class="product-name">{{ $admin->name }}</td>
+              <td class="product-name">{{ $admin->email }}</td>
+              <td class="product-name">{{  $admin->roles->first->get()->name  }}</td>
               <td class="product-name"><div class='chip chip-{{$admin->active == 0 ?"danger" :"success" }}'><div class="chip-body"><div class="chip-text">{{$admin->active == 0 ?" not active" :"active" }} </div></div></div></td>
             
               <td class="product-action">
                 <a href='{{url("cpanel/admin/admin-edit/".$admin->id."/edit")}}' ><span class="action-edit"  ><i class="feather icon-edit"></i></span></a>
                 <a href="#" onclick="deletee({{$admin->id}})"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
               </td>
-              <form style="display: none" id="delete{{$admin->id}}" action="{{url('cpanel/admin/admin/'.$admin->id)}}" method="post">
+              <form style="display: none" id="delete{{$admin->id}}" action="{{url('cpanel/admin/admin-delete/'.$admin->id)}}" method="POST">
                 @method('delete')
                 @csrf
-              {{-- <button  type="submit"></button> --}}
-            
+              {{-- <button  type="submit"></button> --}}    
             </form>
             </tr>
            

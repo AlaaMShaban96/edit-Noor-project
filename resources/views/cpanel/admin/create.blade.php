@@ -4,14 +4,7 @@
 
 @section('content')
 <!-- users edit start -->
-@if ($errors->any())
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-            <i class="feather icon-info mr-1 align-middle"></i>
-            <span>{{ $error }}</span>
-        </div>
-    @endforeach
-@endif
+
 <section class="users-edit">
   <div class="card">
     <div class="card-content">
@@ -20,7 +13,7 @@
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center active" id="account-tab" data-toggle="tab" href="#account"
               aria-controls="account" role="tab" aria-selected="true">
-              <i class="feather icon-user mr-25"></i><span class="d-none d-sm-block">Informtion </span>
+              <i class="feather icon-user mr-25"></i><span class="d-none d-sm-block">Add Admin </span>
             </a>
           </li>
           
@@ -32,7 +25,14 @@
             
             <!-- users edit media object ends -->
             <!-- users edit account form start -->
-            
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                    <i class="feather icon-info mr-1 align-middle"></i>
+                    <span>{{ $error }}</span>
+                </div>
+            @endforeach
+             @endif
             <form  action="{{url('cpanel/admin/admin-store')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
@@ -41,25 +41,31 @@
                   <div class="form-group">
                     <div class="controls">
                       <label>Name </label>
-                      <input type="text" name="name" class="form-control" placeholder="Enter  Name"  required
-                        data-validation-required-message="This name field is required">
+                      <input type="text" name="name" class="form-control" placeholder="Enter  Name" >
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="controls">
                       <label>Email </label>
                       <input type="email"  name="email" class="form-control" placeholder="Enter Email" 
-                        required data-validation-required-message="This email field is required">
+                       >
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="controls">
                       <label>Password</label>
                       <input type="password" name="password" class="form-control" placeholder="Enter Password" 
-                        required data-validation-required-message="This email field is required">
+                       >
                     </div>
                   </div>
              
+                  <div class="form-group">
+                    <div class="controls">
+                      <label>Confirm Password</label>
+                      <input type="password" name="password_confirmation" class="form-control" placeholder="Enter password confirmation" 
+                      >
+                    </div>
+                  </div>
 
                 </div>
                 <div class="col-12 col-sm-6">
@@ -103,14 +109,6 @@
                   
 
                     </ul>
-                  </div>
-                  
-                  <div class="form-group" style="padding-top: 10px;">
-                    <div class="controls">
-                      <label>Confirm Password</label>
-                      <input type="password" name="passwordConfrim" class="form-control" placeholder="password" 
-                        required data-validation-required-message="التاكد  من كلمة السر ">
-                    </div>
                   </div>
                   
                     <fieldset class="form-group">

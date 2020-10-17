@@ -17,7 +17,7 @@ class SupplierController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Supplier "],
         ];
         $suppliers=Supplier::all();
@@ -75,8 +75,8 @@ class SupplierController extends Controller
     public function edit(Supplier $supplier)
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
-            ['link'=>"/cpanel/admin/supplier",'name'=>"Supplier "],
+            ['name'=>"Home"],
+            ['name'=>"Supplier"],
             ['name'=>"Edit "],
         ];
        

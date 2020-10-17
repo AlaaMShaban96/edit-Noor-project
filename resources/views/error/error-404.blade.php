@@ -1,4 +1,4 @@
-@extends('website.layouts/fullLayoutMaster')
+@extends('cpanel.layouts.fullLayoutMaster')
 
 @section('title', 'Error 404')
 

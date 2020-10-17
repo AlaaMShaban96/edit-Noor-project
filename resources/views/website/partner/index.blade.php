@@ -23,7 +23,7 @@
               <div class="col-md-4">
                 <div class="serv-sec">
                   <a href="{{url("partner/$partner->id")}}">
-                    <img class="banner-img" src="{{ asset($partner->ourPartners->image)}}" alt="">
+                    <img class="banner-img" src="{{ asset($partner->ourPartners->image)}}" alt="" lazy="loadoing">
                   </a>
                 </div>
               </div>

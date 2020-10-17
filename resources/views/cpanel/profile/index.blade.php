@@ -61,7 +61,7 @@
                     @method('PUT')
                   <div class="media">
                     <a href="javascript: void(0);">
-                      <img src="{{ asset(auth('admin')->user()->image==null?'images/user.png':auth('admin')->user()->image) }}" class="rounded mr-75"
+                      <img src="{{ asset(auth('admin')->user()->image==null?'storage/user.png':auth('admin')->user()->image) }}" class="rounded mr-75"
                         alt="profile image" height="64" width="64">
                     </a>
                     <div class="media-body mt-75">
@@ -79,34 +79,64 @@
                   <hr>
                  
                     <div class="row">
+                      @if (auth('admin')->user()->roles->first->get()->name=='Super')
                       <div class="col-12 col-sm-6">
       
+                       
                         <div class="form-group">
                           <div class="controls">
                             <label>Name </label>
-                            <input type="text" name="name" value="{{auth('admin')->user()->name}}" class="form-control" placeholder="Enter  Name"  required
-                              data-validation-required-message="This name field is required">
+                            <input type="text" name="name" value="{{auth('admin')->user()->name}}" class="form-control" placeholder="Enter  Name" >
                           </div>
                         </div>
                         <div class="form-group">
                           <div class="controls">
                             <label>Email </label>
-                            <input type="email"  name="email" value="{{auth('admin')->user()->email}}" class="form-control" placeholder="Enter Email" 
-                              required data-validation-required-message="This email field is required">
+                            <input type="email"  name="email" value="{{auth('admin')->user()->email}}" class="form-control" placeholder="Enter Email" disabled
+                              >
                           </div>
                         </div>
+                     
                         <div class="form-group" style="display: none;">
                           <div class="controls">
                             <label>Password</label>
                             <input type="password" name="password" value="{{auth('admin')->user()->password}}" class="form-control" placeholder="Enter Password" 
-                              required data-validation-required-message="This email field is required">
+                             >
                           </div>
                         </div>
                    
-      
                       </div>
+                      @else 
+                      <div class="col-12 col-sm-12">
+      
+                       
+                          <div class="form-group">
+                            <div class="controls">
+                              <label>Name </label>
+                              <input type="text" name="name" value="{{auth('admin')->user()->name}}" class="form-control" placeholder="Enter  Name" >
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="controls">
+                              <label>Email </label>
+                              <input type="email"  name="email" value="{{auth('admin')->user()->email}}" class="form-control" placeholder="Enter Email" disabled
+                                >
+                            </div>
+                          </div>
+                       
+                          <div class="form-group" style="display: none;">
+                            <div class="controls">
+                              <label>Password</label>
+                              <input type="password" name="password" value="{{auth('admin')->user()->password}}" class="form-control" placeholder="Enter Password" 
+                               >
+                            </div>
+                          </div>
+                     
+                        </div>
+                      @endif
                       <div class="col-12 col-sm-6">
       
+                        @if (auth('admin')->user()->roles->first->get()->name=='Super')
                         <div class="form-group">
                           <label>Status </label>
                           <select class="form-control" name="active">
@@ -147,23 +177,14 @@
       
                           </ul>
                         </div>
-                        
+                        @endif
                         <div class="form-group" style="display: none;">
                           <div class="controls">
                             <label>Confirm Password</label>
-                            <input type="password" name="passwordConfrim" value="{{auth('admin')->user()->password}}" class="form-control" placeholder="password" 
-                               data-validation-required-message="التاكد  من كلمة السر ">
+                            <input type="password" name="password_confirmation" value="{{auth('admin')->user()->password}}"  class="form-control" placeholder="password" 
+                              >
                           </div>
                         </div>
-                        
-                          {{-- <fieldset class="form-group">
-                              <label for="basicInputFile">Upload Photo</label>
-                              <div class="custom-file">
-                                  <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
-                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                              </div>
-                          </fieldset> --}}
-                      
                      
                       </div>
                       
@@ -181,7 +202,7 @@
                       <div class="form-group" style="display: none;">
 
                           <input type="text" name="name" value="{{auth('admin')->user()->name}}">
-                          <input type="text" name="email" value="{{auth('admin')->user()->email}}">
+                          {{-- <input type="text" name="email" value="{{auth('admin')->user()->email}}"> --}}
 
                           <select class="form-control" name="active">
                             <option value="1" {{auth('admin')->user()->active==1?'selected':''}}>Active</option>
@@ -207,9 +228,8 @@
                         <div class="form-group">
                           <div class="controls">
                             <label for="account-new-password">New Password</label>
-                            <input type="password" name="password" id="account-new-password" class="form-control"
-                              placeholder="New Password" required
-                              data-validation-required-message="The password field is required" minlength="6">
+                            <input type="password" name="password" id="account-new-password"  class="form-control"
+                              placeholder="New Password" >
                           </div>
                         </div>
                       </div>
@@ -218,10 +238,10 @@
                           <div class="controls">
                             <label for="account-retype-new-password">Retype New
                               Password</label>
-                            <input type="password" name="passwordConfrim" class="form-control" required
-                              id="account-retype-new-password" data-validation-match-match="password"
+                            <input type="password" name="password_confirmation" class="form-control"
+                              id="account-retype-new-password" 
                               placeholder="New Password"
-                              data-validation-required-message="The Confirm password field is required" minlength="6">
+                             >
                           </div>
                         </div>
                       </div>

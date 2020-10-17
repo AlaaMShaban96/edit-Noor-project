@@ -17,8 +17,8 @@ class LogoController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
-            ['link'=>"dashboard",'name'=>"Settings"],
+            ['name'=>"Home"],
+            ['name'=>"Settings"],
             ['name'=>"Logo"]
         ];
         $logo = Logo::orderBy('id')->first();

@@ -17,7 +17,7 @@
   @section('content')
   <section id="dashboard-analytics">
         <div class="row">
-   
+            @if (auth('admin')->user()->roles->first->get()->name=='Super')
             <div class="col-lg-3 col-md-6 col-12">
               <div class="card">
                 <div class="card-header d-flex flex-column align-items-start pb-0">
@@ -31,6 +31,7 @@
                 </div>
               </div>
             </div>
+            @endif
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="card">
                   <div class="card-header d-flex flex-column align-items-start pb-0">
@@ -44,6 +45,7 @@
                   </div>
                 </div>
               </div>
+              @if (auth('admin')->user()->roles->first->get()->name=='Super')
               <div class="col-lg-3 col-md-6 col-12">
                   <div class="card">
                     <div class="card-header d-flex flex-column align-items-start pb-0">
@@ -70,6 +72,7 @@
                       </div>
                     </div>
                   </div>
+                  @endif
                   <div class="col-lg-3 col-md-6 col-12">
                       <div class="card">
                         <div class="card-header d-flex flex-column align-items-start pb-0">

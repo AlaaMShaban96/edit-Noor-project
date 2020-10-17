@@ -48,13 +48,13 @@
           @foreach ($suppliers as $key=>$supplier)
             <tr>
               <td></td>
-              <td class="product-img"><img src="{{ asset($supplier->image) }}" alt="Img placeholder">
+              <td class="product-img"><img src="{{ asset($supplier->image) }}" alt="Img placeholder" style="width:150px; height:150px;">
               </td>
               <td class="product-name">{{ $supplier->name }}</td>
-              <td class="product-name"><div class='chip chip-{{$supplier->website==null ?"danger" :"success" }}'><div class="chip-body"><div class="chip-text">{{$supplier->website==null ?" not active" :"active" }} </div></div></div></td></td>
-              <td class="product-name"><div class='chip chip-{{$supplier->facebook==null ?"danger" :"success" }}'><div class="chip-body"><div class="chip-text">{{$supplier->facebook==null ?" not active" :"active" }} </div></div></div></td></td>
-              <td class="product-name"><div class='chip chip-{{$supplier->twitter==null ?"danger" :"success" }}'><div class="chip-body"><div class="chip-text">{{$supplier->twitter==null ?" not active" :"active" }} </div></div></div></td></td>
-              <td class="product-name"><div class='chip chip-{{$supplier->linkedin==null ?"danger" :"success" }}'><div class="chip-body"><div class="chip-text">{{$supplier->linkedin==null ?" not active" :"active" }} </div></div></div></td>
+              <td class="product-name">{{$supplier->website==null ?" not link" :$supplier->website }}</td>
+              <td class="product-name">{{$supplier->facebook==null ?" not link" :$supplier->facebook }}</td>
+              <td class="product-name">{{$supplier->twitter==null ?" not link" :$supplier->twitter}} </td>
+              <td class="product-name">{{$supplier->linkedin==null ?" not link" :$supplier->linkedin }} </td>
              
             
               <td class="product-action">
@@ -105,8 +105,8 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text feather icon-twitter" id="basic-addon3"></span>
                           </div>
-                          <input type="text" class="form-control" name="twitter" value=""
-                            placeholder="https://www.twitter.com/" aria-describedby="basic-addon3">
+                          <input type="url" class="form-control" name="twitter" value=""
+                            placeholder="" aria-describedby="basic-addon3">
                         </div>
     
                         <label>Facebook</label>
@@ -114,24 +114,24 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text feather icon-facebook" id="basic-addon4"></span>
                           </div>
-                          <input type="text" class="form-control" name="facebook"  value=""
-                            placeholder="https://www.facebook.com/" aria-describedby="basic-addon4">
+                          <input type="url" class="form-control" name="facebook"  value=""
+                            placeholder="" aria-describedby="basic-addon4">
                         </div>
                         <label>Linkedin</label>
                         <div class="input-group mb-75">
                           <div class="input-group-prepend">
                             <span class="input-group-text feather icon-linkedin" id="basic-addon5"></span>
                           </div>
-                          <input type="text" class="form-control"  name="linkedin" value=""
-                            placeholder="https://www.instagram.com/" aria-describedby="basic-addon5">
+                          <input type="url" class="form-control"  name="linkedin" value=""
+                            placeholder="" aria-describedby="basic-addon5">
                         </div>
                         <label>Website</label>
                         <div class="input-group mb-75">
                           <div class="input-group-prepend">
-                            <span class="input-group-text feather icon-world" id="basic-addon5"></span>
+                            <span class="input-group-text feather icon-mail" id="basic-addon5"></span>
                           </div>
-                          <input type="text" class="form-control" name="website"  value=""
-                            placeholder="https://www.instagram.com/" aria-describedby="basic-addon5">
+                          <input type="url" class="form-control" name="website"  value=""
+                            placeholder="" aria-describedby="basic-addon5">
                         </div>
                       </fieldset>
                     </div>
@@ -186,5 +186,5 @@
               document.getElementById("delete"+id).submit();
           }
       </script>
-        <script src="{{ asset('js/scripts/ui/data-list-view-supplier.js') }}"></script>
+        <script src="{{ asset('js/scripts/ui/data-list-view.js') }}"></script>
 @endsection

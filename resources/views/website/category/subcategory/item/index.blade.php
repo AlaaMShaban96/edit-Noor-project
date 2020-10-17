@@ -24,7 +24,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6 shop-item-width" style="margin-top: 50PX;">
 							<div class="single-item-Wrapper">
 								<div class="shop-img-item">
-									<img src="{{asset($item->item->image)}}" alt="{{$item->item->image}}">
+									<img src="{{asset($item->item->image)}}" alt="{{$item->item->image}}" lazy="loadoing">
 								</div>
 								<div class="single-Text-item">
 									<span> {{$item->name}}</span>

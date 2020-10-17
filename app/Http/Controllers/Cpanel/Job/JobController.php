@@ -19,8 +19,9 @@ class JobController extends Controller
     {
         //
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
-            ['link'=>"job",'name'=>"Job"]
+            ['name'=>"Home"],
+            ['name'=>"Jobs And applicants"],
+            ['name'=>"View Job"]
         ];
         $jobs = JobTranslation::all();
         return view('cpanel.job.index',compact('jobs','breadcrumbs'));
@@ -35,9 +36,9 @@ class JobController extends Controller
     public function create()
     {
         $breadcrumbs = [
-            ['link'=>"/cpanel/admin/",'name'=>"Home"],
-            ['link'=>"/cpanel/admin/job",'name'=>"Job"],
-            ['name'=>"Add"],
+            ['name'=>"Home"],
+            ['name'=>"Jobs And applicants"],
+            ['name'=>"Add Job"],
         ];
        
         return view('cpanel.job.create',compact('breadcrumbs'));

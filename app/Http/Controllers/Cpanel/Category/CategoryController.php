@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
        
         $breadcrumbs = [
-            ['link'=>"dashboard",'name'=>"Home"],
+            ['name'=>"Home"],
             ['name'=>"Categories "]
         ];
         $categories=CategoryTranslation::all();
@@ -89,7 +89,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         $breadcrumbs = [
-            ['link'=>"dashboard-analytics",'name'=>"Home"], 
+            ['link'=>"dashboard",'name'=>"Home"],
             ['name'=>"Categories "],
             ['name'=>"Edit "]
         ];

@@ -30,8 +30,4 @@ Route::post('/job/send-cv', 'Website\Job\JobController@sendCv');
 Route::get('/contectUs', 'Website\ContectUs\ContectUsController@index')->name('website.contectUs.index');
 Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 Route::view('/about-us', 'website.about.index');
-// Route::view('/category', 'website.category.index');
-// Route::view('/news', 'website.news.index');  
 Route::view('/jobs', 'website.jobs.index');
-// Route::view('/partner', 'website.partner.index');
-// Route::view('/contectUs', 'website.contectus.index');

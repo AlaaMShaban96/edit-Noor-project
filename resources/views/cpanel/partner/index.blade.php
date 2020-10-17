@@ -65,7 +65,6 @@
                 @csrf
               {{-- <button  type="submit"></button> --}}
             
-            </form>
             </tr>
             @endif
           @endforeach

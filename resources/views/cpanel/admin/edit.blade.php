@@ -32,26 +32,29 @@
                   <div class="form-group">
                     <div class="controls">
                       <label>Name </label>
-                      <input type="text" name="name" value="{{$admin->name}}" class="form-control" placeholder="Enter  Name"  required
-                        data-validation-required-message="This name field is required">
+                      <input type="text" name="name" value="{{$admin->name}}" class="form-control" placeholder="Enter  Name">
                     </div>
                   </div>
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <div class="controls">
                       <label>Email </label>
-                      <input type="email"  name="email" value="{{$admin->email}}" class="form-control" placeholder="Enter Email" 
-                        required data-validation-required-message="This email field is required">
+                      <input type="email"  name="email" value="{{$admin->email}}" class="form-control" placeholder="Enter Email" >
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <div class="controls">
                       <label>Password</label>
-                      <input type="password" name="password" class="form-control" placeholder="Enter Password" 
-                        required data-validation-required-message="This email field is required">
+                      <input type="password" name="password" class="form-control" placeholder="Enter Password" >
                     </div>
                   </div>
              
-
+                  <div class="form-group">
+                    <div class="controls">
+                      <label>Confirm Password</label>
+                      <input type="password" name="password_confirmation" class="form-control" placeholder="password" >
+                    </div>
+                  </div>
+                  
                 </div>
                 <div class="col-12 col-sm-6">
 
@@ -94,14 +97,6 @@
                   
 
                     </ul>
-                  </div>
-                  
-                  <div class="form-group" style="padding-top: 10px;">
-                    <div class="controls">
-                      <label>Confirm Password</label>
-                      <input type="password" name="passwordConfrim" class="form-control" placeholder="password" 
-                        required data-validation-required-message="التاكد  من كلمة السر ">
-                    </div>
                   </div>
                   
                     <fieldset class="form-group">

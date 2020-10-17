@@ -40,7 +40,7 @@
                                     +{{$footer->phoneNumber()->first()->phone}}
                                     @endif
                                     </span></li>
-                                 <li><a href="#."><i class="icon-dollar"></i> <span>
+                                 <li><a href="{{ route('website.contectUs.index') }}"><i class="icon-dollar"></i> <span>
                                     @if($footer->email->isEmpty())
                                     commercial@noormed.com
                                     @else
@@ -85,25 +85,33 @@
              </div>
 
              <div class="col-md-4">
-
-                 <div class="newsletter">
-                   
-                     <div class="detail">
-
-                             <div class="signup-text">
-                                 <span>Noor Al-Amana - NA <br> Pharmaceuticals &amp; Medical Devices l.t.d .</span>
-                             </div>
-
-                             <div class="form">
-                             <p class="subscribe_success" id="subscribe_success" style="display:none;"></p>
-                             <p class="subscribe_error" id="subscribe_error" style="display:none;"></p>
-
-                             </div>
-
+                <div class="newsletter">
+                    <div class="title">
+                        <h5>NEWSLETTER</h5>
                     </div>
 
+                    <div class="detail">
 
-                 </div>
+                            <div class="signup-text">
+                                <i class="icon-dollar"></i>
+                                <span>Sign up with your name and email to get updates fresh updates.</span>
+                            </div>
+
+                            <div class="form">
+                            <p class="subscribe_success" id="subscribe_success" style="display:none;"></p>
+                            <p class="subscribe_error" id="subscribe_error" style="display:none;"></p>
+
+                            <form name="subscribe_form" id="subscribe_form" method="post" action="#" onSubmit="return false">
+                                <input type="text" data-delay="300" placeholder="Name" name="subscribe_name" id="subscribe_email" onKeyPress="removeChecks();" class="input" >
+                                <input type="text" data-delay="300" placeholder="Email Address" name="subscribe_email" id="subscribe_email" onKeyPress="removeChecks();" class="input" >
+                                <input name="Subscribe" type="submit" value="Subscribe" onClick="validateSubscription();">
+                            </form>
+                            </div>
+
+                        </div>
+
+
+                </div>
 
              </div>
 
@@ -121,7 +129,7 @@
                  <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear());</script>  Noor Al-Amana. All Right Reserved <a href="{{ URL::to('http://www.nano-tech.ly') }}" target="__blink" style="color: #fff;"><b>Nano-Tech </b></a></span>
              </div>
 
-             <div class="col-md-6">
+             <div class="col-md-4">
                  <div class="social-icons">
                      <a href="{{$footer->email()->where('email_type_id',1)->first()==null?"":$footer->email()->where('email_type_id',1)->first()->link}}" class="fb"><i class="icon-euro"></i></a>
                      <a href="{{$footer->email()->where('email_type_id',4)->first()==null?"":$footer->email()->where('email_type_id',1)->first()->link}}" class="tw"><i class="icon-yen"></i></a>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Admin\AdminRequest;
 use App\Http\Requests\Profile\ProfileRequest;
+use App\Http\Requests\Admin\AdminUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -18,14 +19,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
-        $pageConfigs = [
-            'pageHeader' => false
+        $breadcrumbs = [
+            ['name'=>"Home"],
+            ['name'=>"Profile"],
         ];
-
-        return view('cpanel.profile.index', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        return view('cpanel.profile.index',compact('breadcrumbs'));
     }
 
     /**
@@ -46,34 +44,26 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminRequest $request,Admin $admin)
+    public function update(AdminUpdateRequest $request,Admin $admin)
     {
-        $validator=[
-            'error'=>'Enter Sane Password'
-        ];
        
-        if ($request->password == $request->passwordConfrim) {
-            
-                
-                    $admin->name = $request->name; 
-                    
-                    $admin->email = $request->email; 
-                    
-                    $admin->password =$request->password==$admin->password? $admin->password : Hash::make($request->password) ;
     
-                    $admin->active = $request->active;
+        $admin->name = $request->name; 
+        
+        // $admin->email = $request->email; 
+        
+         $admin->password = Hash::make($request->password) ;
 
-                    $request->image!=null? $admin->image = $this->uploadeImage($request):'';
-               
-                    $admin->roles()->attach($request->role);
-                    $admin->save();
+        $admin->active = $request->active;
 
-           
-        }else {
-            return redirect()->back()->withErrors($validator);
-        }
+        $request->image!=null? $admin->image = $this->uploadeImage($request):'';
+    
+        $admin->roles()->detach();
+        $admin->roles()->attach($request->role);
+        $admin->save();
+
        return redirect()->back()->with('message', 'Update Your Informtion');;
-        // return redirect('cpanel/admin/admin-index');
+    
     }
     private function uploadeImage(Request $request)
     {
