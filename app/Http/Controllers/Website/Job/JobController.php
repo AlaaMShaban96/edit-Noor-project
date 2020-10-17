@@ -42,7 +42,7 @@ class JobController extends Controller
             $message->to($email)->attach(public_path($cv_path), [
                 'as' => 'cv.pdf',
                 'mime' => 'application/pdf',], public_path('website/images/favicon-medical.png'), [
-                    'as' => 'logo.png']);     
+                    'as' => 'logo.png']);      
             });
                 
            
