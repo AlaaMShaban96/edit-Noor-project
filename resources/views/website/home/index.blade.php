@@ -43,7 +43,7 @@
        <!--Start Banner-->
     
        <div class="tp-banner-container">
-            <div class="tp-banner" >
+            <div class="tp-banner jumbotron" >
                 <ul>	<!-- SLIDE  -->
     
                     @foreach ($sliders as $slide)
@@ -51,86 +51,20 @@
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on"  data-title="Intro Slide">
             
                         <img src="{{asset($slide->slide->image)}}" alt="" lazy="loadoing" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-                
-                
-                        <div class="tp-caption customin customout rs-parallaxlevel-0"
-                            data-x="right"
-                            data-y="188"
-                            data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                            data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                            data-speed="700"
-                            data-start="1200"
-                            data-easing="Power3.easeInOut"
-                            data-elementdelay="0.1"
-                            data-endelementdelay="0.1"
-                            style="z-index: 4;"><img style="border-bottom:solid 6px #3a539b;" src="website/images/slides/transprint-bg.png" alt="" >
-                
-                        </div>
-                
-                
-                        <div class="tp-caption title-bold tp-resizeme rs-parallaxlevel-0 fade start"
-                            data-x="670"
-                            data-y="218"
-                            data-speed="1000"
-                            data-start="1800"
-                            data-easing="Power3.easeInOut"
-                            data-splitin="none"
-                            data-splitout="none"
-                            data-elementdelay="0.1"
-                            data-endelementdelay="0.1"
-                            data-endspeed="300"
-                            style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
-                            {{$slide->name}}
-                        </div>
-                
-                        <div class="tp-caption small-title tp-resizeme rs-parallaxlevel-0 fade start"
-                            data-x="670"
-                            data-y="255"
-                            data-speed="1000"
-                            data-start="1800"
-                            data-easing="Power3.easeInOut"
-                            data-splitin="none"
-                            data-splitout="none"
-                            data-elementdelay="0.1"
-                            data-endelementdelay="0.1"
-                            data-endspeed="300"
-                            style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
-                            
-                        </div>
-                
-                        <div class="tp-caption paragraph tp-resizeme rs-parallaxlevel-0 fade start"
-                            data-x="670"
-                            data-y="325"
-                            data-speed="1000"
-                            data-start="1800"
-                            data-easing="Power3.easeInOut"
-                            data-splitin="none"
-                            data-splitout="none"
-                            data-elementdelay="0.05"
-                            data-endelementdelay="0.1"
-                            data-endspeed="300"
-                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
-                            <div style="text-align:left;">
-                                {{$slide->description}}       
+                        <div class="range range-fix">
+                            <div class="col-xs-12 col-md-4 cell-xl-preffix-0" style="background-color:#ffff;">
+                              <h1 style="color: #3a539b; font-size:1em;">{{$slide->name}}  </h1>
+                              <p class="big">{{$slide->description}} </p>
                             </div>
-                        </div>
+                          </div>
+                      
+                   
+                       
+                
+                        
+                      
                 
                 
-                        <div class="tp-caption banner-button tp-resizeme rs-parallaxlevel-0  fade start"
-                            data-x="670"
-                            data-y="402"
-                            data-speed="1000"
-                            data-start="1800"
-                            data-easing="Power3.easeInOut"
-                            data-splitin="none"
-                            data-splitout="none"
-                            data-elementdelay="0.05"
-                            data-endelementdelay="0.1"
-                            data-endspeed="300"
-                            style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap; border-radius: 5px;"><div style="text-align:left; background:#3a539b; border-radius: 5px;">
-
-                            </div>
-                        </div>
                 
                     </li>
                     @endif
@@ -185,7 +119,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="welcome-serv-img">
-                                        <img src="{{asset($category->category->image)}}" alt="" lazy="loadoing" style="width:500px; height:500px;">
+                                        <img src="{{asset($category->category->image)}}" alt="" lazy="loadoing" >
                                     </div>
                                 </div>
                                 <div class="col-md-6">
